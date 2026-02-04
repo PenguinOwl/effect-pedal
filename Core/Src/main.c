@@ -21,7 +21,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "lvgl/lvgl.h"
+#include "lvgl/examples/lv_examples.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -31,7 +32,10 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define LCD_H_RES       240
+#define LCD_V_RES       320
+#define BUS_SPI2_POLL_TIMEOUT HAL_MAX_DELAY
+#define LCD_BUF_SIZE    LCD_H_RES * LCD_V_RES / 10
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -52,12 +56,20 @@ OPAMP_HandleTypeDef hopamp1;
 OPAMP_HandleTypeDef hopamp2;
 
 SPI_HandleTypeDef hspi2;
+DMA_HandleTypeDef hdma_spi2_tx;
 
 TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
 uint32_t adc_buf[4];
 uint16_t dac_buf[4];
+
+lv_color_t lcd_buf1[LCD_BUF_SIZE];
+lv_color_t lcd_buf2[LCD_BUF_SIZE];
+
+lv_display_t *lcd_disp;
+volatile int lcd_bus_busy = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -72,6 +84,7 @@ static void MX_I2S1_Init(void);
 static void MX_OPAMP2_Init(void);
 static void MX_SPI2_Init(void);
 static void MX_OPAMP1_Init(void);
+static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -92,12 +105,81 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 	HAL_I2S_Transmit_DMA(&hi2s1, dac_buf + 2, 2);
 }
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+void lcd_color_transfer_ready_cb(SPI_HandleTypeDef *hspi)
 {
-  // Check which version of the timer triggered this callback and toggle LED
-  if (htim == &htim2 )
-  {
-  }
+        /* CS high */
+        HAL_GPIO_WritePin(DISPLAY_CS_GPIO_Port, DISPLAY_CS_Pin, GPIO_PIN_SET);
+        lcd_bus_busy = 0;
+        lv_display_flush_ready(lcd_disp);
+}
+
+/* Initialize LCD I/O bus, reset LCD */
+static int32_t lcd_io_init(void)
+{
+        /* Register SPI Tx Complete Callback */
+        HAL_SPI_RegisterCallback(&hspi2, HAL_SPI_TX_COMPLETE_CB_ID, lcd_color_transfer_ready_cb);
+
+        /* reset LCD */
+        HAL_GPIO_WritePin(DISPLAY_RST_GPIO_Port, DISPLAY_RST_Pin, GPIO_PIN_RESET);
+        HAL_Delay(100);
+        HAL_GPIO_WritePin(DISPLAY_RST_GPIO_Port, DISPLAY_RST_Pin, GPIO_PIN_SET);
+        HAL_Delay(100);
+
+        HAL_GPIO_WritePin(DISPLAY_CS_GPIO_Port, DISPLAY_CS_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(DISPLAY_DC_GPIO_Port, DISPLAY_DC_Pin, GPIO_PIN_SET);
+
+        return HAL_OK;
+}
+
+/* Platform-specific implementation of the LCD send command function. In general this should use polling transfer. */
+static void lcd_send_cmd(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, const uint8_t *param, size_t param_size)
+{
+        LV_UNUSED(disp);
+        while (lcd_bus_busy);   /* wait until previous transfer is finished */
+        /* Set the SPI in 8-bit mode */
+        hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
+        HAL_SPI_Init(&hspi2);
+        /* DCX low (command) */
+        HAL_GPIO_WritePin(DISPLAY_DC_GPIO_Port, DISPLAY_DC_Pin, GPIO_PIN_RESET);
+        /* CS low */
+        HAL_GPIO_WritePin(DISPLAY_CS_GPIO_Port, DISPLAY_CS_Pin, GPIO_PIN_RESET);
+        /* send command */
+        if (HAL_SPI_Transmit(&hspi2, cmd, cmd_size, BUS_SPI2_POLL_TIMEOUT) == HAL_OK) {
+                /* DCX high (data) */
+                HAL_GPIO_WritePin(DISPLAY_DC_GPIO_Port, DISPLAY_DC_Pin, GPIO_PIN_SET);
+                /* for short data blocks we use polling transfer */
+                HAL_SPI_Transmit(&hspi2, (uint8_t *)param, (uint16_t)param_size, BUS_SPI2_POLL_TIMEOUT);
+                /* CS high */
+                HAL_GPIO_WritePin(DISPLAY_CS_GPIO_Port, DISPLAY_CS_Pin, GPIO_PIN_SET);
+        }
+}
+
+/* Platform-specific implementation of the LCD send color function. For better performance this should use DMA transfer.
+ * In case of a DMA transfer a callback must be installed to notify LVGL about the end of the transfer.
+ */
+static void lcd_send_color(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, uint8_t *param, size_t param_size)
+{
+        LV_UNUSED(disp);
+        while (lcd_bus_busy);   /* wait until previous transfer is finished */
+        /* Set the SPI in 8-bit mode */
+        hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
+        HAL_SPI_Init(&hspi2);
+        /* DCX low (command) */
+        HAL_GPIO_WritePin(DISPLAY_DC_GPIO_Port, DISPLAY_DC_Pin, GPIO_PIN_RESET);
+        /* CS low */
+        HAL_GPIO_WritePin(DISPLAY_CS_GPIO_Port, DISPLAY_CS_Pin, GPIO_PIN_RESET);
+        /* send command */
+        if (HAL_SPI_Transmit(&hspi2, cmd, cmd_size, BUS_SPI2_POLL_TIMEOUT) == HAL_OK) {
+                /* DCX high (data) */
+                HAL_GPIO_WritePin(DISPLAY_DC_GPIO_Port, DISPLAY_DC_Pin, GPIO_PIN_SET);
+                /* for color data use DMA transfer */
+                /* Set the SPI in 16-bit mode to match endianness */
+                hspi2.Init.DataSize = SPI_DATASIZE_16BIT;
+                HAL_SPI_Init(&hspi2);
+                lcd_bus_busy = 1;
+                HAL_SPI_Transmit_DMA(&hspi2, param, (uint16_t)param_size / 2);
+                /* NOTE: CS will be reset in the transfer ready callback */
+        }
 }
 /* USER CODE END 0 */
 
@@ -141,23 +223,40 @@ int main(void)
   MX_OPAMP2_Init();
   MX_SPI2_Init();
   MX_OPAMP1_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 	HAL_OPAMP_SelfCalibrate(&hopamp1);
 	HAL_OPAMP_SelfCalibrate(&hopamp2);
 	HAL_OPAMP_Start(&hopamp1);
 	HAL_OPAMP_Start(&hopamp2);
-	HAL_OPAMP_SelfCalibrate(&hopamp1);
-	HAL_OPAMP_SelfCalibrate(&hopamp2);
+	//HAL_OPAMP_SelfCalibrate(&hopamp1);
+	//HAL_OPAMP_SelfCalibrate(&hopamp2);
 	HAL_TIM_Base_Start_IT(&htim2);
 	HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
 	HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET_LINEARITY, ADC_SINGLE_ENDED);
 	HAL_ADC_Start_DMA(&hadc1, adc_buf, 4);
+    HAL_GPIO_WritePin(DISPLAY_RST_GPIO_Port, DISPLAY_RST_Pin, GPIO_PIN_RESET);
+    HAL_Delay(5);
+    HAL_GPIO_WritePin(DISPLAY_RST_GPIO_Port, DISPLAY_RST_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(DISPLAY_CS_GPIO_Port, DISPLAY_CS_Pin, GPIO_PIN_RESET);
+
+    lv_init();
+    lcd_io_init();
+    lv_tick_set_cb(HAL_GetTick);
+
+    lcd_disp = lv_ili9341_create(LCD_H_RES, LCD_V_RES, LV_LCD_FLAG_NONE, lcd_send_cmd, lcd_send_color);
+    lv_display_set_rotation(lcd_disp, LV_DISPLAY_ROTATION_270);
+    lv_display_set_buffers(lcd_disp, lcd_buf1, lcd_buf2, LCD_BUF_SIZE, LV_DISPLAY_RENDER_MODE_PARTIAL);
+
+    //ui_init(lcd_disp);
+    lv_example_get_started_1();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	lv_timer_periodic_handler();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -462,16 +561,16 @@ static void MX_SPI2_Init(void)
   hspi2.Instance = SPI2;
   hspi2.Init.Mode = SPI_MODE_MASTER;
   hspi2.Init.Direction = SPI_DIRECTION_2LINES_TXONLY;
-  hspi2.Init.DataSize = SPI_DATASIZE_4BIT;
+  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
   hspi2.Init.CRCPolynomial = 0x0;
-  hspi2.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  hspi2.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
   hspi2.Init.NSSPolarity = SPI_NSS_POLARITY_LOW;
   hspi2.Init.FifoThreshold = SPI_FIFO_THRESHOLD_01DATA;
   hspi2.Init.TxCRCInitializationPattern = SPI_CRC_INITIALIZATION_ALL_ZERO_PATTERN;
@@ -537,6 +636,51 @@ static void MX_TIM2_Init(void)
 }
 
 /**
+  * @brief TIM3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM3_Init(void)
+{
+
+  /* USER CODE BEGIN TIM3_Init 0 */
+
+  /* USER CODE END TIM3_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM3_Init 1 */
+
+  /* USER CODE END TIM3_Init 1 */
+  htim3.Instance = TIM3;
+  htim3.Init.Prescaler = 999;
+  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim3.Init.Period = 9156;
+  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM3_Init 2 */
+
+  /* USER CODE END TIM3_Init 2 */
+
+}
+
+/**
   * Enable DMA controller clock
   */
 static void MX_DMA_Init(void)
@@ -552,6 +696,9 @@ static void MX_DMA_Init(void)
   /* DMA1_Stream1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream1_IRQn);
+  /* DMA1_Stream2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream2_IRQn);
 
 }
 
@@ -578,7 +725,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOF, DISPLAY_DC_Pin|DISPLAY_RST_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOF, DISPLAY_DC_Pin|DISPLAY_RST_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(DISPLAY_CS_GPIO_Port, DISPLAY_CS_Pin, GPIO_PIN_RESET);
@@ -623,18 +770,25 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DISPLAY_DC_Pin DISPLAY_RST_Pin */
-  GPIO_InitStruct.Pin = DISPLAY_DC_Pin|DISPLAY_RST_Pin;
+  /*Configure GPIO pin : DISPLAY_DC_Pin */
+  GPIO_InitStruct.Pin = DISPLAY_DC_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(DISPLAY_DC_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : DISPLAY_RST_Pin */
+  GPIO_InitStruct.Pin = DISPLAY_RST_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+  HAL_GPIO_Init(DISPLAY_RST_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : DISPLAY_CS_Pin */
   GPIO_InitStruct.Pin = DISPLAY_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(DISPLAY_CS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PA1 PA2 PA3 PA5
