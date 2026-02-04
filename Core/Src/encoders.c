@@ -1,0 +1,93 @@
+/*
+ * encoders.c
+ *
+ *  Created on: Feb 4, 2026
+ *      Author: edith
+ */
+
+#include "encoders.h"
+
+// Values returned by 'process'
+// No complete step yet.
+#define DIR_NONE 0x0
+// Clockwise step.
+#define DIR_CW 0x10
+// Anti-clockwise step.
+#define DIR_CCW 0x20
+
+// Default start state
+#define R_START 0x0
+#define R_CW_FINAL 0x1
+#define R_CW_BEGIN 0x2
+#define R_CW_NEXT 0x3
+#define R_CCW_BEGIN 0x4
+#define R_CCW_FINAL 0x5
+#define R_CCW_NEXT 0x6
+
+encoder_t encoders[ENCODER_COUNT];
+
+const unsigned char ttable[7][4] = {
+  // R_START
+  {R_START,    R_CW_BEGIN,  R_CCW_BEGIN, R_START},
+  // R_CW_FINAL
+  {R_CW_NEXT,  R_START,     R_CW_FINAL,  R_START | DIR_CW},
+  // R_CW_BEGIN
+  {R_CW_NEXT,  R_CW_BEGIN,  R_START,     R_START},
+  // R_CW_NEXT
+  {R_CW_NEXT,  R_CW_BEGIN,  R_CW_FINAL,  R_START},
+  // R_CCW_BEGIN
+  {R_CCW_NEXT, R_START,     R_CCW_BEGIN, R_START},
+  // R_CCW_FINAL
+  {R_CCW_NEXT, R_CCW_FINAL, R_START,     R_START | DIR_CCW},
+  // R_CCW_NEXT
+  {R_CCW_NEXT, R_CCW_FINAL, R_CCW_BEGIN, R_START},
+};
+
+void init_encoders() {
+	encoder_t encoder0;
+	encoder0.gpio_pin_button  = ENC1_B_Pin;
+	encoder0.gpio_port_button = ENC1_B_GPIO_Port;
+	encoder0.gpio_pin_left    = ENC1_L_Pin;
+	encoder0.gpio_port_left   = ENC1_L_GPIO_Port;
+	encoder0.gpio_pin_right   = ENC1_R_Pin;
+	encoder0.gpio_port_right  = ENC1_R_GPIO_Port;
+	encoders[0] = encoder0;
+	for (int i = 0; i < ENCODER_COUNT; i++) {
+			encoder_t *encoder = encoders + i;
+			encoder->spin_buf = 0;
+			encoder->pressed = 0;
+			encoder->_last_press = 0;
+			encoder->_state = R_START;
+	}
+}
+
+void update_encoders() {
+	uint32_t current_time = HAL_GetTick();
+	for (int i = 0; i < ENCODER_COUNT; i++) {
+		encoder_t *encoder = encoders + i;
+		uint8_t pin0 = HAL_GPIO_ReadPin(encoder->gpio_port_left, encoder->gpio_pin_left) == GPIO_PIN_SET;
+		uint8_t pin1 = HAL_GPIO_ReadPin(encoder->gpio_port_right, encoder->gpio_pin_right) == GPIO_PIN_SET;
+		uint8_t new_pressed = HAL_GPIO_ReadPin(encoder->gpio_port_button, encoder->gpio_pin_button) == GPIO_PIN_RESET;
+
+		if (new_pressed) {
+			encoder->_last_press = current_time;
+			encoder->pressed = 1;
+		} else if (encoder->pressed) {
+			if (encoder->_last_press < current_time - DEBOUNCE_DELAY)
+				encoder->pressed = 0;
+		}
+
+		uint8_t pinstate = (pin1 << 1) | pin0;
+		  // Determine new state from the pins and state table.
+		encoder->_state = ttable[encoder->_state & 0xf][pinstate];
+		uint8_t event = encoder->_state & 0x30;
+		if (event == DIR_CW)
+			encoder->spin_buf += 1;
+		else if (event == DIR_CCW)
+			encoder->spin_buf -= 1;
+	}
+}
+
+encoder_t *get_encoders() {
+	return encoders;
+}
