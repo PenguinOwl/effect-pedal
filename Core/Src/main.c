@@ -293,8 +293,10 @@ int main(void) {
 
 		if (text_needs_update) {
 			encoder_t encoder = get_encoders()[0];
-			double pos = encoder.spin_buf / 25.0;
+			double pos = encoder.spin_buf / 20.0;
 			vol_mod = exp(pos);
+			if (encoder.spin_buf < -49)
+				vol_mod = 0.;
 			lv_label_set_text_fmt(label, "Vol: %i%%", (encoder.spin_buf*2+100));
 			if (encoder.pressed) {
 				lv_obj_set_style_bg_color(lv_screen_active(),
