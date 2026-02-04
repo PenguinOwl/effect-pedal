@@ -74,6 +74,7 @@ lv_display_t *lcd_disp;
 lv_obj_t *label;
 volatile int lcd_bus_busy = 0;
 uint8_t text_needs_update = 0;
+double vol_mod = 1.0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -96,15 +97,24 @@ static void MX_TIM4_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint16_t process_audio(uint32_t in) {
+	uint32_t mid = 0xffff >> 1;
+	int32_t diff = in - mid;
+	diff *= vol_mod;
+	uint16_t res = diff + mid;
+	res ^= (1 << 15);
+	return res;
+}
+
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
-	dac_buf[0] = adc_buf[0] ^ (1 << 15);
-	dac_buf[1] = adc_buf[1] ^ (1 << 15);
+	dac_buf[0] = process_audio(adc_buf[0]);
+	dac_buf[1] = process_audio(adc_buf[1]);
 	HAL_I2S_Transmit_DMA(&hi2s1, dac_buf, 2);
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
-	dac_buf[2] = adc_buf[2] ^ (1 << 15);
-	dac_buf[3] = adc_buf[3] ^ (1 << 15);
+	dac_buf[2] = process_audio(adc_buf[2]);
+	dac_buf[3] = process_audio(adc_buf[3]);
 	HAL_I2S_Transmit_DMA(&hi2s1, dac_buf + 2, 2);
 }
 
@@ -283,7 +293,9 @@ int main(void) {
 
 		if (text_needs_update) {
 			encoder_t encoder = get_encoders()[0];
-			lv_label_set_text_fmt(label, "Turns: %i", encoder.spin_buf);
+			double pos = encoder.spin_buf / 25.0;
+			vol_mod = exp(pos);
+			lv_label_set_text_fmt(label, "Vol: %i%%", (encoder.spin_buf*2+100));
 			if (encoder.pressed) {
 				lv_obj_set_style_bg_color(lv_screen_active(),
 						lv_color_hex(0x003a57 ^ 0xffffff), LV_PART_MAIN);
