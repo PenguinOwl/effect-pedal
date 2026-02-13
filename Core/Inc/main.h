@@ -65,6 +65,18 @@ void Error_Handler(void);
 #define DISPLAY_CS_GPIO_Port GPIOC
 #define DISPLAY_MOSI_Pin GPIO_PIN_1
 #define DISPLAY_MOSI_GPIO_Port GPIOC
+#define EDAC_LRCLK_Pin GPIO_PIN_0
+#define EDAC_LRCLK_GPIO_Port GPIOA
+#define EDAC_BCLK_Pin GPIO_PIN_5
+#define EDAC_BCLK_GPIO_Port GPIOA
+#define EDAC_DOUT_Pin GPIO_PIN_7
+#define EDAC_DOUT_GPIO_Port GPIOA
+#define EDAC_FMT_Pin GPIO_PIN_2
+#define EDAC_FMT_GPIO_Port GPIOB
+#define EDAC_XSMT_Pin GPIO_PIN_11
+#define EDAC_XSMT_GPIO_Port GPIOF
+#define EDAC_FLT_Pin GPIO_PIN_12
+#define EDAC_FLT_GPIO_Port GPIOF
 #define DISPLAY_SCK_Pin GPIO_PIN_10
 #define DISPLAY_SCK_GPIO_Port GPIOB
 #define ENC4_B_Pin GPIO_PIN_13
@@ -95,18 +107,6 @@ void Error_Handler(void);
 #define LED_1_GPIO_Port GPIOG
 #define LED_2_Pin GPIO_PIN_6
 #define LED_2_GPIO_Port GPIOG
-#define EDAC_LRCLK_Pin GPIO_PIN_15
-#define EDAC_LRCLK_GPIO_Port GPIOA
-#define EDAC_DOUT_Pin GPIO_PIN_7
-#define EDAC_DOUT_GPIO_Port GPIOD
-#define EDAC_FMT_Pin GPIO_PIN_12
-#define EDAC_FMT_GPIO_Port GPIOG
-#define EDAC_XSMT_Pin GPIO_PIN_13
-#define EDAC_XSMT_GPIO_Port GPIOG
-#define EDAC_FLT_Pin GPIO_PIN_14
-#define EDAC_FLT_GPIO_Port GPIOG
-#define EDAC_BCLK_Pin GPIO_PIN_3
-#define EDAC_BCLK_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

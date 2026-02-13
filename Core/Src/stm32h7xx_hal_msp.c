@@ -25,8 +25,6 @@
 /* USER CODE END Includes */
 extern DMA_HandleTypeDef hdma_adc1;
 
-extern DMA_HandleTypeDef hdma_spi1_tx;
-
 extern DMA_HandleTypeDef hdma_spi2_tx;
 
 /* Private typedef -----------------------------------------------------------*/
@@ -271,75 +269,47 @@ void HAL_I2S_MspInit(I2S_HandleTypeDef* hi2s)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
-  if(hi2s->Instance==SPI1)
+  if(hi2s->Instance==SPI6)
   {
-    /* USER CODE BEGIN SPI1_MspInit 0 */
+    /* USER CODE BEGIN SPI6_MspInit 0 */
 
-    /* USER CODE END SPI1_MspInit 0 */
+    /* USER CODE END SPI6_MspInit 0 */
 
   /** Initializes the peripherals clock
   */
-    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SPI1;
-    PeriphClkInitStruct.Spi123ClockSelection = RCC_SPI123CLKSOURCE_PLL;
+    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SPI6;
+    PeriphClkInitStruct.Spi6ClockSelection = RCC_SPI6CLKSOURCE_D3PCLK1;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
     {
       Error_Handler();
     }
 
     /* Peripheral clock enable */
-    __HAL_RCC_SPI1_CLK_ENABLE();
+    __HAL_RCC_SPI6_CLK_ENABLE();
 
     __HAL_RCC_GPIOA_CLK_ENABLE();
-    __HAL_RCC_GPIOD_CLK_ENABLE();
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    /**I2S1 GPIO Configuration
-    PA15(JTDI)     ------> I2S1_WS
-    PD7     ------> I2S1_SDO
-    PB3(JTDO/TRACESWO)     ------> I2S1_CK
+    /**I2S6 GPIO Configuration
+    PA0     ------> I2S6_WS
+    PA5     ------> I2S6_CK
+    PA7     ------> I2S6_SDO
     */
     GPIO_InitStruct.Pin = EDAC_LRCLK_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI6;
     HAL_GPIO_Init(EDAC_LRCLK_GPIO_Port, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = EDAC_DOUT_Pin;
+    GPIO_InitStruct.Pin = EDAC_BCLK_Pin|EDAC_DOUT_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
-    HAL_GPIO_Init(EDAC_DOUT_GPIO_Port, &GPIO_InitStruct);
+    GPIO_InitStruct.Alternate = GPIO_AF8_SPI6;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = EDAC_BCLK_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
-    HAL_GPIO_Init(EDAC_BCLK_GPIO_Port, &GPIO_InitStruct);
+    /* USER CODE BEGIN SPI6_MspInit 1 */
 
-    /* I2S1 DMA Init */
-    /* SPI1_TX Init */
-    hdma_spi1_tx.Instance = DMA1_Stream1;
-    hdma_spi1_tx.Init.Request = DMA_REQUEST_SPI1_TX;
-    hdma_spi1_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
-    hdma_spi1_tx.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_spi1_tx.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_spi1_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
-    hdma_spi1_tx.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
-    hdma_spi1_tx.Init.Mode = DMA_CIRCULAR;
-    hdma_spi1_tx.Init.Priority = DMA_PRIORITY_VERY_HIGH;
-    hdma_spi1_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
-    if (HAL_DMA_Init(&hdma_spi1_tx) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    __HAL_LINKDMA(hi2s,hdmatx,hdma_spi1_tx);
-
-    /* USER CODE BEGIN SPI1_MspInit 1 */
-
-    /* USER CODE END SPI1_MspInit 1 */
+    /* USER CODE END SPI6_MspInit 1 */
 
   }
 
@@ -353,30 +323,24 @@ void HAL_I2S_MspInit(I2S_HandleTypeDef* hi2s)
   */
 void HAL_I2S_MspDeInit(I2S_HandleTypeDef* hi2s)
 {
-  if(hi2s->Instance==SPI1)
+  if(hi2s->Instance==SPI6)
   {
-    /* USER CODE BEGIN SPI1_MspDeInit 0 */
+    /* USER CODE BEGIN SPI6_MspDeInit 0 */
 
-    /* USER CODE END SPI1_MspDeInit 0 */
+    /* USER CODE END SPI6_MspDeInit 0 */
     /* Peripheral clock disable */
-    __HAL_RCC_SPI1_CLK_DISABLE();
+    __HAL_RCC_SPI6_CLK_DISABLE();
 
-    /**I2S1 GPIO Configuration
-    PA15(JTDI)     ------> I2S1_WS
-    PD7     ------> I2S1_SDO
-    PB3(JTDO/TRACESWO)     ------> I2S1_CK
+    /**I2S6 GPIO Configuration
+    PA0     ------> I2S6_WS
+    PA5     ------> I2S6_CK
+    PA7     ------> I2S6_SDO
     */
-    HAL_GPIO_DeInit(EDAC_LRCLK_GPIO_Port, EDAC_LRCLK_Pin);
+    HAL_GPIO_DeInit(GPIOA, EDAC_LRCLK_Pin|EDAC_BCLK_Pin|EDAC_DOUT_Pin);
 
-    HAL_GPIO_DeInit(EDAC_DOUT_GPIO_Port, EDAC_DOUT_Pin);
+    /* USER CODE BEGIN SPI6_MspDeInit 1 */
 
-    HAL_GPIO_DeInit(EDAC_BCLK_GPIO_Port, EDAC_BCLK_Pin);
-
-    /* I2S1 DMA DeInit */
-    HAL_DMA_DeInit(hi2s->hdmatx);
-    /* USER CODE BEGIN SPI1_MspDeInit 1 */
-
-    /* USER CODE END SPI1_MspDeInit 1 */
+    /* USER CODE END SPI6_MspDeInit 1 */
   }
 
 }

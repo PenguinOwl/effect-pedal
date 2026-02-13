@@ -50,8 +50,7 @@ DMA_HandleTypeDef hdma_adc1;
 
 DAC_HandleTypeDef hdac1;
 
-I2S_HandleTypeDef hi2s1;
-DMA_HandleTypeDef hdma_spi1_tx;
+I2S_HandleTypeDef hi2s6;
 
 OPAMP_HandleTypeDef hopamp1;
 OPAMP_HandleTypeDef hopamp2;
@@ -87,13 +86,13 @@ static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_DAC1_Init(void);
-static void MX_I2S1_Init(void);
 static void MX_OPAMP2_Init(void);
 static void MX_SPI2_Init(void);
 static void MX_OPAMP1_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_USB_OTG_HS_PCD_Init(void);
+static void MX_I2S6_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -243,13 +242,13 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM2_Init();
   MX_DAC1_Init();
-  MX_I2S1_Init();
   MX_OPAMP2_Init();
   MX_SPI2_Init();
   MX_OPAMP1_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
   MX_USB_OTG_HS_PCD_Init();
+  MX_I2S6_Init();
   /* USER CODE BEGIN 2 */
 	HAL_OPAMP_SelfCalibrate(&hopamp1);
 	HAL_OPAMP_SelfCalibrate(&hopamp2);
@@ -511,38 +510,38 @@ static void MX_DAC1_Init(void)
 }
 
 /**
-  * @brief I2S1 Initialization Function
+  * @brief I2S6 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_I2S1_Init(void)
+static void MX_I2S6_Init(void)
 {
 
-  /* USER CODE BEGIN I2S1_Init 0 */
+  /* USER CODE BEGIN I2S6_Init 0 */
 
-  /* USER CODE END I2S1_Init 0 */
+  /* USER CODE END I2S6_Init 0 */
 
-  /* USER CODE BEGIN I2S1_Init 1 */
+  /* USER CODE BEGIN I2S6_Init 1 */
 
-  /* USER CODE END I2S1_Init 1 */
-  hi2s1.Instance = SPI1;
-  hi2s1.Init.Mode = I2S_MODE_MASTER_TX;
-  hi2s1.Init.Standard = I2S_STANDARD_PHILIPS;
-  hi2s1.Init.DataFormat = I2S_DATAFORMAT_16B;
-  hi2s1.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
-  hi2s1.Init.AudioFreq = I2S_AUDIOFREQ_48K;
-  hi2s1.Init.CPOL = I2S_CPOL_LOW;
-  hi2s1.Init.FirstBit = I2S_FIRSTBIT_MSB;
-  hi2s1.Init.WSInversion = I2S_WS_INVERSION_DISABLE;
-  hi2s1.Init.Data24BitAlignment = I2S_DATA_24BIT_ALIGNMENT_RIGHT;
-  hi2s1.Init.MasterKeepIOState = I2S_MASTER_KEEP_IO_STATE_DISABLE;
-  if (HAL_I2S_Init(&hi2s1) != HAL_OK)
+  /* USER CODE END I2S6_Init 1 */
+  hi2s6.Instance = SPI6;
+  hi2s6.Init.Mode = I2S_MODE_MASTER_TX;
+  hi2s6.Init.Standard = I2S_STANDARD_PHILIPS;
+  hi2s6.Init.DataFormat = I2S_DATAFORMAT_16B;
+  hi2s6.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
+  hi2s6.Init.AudioFreq = I2S_AUDIOFREQ_44K;
+  hi2s6.Init.CPOL = I2S_CPOL_LOW;
+  hi2s6.Init.FirstBit = I2S_FIRSTBIT_MSB;
+  hi2s6.Init.WSInversion = I2S_WS_INVERSION_DISABLE;
+  hi2s6.Init.Data24BitAlignment = I2S_DATA_24BIT_ALIGNMENT_RIGHT;
+  hi2s6.Init.MasterKeepIOState = I2S_MASTER_KEEP_IO_STATE_DISABLE;
+  if (HAL_I2S_Init(&hi2s6) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN I2S1_Init 2 */
+  /* USER CODE BEGIN I2S6_Init 2 */
 
-  /* USER CODE END I2S1_Init 2 */
+  /* USER CODE END I2S6_Init 2 */
 
 }
 
@@ -837,9 +836,6 @@ static void MX_DMA_Init(void)
   /* DMA1_Stream0_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
-  /* DMA1_Stream1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream1_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream1_IRQn);
   /* DMA1_Stream2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream2_IRQn);
@@ -875,8 +871,13 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(DISPLAY_CS_GPIO_Port, DISPLAY_CS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOG, LED_1_Pin|LED_2_Pin|EDAC_FMT_Pin|EDAC_XSMT_Pin
-                          |EDAC_FLT_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(EDAC_FMT_GPIO_Port, EDAC_FMT_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOF, EDAC_XSMT_Pin|EDAC_FLT_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOG, LED_1_Pin|LED_2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PE2 PE3 PE4 PE5
                            PE6 PE8 PE10 PE11
@@ -904,12 +905,10 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : PF0 PF1 PF2 PF3
                            PF4 PF5 PF6 PF7
-                           PF8 PF11 PF12 PF13
-                           PF14 PF15 */
+                           PF8 PF13 PF14 PF15 */
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3
                           |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7
-                          |GPIO_PIN_8|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_13
-                          |GPIO_PIN_14|GPIO_PIN_15;
+                          |GPIO_PIN_8|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
@@ -935,30 +934,44 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(DISPLAY_CS_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA0 PA1 PA2 PA3
-                           PA5 PA7 PA8 PA9
-                           PA10 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3
-                          |GPIO_PIN_5|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9
-                          |GPIO_PIN_10;
+  /*Configure GPIO pins : PA1 PA2 PA3 PA8
+                           PA9 PA10 PA15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_8
+                          |GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB1 PB2 PB11 PB12
+  /*Configure GPIO pins : PB1 PB11 PB12 PB3
                            PB4 PB5 PB6 PB7
                            PB8 PB9 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_11|GPIO_PIN_12
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_3
                           |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7
                           |GPIO_PIN_8|GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : EDAC_FMT_Pin */
+  GPIO_InitStruct.Pin = EDAC_FMT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(EDAC_FMT_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : EDAC_XSMT_Pin EDAC_FLT_Pin */
+  GPIO_InitStruct.Pin = EDAC_XSMT_Pin|EDAC_FLT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
   /*Configure GPIO pins : PG0 PG1 PG7 PG8
-                           PG9 PG10 PG11 PG15 */
+                           PG9 PG10 PG11 PG12
+                           PG13 PG14 PG15 */
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_7|GPIO_PIN_8
-                          |GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_15;
+                          |GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12
+                          |GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
@@ -979,10 +992,10 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : PD14 PD15 PD0 PD1
                            PD2 PD3 PD4 PD5
-                           PD6 */
+                           PD6 PD7 */
   GPIO_InitStruct.Pin = GPIO_PIN_14|GPIO_PIN_15|GPIO_PIN_0|GPIO_PIN_1
                           |GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5
-                          |GPIO_PIN_6;
+                          |GPIO_PIN_6|GPIO_PIN_7;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
@@ -993,10 +1006,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LED_1_Pin LED_2_Pin EDAC_FMT_Pin EDAC_XSMT_Pin
-                           EDAC_FLT_Pin */
-  GPIO_InitStruct.Pin = LED_1_Pin|LED_2_Pin|EDAC_FMT_Pin|EDAC_XSMT_Pin
-                          |EDAC_FLT_Pin;
+  /*Configure GPIO pins : LED_1_Pin LED_2_Pin */
+  GPIO_InitStruct.Pin = LED_1_Pin|LED_2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
