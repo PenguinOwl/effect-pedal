@@ -25,7 +25,12 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      [
+        "lib_symbol_mismatch|2070100|1600200|488102c9-2200-4c8d-a9ab-e608f9ee5b55|00000000-0000-0000-0000-000000000000|||",
+        "changed pin directions on VBATT etc."
+      ]
+    ],
     "meta": {
       "version": 0
     },
