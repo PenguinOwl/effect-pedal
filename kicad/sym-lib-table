@@ -1,0 +1,6 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "KRS_Switch")(type "KiCad")(uri "${KIPRJMOD}/Symbols/KRS_Symbols/KRS_Switch.kicad_sym")(options "")(descr ""))
+  (lib (name "KRS")(type "KiCad")(uri "${KIPRJMOD}/Symbols/KRS_Symbols/KRS.kicad_sym")(options "")(descr ""))
+  (lib (name "StompSwitch")(type "KiCad")(uri "${KIPRJMOD}/Symbols/StompSwitch.kicad_sym")(options "")(descr ""))
+)
