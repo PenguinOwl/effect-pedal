@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Sparkfun")(type "KiCad")(uri "${KIPRJMOD}/Footprints/Sparkfun")(options "")(descr ""))
+  (lib (name "StompSwitch")(type "KiCad")(uri "${KIPRJMOD}/Footprints/StompSwitch.pretty")(options "")(descr ""))
+)

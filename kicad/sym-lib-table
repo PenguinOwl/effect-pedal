@@ -1,6 +1,6 @@
 (sym_lib_table
   (version 7)
-  (lib (name "KRS_Switch")(type "KiCad")(uri "${KIPRJMOD}/Symbols/KRS_Symbols/KRS_Switch.kicad_sym")(options "")(descr ""))
-  (lib (name "KRS")(type "KiCad")(uri "${KIPRJMOD}/Symbols/KRS_Symbols/KRS.kicad_sym")(options "")(descr ""))
   (lib (name "StompSwitch")(type "KiCad")(uri "${KIPRJMOD}/Symbols/StompSwitch.kicad_sym")(options "")(descr ""))
+  (lib (name "SameSky")(type "KiCad")(uri "${KIPRJMOD}/Symbols/SameSky/PJ-002A.kicad_sym")(options "")(descr ""))
+  (lib (name "PEC11L-4115F-S0020")(type "KiCad")(uri "${KIPRJMOD}/Symbols/Bournes/PEC11L-4115F-S0020.kicad_sym")(options "")(descr ""))
 )

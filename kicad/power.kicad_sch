@@ -1329,6 +1329,107 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "power:PWR_FLAG"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#FLG"
+				(at 0 1.905 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "PWR_FLAG"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Special symbol for telling ERC where power comes from"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "flag power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "PWR_FLAG_0_0"
+				(pin power_out line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "PWR_FLAG_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 1.27) (xy -1.016 1.905) (xy 0 2.54) (xy 1.016 1.905) (xy 0 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:VCC"
 			(power)
 			(pin_numbers
@@ -1534,10 +1635,36 @@
 		(uuid "d54212b0-90e8-482d-96dd-c8306d915c52")
 	)
 	(junction
+		(at 69.85 100.33)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "dfc3be1c-9532-43d2-add9-f9665036ba80")
+	)
+	(junction
 		(at 121.92 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fe8a3f3e-1c43-4b8b-a148-3b1df28b49fa")
+	)
+	(wire
+		(pts
+			(xy 83.82 130.81) (xy 83.82 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0c63f2d0-3b04-4e9a-a544-a2a76b3ae5a2")
+	)
+	(wire
+		(pts
+			(xy 69.85 100.33) (xy 83.82 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0d241928-1437-4aca-be7a-4fc870e3a656")
 	)
 	(wire
 		(pts
@@ -1551,13 +1678,23 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 100.33) (xy 83.82 100.33)
+			(xy 66.04 100.33) (xy 69.85 100.33)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "20584cfc-c715-4585-99cc-3255f2f4f572")
+	)
+	(wire
+		(pts
+			(xy 165.1 129.54) (xy 165.1 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "23f28e2b-bb5a-4991-bb21-66adbebe2b6b")
 	)
 	(wire
 		(pts
@@ -2011,7 +2148,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1d060792-a31f-4775-900f-b294457f1eb5")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR046"
 			(at 165.1 109.22 0)
 			(effects
 				(font
@@ -2061,7 +2198,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "#PWR03")
+					(reference "#PWR046")
 					(unit 1)
 				)
 			)
@@ -2070,15 +2207,15 @@
 	(symbol
 		(lib_id "Connector:Barrel_Jack")
 		(at 58.42 97.79 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "343411cc-7b2f-46dc-9378-2ace39d7a31b")
-		(property "Reference" "J3"
-			(at 58.42 88.9 0)
+		(property "Reference" "J12"
+			(at 58.42 91.694 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2086,15 +2223,15 @@
 			)
 		)
 		(property "Value" "Barrel_Jack"
-			(at 58.42 91.44 0)
+			(at 58.42 89.154 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 59.69 98.806 0)
+		(property "Footprint" "SameSky:CUI_PJ-002A"
+			(at 59.69 96.774 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2103,7 +2240,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 59.69 98.806 0)
+			(at 59.69 96.774 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2112,6 +2249,15 @@
 			)
 		)
 		(property "Description" "DC Barrel Jack"
+			(at 58.42 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" ""
 			(at 58.42 97.79 0)
 			(effects
 				(font
@@ -2129,7 +2275,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "J3")
+					(reference "J12")
 					(unit 1)
 				)
 			)
@@ -2137,7 +2283,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 83.82 129.54 0)
+		(at 83.82 130.81 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2145,8 +2291,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4821d52a-4745-45dc-b8c7-9cae7c682f7a")
-		(property "Reference" "#PWR01"
-			(at 83.82 135.89 0)
+		(property "Reference" "#PWR045"
+			(at 83.82 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2155,7 +2301,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 83.82 134.62 0)
+			(at 83.82 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2163,7 +2309,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 83.82 129.54 0)
+			(at 83.82 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2172,7 +2318,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 83.82 129.54 0)
+			(at 83.82 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2181,7 +2327,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 83.82 129.54 0)
+			(at 83.82 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2195,7 +2341,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "#PWR01")
+					(reference "#PWR045")
 					(unit 1)
 				)
 			)
@@ -2203,7 +2349,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 165.1 129.54 0)
+		(at 165.1 130.81 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2211,8 +2357,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4bb475a9-39d1-443c-a017-5566d9af9f8b")
-		(property "Reference" "#PWR02"
-			(at 165.1 135.89 0)
+		(property "Reference" "#PWR047"
+			(at 165.1 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2221,7 +2367,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 165.1 134.62 0)
+			(at 165.1 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2229,7 +2375,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 165.1 129.54 0)
+			(at 165.1 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2238,7 +2384,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 165.1 129.54 0)
+			(at 165.1 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2247,7 +2393,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 165.1 129.54 0)
+			(at 165.1 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2261,7 +2407,74 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "#PWR02")
+					(reference "#PWR047")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 97.79 95.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "50171096-ee85-4b2d-a7bf-0b3f9141af2c")
+		(property "Reference" "#FLG04"
+			(at 97.79 93.345 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 97.79 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 97.79 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 97.79 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 97.79 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0b2f2d5f-ce3f-4412-973f-b5f64c0b181d")
+		)
+		(instances
+			(project "effect-pedal"
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
+					(reference "#FLG04")
 					(unit 1)
 				)
 			)
@@ -2277,7 +2490,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "60c496ee-644e-4db9-857f-92c73c15b80b")
-		(property "Reference" "C3"
+		(property "Reference" "C35"
 			(at 153.67 119.3799 0)
 			(effects
 				(font
@@ -2295,7 +2508,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 150.8252 124.46 0)
 			(effects
 				(font
@@ -2322,6 +2535,15 @@
 				(hide yes)
 			)
 		)
+		(property "Part" ""
+			(at 149.86 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "56c3cd8b-edd9-486c-8ae4-6b7003b78ddf")
 		)
@@ -2331,7 +2553,73 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "C3")
+					(reference "C35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 69.85 100.33 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6ca87038-0dbc-4b24-98e3-597232c41688")
+		(property "Reference" "#FLG03"
+			(at 69.85 102.235 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 69.85 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 69.85 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 69.85 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 69.85 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4ec01a83-c4f1-4bfc-8472-28b906b17e9f")
+		)
+		(instances
+			(project "effect-pedal"
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
+					(reference "#FLG03")
 					(unit 1)
 				)
 			)
@@ -2347,7 +2635,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7abde673-c998-495a-93c0-202d0fe36f38")
-		(property "Reference" "R1"
+		(property "Reference" "R15"
 			(at 157.48 107.9499 0)
 			(effects
 				(font
@@ -2365,7 +2653,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 155.956 109.474 90)
 			(effects
 				(font
@@ -2392,6 +2680,15 @@
 				(hide yes)
 			)
 		)
+		(property "Part" ""
+			(at 154.94 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ce545b9c-d422-4129-829f-5640294b8e08")
 		)
@@ -2401,7 +2698,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "R1")
+					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -2433,7 +2730,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_0603_1608Metric"
 			(at 71.12 95.25 0)
 			(effects
 				(font
@@ -2470,6 +2767,15 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
+			(at 71.12 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" ""
 			(at 71.12 95.25 0)
 			(effects
 				(font
@@ -2519,7 +2825,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_0603_1608Metric"
 			(at 142.24 105.41 0)
 			(effects
 				(font
@@ -2539,6 +2845,15 @@
 		)
 		(property "Description" "Inductor"
 			(at 142.24 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" ""
+			(at 142.24 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2571,7 +2886,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cdba638c-75e6-482c-86c8-63f4fe552b5f")
-		(property "Reference" "C2"
+		(property "Reference" "C33"
 			(at 92.71 113.0299 0)
 			(effects
 				(font
@@ -2589,7 +2904,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 89.8652 118.11 0)
 			(effects
 				(font
@@ -2616,6 +2931,15 @@
 				(hide yes)
 			)
 		)
+		(property "Part" ""
+			(at 88.9 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "4ea0b484-1865-4204-9739-d144f0086bcd")
 		)
@@ -2625,7 +2949,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "C2")
+					(reference "C33")
 					(unit 1)
 				)
 			)
@@ -2657,7 +2981,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_SMD:D_0603_1608Metric"
 			(at 71.12 83.82 0)
 			(effects
 				(font
@@ -2702,6 +3026,15 @@
 				(hide yes)
 			)
 		)
+		(property "Part" ""
+			(at 71.12 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "db96c76f-7ce9-4183-b871-c78c8a2bce12")
 		)
@@ -2727,7 +3060,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ddc93080-b2e3-4d43-98c7-a01245e5024e")
-		(property "Reference" "U3"
+		(property "Reference" "U4"
 			(at 124.0633 95.25 0)
 			(effects
 				(font
@@ -2765,6 +3098,15 @@
 			)
 		)
 		(property "Description" "2A Step-Down Converter with DCS-Control, Fixed 3.3V Output Voltage, 3-17V Input Voltage, QFN-16"
+			(at 121.92 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" ""
 			(at 121.92 110.49 0)
 			(effects
 				(font
@@ -2827,7 +3169,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "U3")
+					(reference "U4")
 					(unit 1)
 				)
 			)
@@ -2843,7 +3185,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e2c8a115-1606-4d20-a383-f46faf898ece")
-		(property "Reference" "C1"
+		(property "Reference" "C34"
 			(at 101.6 119.3799 0)
 			(effects
 				(font
@@ -2861,7 +3203,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 98.7552 124.46 0)
 			(effects
 				(font
@@ -2888,6 +3230,15 @@
 				(hide yes)
 			)
 		)
+		(property "Part" ""
+			(at 97.79 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "12efa947-66ea-47fa-9f3c-a9d72de65f60")
 		)
@@ -2897,7 +3248,74 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "C1")
+					(reference "C34")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 154.94 105.41 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e369d30c-aabb-4c2e-9e0a-0141fe242fbd")
+		(property "Reference" "#FLG05"
+			(at 154.94 103.505 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 154.94 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 154.94 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 154.94 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 154.94 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "277b0319-c453-4383-b4d3-fb8351354f73")
+		)
+		(instances
+			(project ""
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
+					(reference "#FLG05")
 					(unit 1)
 				)
 			)

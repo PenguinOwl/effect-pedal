@@ -1,3 +1,6 @@
 (fp_lib_table
   (version 7)
+  (lib (name "SOICBite")(type "KiCad")(uri "${KIPRJMOD}/Footprints/SOICBite")(options "")(descr ""))
+  (lib (name "SameSky")(type "KiCad")(uri "${KIPRJMOD}/Footprints/SameSky")(options "")(descr ""))
+  (lib (name "Bournes")(type "KiCad")(uri "${KIPRJMOD}/Footprints/Bournes")(options "")(descr ""))
 )

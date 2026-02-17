@@ -1,0 +1,1390 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "66e303f0-84c2-4b16-be29-ca9981fe55d5")
+	(paper "A4")
+	(title_block
+		(title "Effect Pedal Stomp")
+		(date "2026-02-16")
+		(rev "1")
+		(company "ECE212 Group 2")
+	)
+	(lib_symbols
+		(symbol "Connector_Generic:Conn_01x09"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x09"
+				(at 0 -12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x09, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x09_1_1"
+				(rectangle
+					(start -1.27 11.43)
+					(end 1.27 -11.43)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -1.27 10.287)
+					(end 0 10.033)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 7.747)
+					(end 0 7.493)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 5.207)
+					(end 0 4.953)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -7.493)
+					(end 0 -7.747)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -10.033)
+					(end 0 -10.287)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 10.16 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 7.62 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 5.08 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -7.62 0)
+					(length 3.81)
+					(name "Pin_8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -10.16 0)
+					(length 3.81)
+					(name "Pin_9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "StompSwitch:SW_3PDT_x3"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SW_3PDT_x3"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Switch, dual pole double throw, separate symbols"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch dual-pole double-throw DPDT spdt ON-ON"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SW*DPDT*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_3PDT_x3_0_0"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 -2.54)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_3PDT_x3_0_1"
+				(rectangle
+					(start -3.175 3.81)
+					(end 3.175 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 0.254) (xy 1.5748 2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 2.54)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_3PDT_x3_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "SW_3PDT_x3_2_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "SW_3PDT_x3_3_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(text "Bypass Stomp Switch"
+		(exclude_from_sim no)
+		(at 124.714 78.486 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0513e6bf-029d-4920-9f0d-199a1d2a858a")
+	)
+	(wire
+		(pts
+			(xy 149.86 125.73) (xy 132.08 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "485d0ebd-13ce-4a12-a8c1-4fd28d6ea79f")
+	)
+	(wire
+		(pts
+			(xy 106.68 110.49) (xy 121.92 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a2215e4-613f-42ad-8a8a-4c100616673e")
+	)
+	(wire
+		(pts
+			(xy 162.56 134.62) (xy 179.07 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5ef6f5c0-5cb3-4c4e-be86-993e1cfa7a50")
+	)
+	(wire
+		(pts
+			(xy 149.86 130.81) (xy 132.08 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6067f7a4-5b50-4426-8ab6-df05d9da27ff")
+	)
+	(wire
+		(pts
+			(xy 162.56 116.84) (xy 179.07 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "66d4f71a-069e-4549-a498-4aa2522c30ab")
+	)
+	(wire
+		(pts
+			(xy 149.86 91.44) (xy 132.08 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6789a210-61c3-40a0-90ed-66c30791f9fb")
+	)
+	(wire
+		(pts
+			(xy 162.56 114.3) (xy 179.07 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68788f6c-1ab9-4a57-8b49-d206c5a99107")
+	)
+	(wire
+		(pts
+			(xy 162.56 132.08) (xy 179.07 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "691b32f6-7053-404e-a4f2-7747cb35ee55")
+	)
+	(wire
+		(pts
+			(xy 162.56 124.46) (xy 179.07 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "69d99397-3cd0-4e24-a276-49d21c8080a1")
+	)
+	(wire
+		(pts
+			(xy 106.68 93.98) (xy 121.92 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9883373c-ce33-41dd-b782-b8d8f76a0df7")
+	)
+	(wire
+		(pts
+			(xy 149.86 96.52) (xy 132.08 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0832eae-d54d-4e2d-b6ea-04053632e4e7")
+	)
+	(wire
+		(pts
+			(xy 162.56 129.54) (xy 179.07 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bbcaeca8-cca1-4cd9-aaf0-0a82a6c95667")
+	)
+	(wire
+		(pts
+			(xy 149.86 113.03) (xy 132.08 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c947b06f-bbb8-4f2c-befd-33c7e680826f")
+	)
+	(wire
+		(pts
+			(xy 149.86 107.95) (xy 132.08 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cfcd2b80-bfe8-4884-baa9-925108a37ded")
+	)
+	(wire
+		(pts
+			(xy 162.56 119.38) (xy 179.07 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7f7ce6d-b876-449c-b388-5500fe8881cc")
+	)
+	(wire
+		(pts
+			(xy 106.68 128.27) (xy 121.92 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e76d55fe-7458-4956-ba0f-ec934b2ebc4b")
+	)
+	(wire
+		(pts
+			(xy 162.56 127) (xy 179.07 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eaa5ddf6-bcef-40fb-a093-b6fb6aa6f33d")
+	)
+	(wire
+		(pts
+			(xy 162.56 121.92) (xy 179.07 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f55c5284-af6d-440a-9f9e-1925f30b20f4")
+	)
+	(label "STOMP_OUT_L"
+		(at 162.56 129.54 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0ee464b2-1a24-4139-8387-9fcf5b16fa8b")
+	)
+	(label "WET_IN_L"
+		(at 149.86 96.52 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1d9327f9-e850-48a0-9641-c57dacd75dbe")
+	)
+	(label "STOMP_OUT_L"
+		(at 106.68 93.98 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "28a63ec1-666c-41ef-8247-76bae675c1af")
+	)
+	(label "STOMP_OUT_GND"
+		(at 106.68 128.27 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3f95a564-ade8-44e6-84c8-d1f685a65a86")
+	)
+	(label "WET_IN_R"
+		(at 162.56 124.46 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3fa93d60-6e01-4e15-9a4f-e945911257a1")
+	)
+	(label "WET_IN_GND"
+		(at 149.86 130.81 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "724afe89-583f-4583-b6ad-b40d0d6a0f6f")
+	)
+	(label "DRY_IN_L"
+		(at 149.86 91.44 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7fc37214-8fef-4028-9adb-ceaf66ec4bc2")
+	)
+	(label "STOMP_OUT_GND"
+		(at 162.56 134.62 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8d286022-61ef-4b64-9b56-a42b8b9f5354")
+	)
+	(label "DRY_IN_L"
+		(at 162.56 114.3 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a61fdf0c-d43f-41ef-82e3-7f858c9da038")
+	)
+	(label "DRY_IN_R"
+		(at 162.56 116.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b0b7ca0a-217b-4659-a350-e262c1df3e12")
+	)
+	(label "STOMP_OUT_R"
+		(at 162.56 132.08 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b1185809-9e34-44ae-bc10-3b7684c75ccc")
+	)
+	(label "WET_IN_R"
+		(at 149.86 113.03 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b63bfe33-998d-470e-aca6-f299f16b2748")
+	)
+	(label "DRY_IN_R"
+		(at 149.86 107.95 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e2a0284e-d6ac-4978-8284-34b189c29f3e")
+	)
+	(label "DRY_IN_GND"
+		(at 149.86 125.73 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e449b14a-009d-41bb-bbe3-c8285ce74543")
+	)
+	(label "WET_IN_GND"
+		(at 162.56 127 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e86cf9a2-d26b-4b7c-a03f-5a8de646c2a4")
+	)
+	(label "STOMP_OUT_R"
+		(at 106.68 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e9d363f7-3984-400f-a1ed-c23abf1afa40")
+	)
+	(label "WET_IN_L"
+		(at 162.56 121.92 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f28a04f6-43b5-4dde-a090-a053cd2d683b")
+	)
+	(label "DRY_IN_GND"
+		(at 162.56 119.38 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "febb9f80-5a45-4b73-994a-3240931e2493")
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x09")
+		(at 184.15 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2f714540-cf6e-4837-bc21-cc3a8dbe1a11")
+		(property "Reference" "J1"
+			(at 184.15 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x06"
+			(at 184.15 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x09_P1.00mm_Vertical"
+			(at 184.15 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 184.15 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x09, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 184.15 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "4050d9ac-0971-4be9-b23c-cf9ef8af85a6")
+		)
+		(pin "6"
+			(uuid "a97eea3c-8d2f-4b31-b8cc-f26e7f71adf8")
+		)
+		(pin "4"
+			(uuid "9897ba47-da39-4e76-996e-986a2271dc04")
+		)
+		(pin "3"
+			(uuid "1bbe6a71-d189-4264-beb7-f3ca5d076a44")
+		)
+		(pin "1"
+			(uuid "0ea2b241-29d9-49f4-b1bb-5281236722fe")
+		)
+		(pin "2"
+			(uuid "8ee01b3a-bf34-4b1c-93dc-f286c9c8e5f8")
+		)
+		(pin "9"
+			(uuid "774f0832-8091-4fc1-84da-e027a58aa8f8")
+		)
+		(pin "8"
+			(uuid "6af50412-8caa-414c-a00f-26daccf63230")
+		)
+		(pin "7"
+			(uuid "7de05726-1264-4f52-ba17-c900c8e33c55")
+		)
+		(instances
+			(project "stomp-board"
+				(path "/66e303f0-84c2-4b16-be29-ca9981fe55d5"
+					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "StompSwitch:SW_3PDT_x3")
+		(at 127 110.49 0)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "76a04800-ec73-4f6e-b507-f3c0b367b56e")
+		(property "Reference" "SW1"
+			(at 127 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_3PDT_x3"
+			(at 127 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "StompSwitch:StompSwitch"
+			(at 127 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 127 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Switch, dual pole double throw, separate symbols"
+			(at 127 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "626ff020-5187-4a0e-bf83-5d12e8b08012")
+		)
+		(pin "9"
+			(uuid "cc053e88-3ffa-46d0-89b6-59812765bcc7")
+		)
+		(pin "2"
+			(uuid "16a44c4e-0b65-4245-9fdd-de9ba39792f2")
+		)
+		(pin "8"
+			(uuid "b93fd85e-d785-4d62-b0a4-e857a6a5198e")
+		)
+		(pin "1"
+			(uuid "b543f7f8-daa2-4f3f-9e1b-6de1968a6cae")
+		)
+		(pin "5"
+			(uuid "84017fde-c48e-45d8-8805-868cfb031f74")
+		)
+		(pin "6"
+			(uuid "aadd5e96-204d-4c3c-8a5a-1668e564e172")
+		)
+		(pin "7"
+			(uuid "26e47964-07a9-4f94-b117-c5a6cb636d05")
+		)
+		(pin "4"
+			(uuid "3a29a47a-10de-49f8-b59b-b2013238b077")
+		)
+		(instances
+			(project "stomp-board"
+				(path "/66e303f0-84c2-4b16-be29-ca9981fe55d5"
+					(reference "SW1")
+					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "StompSwitch:SW_3PDT_x3")
+		(at 127 128.27 0)
+		(unit 3)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b67121de-ac5e-4715-8cc4-401ac5d89298")
+		(property "Reference" "SW1"
+			(at 127 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_3PDT_x3"
+			(at 127 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "StompSwitch:StompSwitch"
+			(at 127 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 127 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Switch, dual pole double throw, separate symbols"
+			(at 127 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "626ff020-5187-4a0e-bf83-5d12e8b08011")
+		)
+		(pin "9"
+			(uuid "24ff944d-abc0-457c-91e4-8287cfee9bcb")
+		)
+		(pin "2"
+			(uuid "16a44c4e-0b65-4245-9fdd-de9ba39792f1")
+		)
+		(pin "8"
+			(uuid "7b429ea3-5b93-4292-8aa5-6597a76d13a3")
+		)
+		(pin "1"
+			(uuid "b543f7f8-daa2-4f3f-9e1b-6de1968a6cad")
+		)
+		(pin "5"
+			(uuid "0827ff92-e135-4456-9173-54fe80f8b438")
+		)
+		(pin "6"
+			(uuid "125306ab-9028-49d6-8721-1856619e6f24")
+		)
+		(pin "7"
+			(uuid "48f46e36-ab07-438c-bb23-9aa45c07766d")
+		)
+		(pin "4"
+			(uuid "8c08292c-9b16-43c3-8655-bf31bff638be")
+		)
+		(instances
+			(project "stomp-board"
+				(path "/66e303f0-84c2-4b16-be29-ca9981fe55d5"
+					(reference "SW1")
+					(unit 3)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "StompSwitch:SW_3PDT_x3")
+		(at 127 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f92cf651-8568-43a6-80a7-7b4c3b1569b0")
+		(property "Reference" "SW1"
+			(at 127 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_3PDT_x3"
+			(at 127 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "StompSwitch:StompSwitch"
+			(at 127 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 127 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Switch, dual pole double throw, separate symbols"
+			(at 127 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "c3f6ced8-4602-495e-894e-9cda0d40b0bc")
+		)
+		(pin "9"
+			(uuid "cc053e88-3ffa-46d0-89b6-59812765bcc5")
+		)
+		(pin "2"
+			(uuid "7b8aed76-a2ee-43c6-8d73-7226f4e03924")
+		)
+		(pin "8"
+			(uuid "b93fd85e-d785-4d62-b0a4-e857a6a5198c")
+		)
+		(pin "1"
+			(uuid "6f05e602-35c5-42d2-981f-d20cac352305")
+		)
+		(pin "5"
+			(uuid "0827ff92-e135-4456-9173-54fe80f8b437")
+		)
+		(pin "6"
+			(uuid "125306ab-9028-49d6-8721-1856619e6f23")
+		)
+		(pin "7"
+			(uuid "26e47964-07a9-4f94-b117-c5a6cb636d03")
+		)
+		(pin "4"
+			(uuid "8c08292c-9b16-43c3-8655-bf31bff638bd")
+		)
+		(instances
+			(project "stomp-board"
+				(path "/66e303f0-84c2-4b16-be29-ca9981fe55d5"
+					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
