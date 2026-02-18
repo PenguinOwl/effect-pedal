@@ -12101,16 +12101,6 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 73.66) (xy 321.31 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2d133848-e147-4c5d-b72e-d9187ddc08fb")
-	)
-	(wire
-		(pts
 			(xy 58.42 147.32) (xy 58.42 146.05)
 		)
 		(stroke
@@ -13731,7 +13721,7 @@
 	)
 	(wire
 		(pts
-			(xy 299.72 73.66) (xy 294.64 73.66)
+			(xy 303.53 73.66) (xy 294.64 73.66)
 		)
 		(stroke
 			(width 0)
@@ -16001,6 +15991,16 @@
 	)
 	(wire
 		(pts
+			(xy 311.15 73.66) (xy 321.31 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7924bed-3a8f-41bf-981c-3b1e4793ce92")
+	)
+	(wire
+		(pts
 			(xy 149.86 167.64) (xy 168.91 167.64)
 		)
 		(stroke
@@ -17491,7 +17491,7 @@
 		(uuid "4e5f12c3-c399-4cf3-a20a-d91f4df9dd57")
 	)
 	(label "SHIELD"
-		(at 309.88 73.66 0)
+		(at 312.42 73.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -19812,7 +19812,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_US")
-		(at 303.53 73.66 90)
+		(at 307.34 73.66 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -19820,7 +19820,7 @@
 		(dnp no)
 		(uuid "1b52f8e9-4b80-4301-87e4-8248e7493053")
 		(property "Reference" "R8"
-			(at 303.53 68.326 90)
+			(at 307.34 68.326 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19828,7 +19828,7 @@
 			)
 		)
 		(property "Value" "100k"
-			(at 303.53 70.612 90)
+			(at 307.34 70.612 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19836,7 +19836,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 303.784 72.644 90)
+			(at 307.594 72.644 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19845,7 +19845,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 303.53 73.66 0)
+			(at 307.34 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19854,7 +19854,7 @@
 			)
 		)
 		(property "Description" "Resistor, US symbol"
-			(at 303.53 73.66 0)
+			(at 307.34 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19863,7 +19863,7 @@
 			)
 		)
 		(property "Part" ""
-			(at 303.53 73.66 90)
+			(at 307.34 73.66 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23728,7 +23728,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "7b7ab0b5-f143-48de-9fae-622f42eada2b")
 		(property "Reference" "Y1"
@@ -23952,7 +23952,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "8435431e-fbaf-4f5c-b874-bb58d5392d32")
 		(property "Reference" "C1"
@@ -27208,7 +27208,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "cfdd1e4b-bf94-48e5-b977-b84071641acb")
 		(property "Reference" "C2"
 			(at 97.79 132.08 90)
