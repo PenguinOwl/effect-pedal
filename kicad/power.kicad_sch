@@ -2864,6 +2864,130 @@
 		)
 	)
 	(symbol
+		(lib_id "Regulator_Switching:TPS62142")
+		(at 134.62 104.14 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1db311bc-bb5b-4d3a-9a19-eeafd817d5e6")
+		(property "Reference" "U4"
+			(at 136.7633 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TPS62142"
+			(at 136.7633 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_DFN_QFN:VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm_ThermalVias"
+			(at 138.43 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps62140.pdf"
+			(at 134.62 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "2A Step-Down Converter with DCS-Control, Fixed 3.3V Output Voltage, 3-17V Input Voltage, QFN-16"
+			(at 134.62 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "TPS62140ARGTR"
+			(at 134.62 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "17"
+			(uuid "e2988b92-0b13-4923-9d76-c406e3c48fcc")
+		)
+		(pin "3"
+			(uuid "f8ebb321-93a6-458b-9f68-ba907738a4f5")
+		)
+		(pin "15"
+			(uuid "19d7c674-f6b4-4a8b-be48-8fa1e591c751")
+		)
+		(pin "2"
+			(uuid "0aa7bc46-0ac8-4817-a374-e609ca63da68")
+		)
+		(pin "13"
+			(uuid "9c0dbaf2-5aaa-4b16-aca9-5d2feed739ba")
+		)
+		(pin "4"
+			(uuid "087579eb-0067-41be-9bb9-4d1b73455d55")
+		)
+		(pin "5"
+			(uuid "5b76104b-5157-4daa-9158-163be9741024")
+		)
+		(pin "6"
+			(uuid "e12b61b0-126e-4f1e-b8e1-a65c90c51a33")
+		)
+		(pin "1"
+			(uuid "0759cd9e-c202-4f36-bbe3-2e0ceb712ccf")
+		)
+		(pin "9"
+			(uuid "e64bda61-92d8-4886-b70a-f7948586e623")
+		)
+		(pin "8"
+			(uuid "16682cd3-5b99-4ec7-8162-7a0854d51e0e")
+		)
+		(pin "16"
+			(uuid "d5710558-a039-4a04-bd5f-2de0c95ab00e")
+		)
+		(pin "7"
+			(uuid "781e8b31-c41f-44b9-b686-7f1f11e4e604")
+		)
+		(pin "10"
+			(uuid "0b9cd23a-2972-4d65-a46a-4d65df22f13e")
+		)
+		(pin "11"
+			(uuid "da3318cb-f102-4d3f-946c-8799d9eb0f55")
+		)
+		(pin "12"
+			(uuid "7fc0dd65-b2ca-421c-a037-d29376bb97de")
+		)
+		(pin "14"
+			(uuid "19f77a45-a896-4e17-8d5c-702774f7ae03")
+		)
+		(instances
+			(project ""
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
+					(reference "U4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:D_Schottky")
 		(at 83.82 77.47 180)
 		(unit 1)
@@ -3588,7 +3712,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/lp5907.pdf"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lp5907.pdf?ts=1771413737187"
 			(at 203.2 88.9 0)
 			(effects
 				(font
@@ -3598,6 +3722,15 @@
 			)
 		)
 		(property "Description" "250-mA Ultra-Low-Noise Low-IQ LDO, 3.0V, SOT-23"
+			(at 203.2 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "LP5907MFX-3.0"
 			(at 203.2 101.6 0)
 			(effects
 				(font
@@ -3793,137 +3926,6 @@
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
 					(reference "C35")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Regulator_Switching:TPS62142")
-		(at 134.62 104.14 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ddc93080-b2e3-4d43-98c7-a01245e5024e")
-		(property "Reference" "U4"
-			(at 136.7633 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TPS62142"
-			(at 136.7633 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_DFN_QFN:VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm_ThermalVias"
-			(at 138.43 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps62140.pdf?ts=1771407972175"
-			(at 134.62 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "2A Step-Down Converter with DCS-Control, Fixed 3.3V Output Voltage, 3-17V Input Voltage, QFN-16"
-			(at 134.62 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "TPS62152RGTR"
-			(at 134.62 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "14"
-			(uuid "c89fd6a8-9175-4fe5-a824-9a69802f0f66")
-		)
-		(pin "16"
-			(uuid "7247ee1f-b469-43a4-ba8d-e3af2bbcb125")
-		)
-		(pin "13"
-			(uuid "68e65474-6965-4832-8927-fa04ebb8236d")
-		)
-		(pin "9"
-			(uuid "046c6eb2-05dd-4454-924d-8aac7a7b388d")
-		)
-		(pin "8"
-			(uuid "fbb99643-1c86-4ab1-9c32-789934d3985a")
-		)
-		(pin "1"
-			(uuid "a66e8790-bfda-400b-82b7-b301f733abd1")
-		)
-		(pin "7"
-			(uuid "bc42ee7b-f154-4b5d-8c4a-58b6c90485f5")
-		)
-		(pin "6"
-			(uuid "42729aeb-9f0a-48a3-af46-e3b9ee9bebc7")
-		)
-		(pin "10"
-			(uuid "08cb6935-ad97-476a-b5b8-f1d49b472c0e")
-		)
-		(pin "11"
-			(uuid "12c8d3be-864e-4097-bfb5-9772d9eae08e")
-		)
-		(pin "15"
-			(uuid "69192e88-25d4-44be-b5fd-6c96932afcd5")
-		)
-		(pin "4"
-			(uuid "3c783903-2fdb-43ec-9ab0-2a2cf3fda256")
-		)
-		(pin "3"
-			(uuid "68b39843-370e-42f6-8296-8008fa6e484e")
-		)
-		(pin "17"
-			(uuid "dde72ced-4e0d-45d6-ad4e-da7785b16a41")
-		)
-		(pin "5"
-			(uuid "51d910df-5bb8-419e-9269-81ae49accef5")
-		)
-		(pin "2"
-			(uuid "fcc2fa15-6992-4961-84ab-d032e8227a8e")
-		)
-		(pin "12"
-			(uuid "6abbaf41-727c-420d-af11-763f9f288d4b")
-		)
-		(instances
-			(project "power"
-				(path "/04e31104-ef48-40c7-aa44-fb0b2d37d06e"
-					(reference "U?")
-					(unit 1)
-				)
-			)
-			(project "effect-pedal"
-				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "U4")
 					(unit 1)
 				)
 			)

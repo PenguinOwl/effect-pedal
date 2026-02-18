@@ -24124,7 +24124,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_MOSFETs"
+		(property "Datasheet" "https://www.aosmd.com/sites/default/files/res/datasheets/AO3400.pdf"
 			(at 100.33 180.34 0)
 			(effects
 				(font
@@ -24169,7 +24169,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "AO3400"
 			(at 100.33 167.64 0)
 			(effects
 				(font
@@ -24233,7 +24233,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_MOSFETs"
+		(property "Datasheet" "https://www.aosmd.com/sites/default/files/res/datasheets/AO3400.pdf"
 			(at 128.27 180.34 0)
 			(effects
 				(font
@@ -24278,7 +24278,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "AO3400"
 			(at 128.27 167.64 0)
 			(effects
 				(font
@@ -28354,7 +28354,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/6118/1/slw_105558_2a_n_d.pdf"
 			(at 97.79 76.2 0)
 			(effects
 				(font
@@ -28372,7 +28372,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "SLW-105558-2A-N-D"
 			(at 97.79 83.82 0)
 			(effects
 				(font
