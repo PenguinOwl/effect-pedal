@@ -4,6 +4,12 @@
 	(generator_version "9.0")
 	(uuid "79bfec23-3e7b-4837-8996-6bbe67be3d6b")
 	(paper "A3")
+	(title_block
+		(title "Digital Effect Pedal")
+		(date "2026-02-18")
+		(rev "1")
+		(company "ECE 212 Group 2")
+	)
 	(lib_symbols
 		(symbol "Audio:PCM5102A"
 			(exclude_from_sim no)
@@ -10148,9 +10154,9 @@
 		)
 		(uuid "342150a2-609e-4367-b611-097ddc747738")
 	)
-	(text "Power Supply"
+	(text "Microcontroller\nPower Supply"
 		(exclude_from_sim no)
-		(at 205.994 35.306 0)
+		(at 207.01 36.068 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10177,6 +10183,16 @@
 			)
 		)
 		(uuid "497f941d-cce0-4d97-929b-78538822df3c")
+	)
+	(text "Power Supply"
+		(exclude_from_sim no)
+		(at 44.958 26.67 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "63711e03-8f5f-4715-a40c-78dacb58d193")
 	)
 	(text "External DAC"
 		(exclude_from_sim no)
@@ -10349,6 +10365,16 @@
 		)
 		(uuid "fe7eb31a-75ae-49a2-b469-9f3d0606e5c5")
 	)
+	(text "Rail Test Points"
+		(exclude_from_sim no)
+		(at 93.472 37.592 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ffcad168-58ff-4a6e-a76f-f4ec8890e03d")
+	)
 	(junction
 		(at 166.37 182.88)
 		(diameter 0)
@@ -10386,6 +10412,12 @@
 		(uuid "078622fc-9400-41e4-9f10-2a8e37324e53")
 	)
 	(junction
+		(at 391.16 158.75)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "09154454-0d7b-472a-95a9-754c5097ed9d")
+	)
+	(junction
 		(at 166.37 251.46)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -10416,12 +10448,6 @@
 		(uuid "0f711e1c-3f79-46ef-9665-2626ba767891")
 	)
 	(junction
-		(at 297.18 220.98)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "128879e0-45f3-4f17-a1bd-76ba7e24e673")
-	)
-	(junction
 		(at 247.65 200.66)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -10444,6 +10470,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "18a6aeed-cf0f-46ac-a457-bfef2322204b")
+	)
+	(junction
+		(at 359.41 147.32)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "19ee95b7-3610-42c3-a2ed-73a48ebad9fc")
 	)
 	(junction
 		(at 247.65 220.98)
@@ -10510,6 +10542,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2d58d9e8-4099-4a8c-bd41-2f911931fedf")
+	)
+	(junction
+		(at 311.15 215.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2ffaa3e2-806c-44d3-8109-a7c7af5c45f1")
 	)
 	(junction
 		(at 247.65 213.36)
@@ -10618,6 +10656,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "49099a96-2b15-4ff3-b59e-a131fe83f969")
+	)
+	(junction
+		(at 313.69 215.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4a4e340d-ca14-4674-aca4-76f8492f6e80")
 	)
 	(junction
 		(at 367.03 196.85)
@@ -10782,12 +10826,6 @@
 		(uuid "7bc4e649-5ea5-4dd2-8d0e-de1ba072b0a9")
 	)
 	(junction
-		(at 308.61 220.98)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7c66a209-0641-4c6e-8d84-b32e5d95dee9")
-	)
-	(junction
 		(at 106.68 114.3)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -10800,7 +10838,7 @@
 		(uuid "7f759f63-eb27-4a0c-a5d7-d63b497c7747")
 	)
 	(junction
-		(at 326.39 234.95)
+		(at 317.5 236.22)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "805e6840-1fbc-46ec-bcc4-71f218b6756e")
@@ -10818,10 +10856,10 @@
 		(uuid "87c02692-55dc-4bd9-835d-9de517ef3718")
 	)
 	(junction
-		(at 313.69 218.44)
+		(at 308.61 215.9)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "8a2b891e-93ae-411f-9572-f5b356375b05")
+		(uuid "8b338d66-a4b4-4acd-9a46-1b8213010589")
 	)
 	(junction
 		(at 392.43 50.8)
@@ -10854,16 +10892,16 @@
 		(uuid "9507fae0-d660-454f-9a8a-6463fd68dc8c")
 	)
 	(junction
+		(at 378.46 158.75)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9878413a-70d3-4e20-bba3-37c1ffb074e0")
+	)
+	(junction
 		(at 166.37 220.98)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9a5bea81-ef07-4ba0-ab2f-f54efdab0866")
-	)
-	(junction
-		(at 297.18 231.14)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9b73aca4-2346-4f17-b1b3-2d8d4c1ebdcf")
 	)
 	(junction
 		(at 166.37 160.02)
@@ -10950,10 +10988,22 @@
 		(uuid "bde5c0ed-dbda-4572-9e6d-3a0a4cd6ce95")
 	)
 	(junction
+		(at 351.79 226.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bf1e9745-1eeb-4736-be3c-91323221a591")
+	)
+	(junction
 		(at 299.72 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bfb06ca4-b1f5-47a0-bb71-079db1336f38")
+	)
+	(junction
+		(at 340.36 226.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c0242525-690a-4f44-9f6f-96d3ee517341")
 	)
 	(junction
 		(at 367.03 186.69)
@@ -10968,6 +11018,12 @@
 		(uuid "c204a7e8-9d46-4904-bc72-f48624580eae")
 	)
 	(junction
+		(at 340.36 236.22)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c2c23160-8562-4522-a739-33d9d1ea8f82")
+	)
+	(junction
 		(at 369.57 158.75)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -10978,6 +11034,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c673d69c-608d-4a6c-8c95-765cbee72d69")
+	)
+	(junction
+		(at 359.41 168.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c995df21-153e-4fd1-9617-68311c4d54f2")
 	)
 	(junction
 		(at 368.3 215.9)
@@ -10992,7 +11054,7 @@
 		(uuid "cdae51d5-33d6-4e7a-b899-63f0ed6f2cd2")
 	)
 	(junction
-		(at 337.82 234.95)
+		(at 328.93 236.22)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d0cbd5e6-296f-424a-8d5f-a616853260fa")
@@ -11004,10 +11066,22 @@
 		(uuid "d4ad388d-228d-4e7b-a867-ca220a5b1392")
 	)
 	(junction
-		(at 337.82 226.06)
+		(at 369.57 168.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d4d35979-20b4-402b-806e-7854636fa75e")
+	)
+	(junction
+		(at 328.93 226.06)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d69d531f-cc9d-4064-b7d2-19c5034c477b")
+	)
+	(junction
+		(at 351.79 236.22)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d6ab5e71-3afa-448c-a152-56ff813e1e58")
 	)
 	(junction
 		(at 276.86 63.5)
@@ -11341,7 +11415,7 @@
 	)
 	(wire
 		(pts
-			(xy 308.61 212.09) (xy 308.61 220.98)
+			(xy 308.61 212.09) (xy 308.61 215.9)
 		)
 		(stroke
 			(width 0)
@@ -11401,6 +11475,26 @@
 	)
 	(wire
 		(pts
+			(xy 351.79 227.33) (xy 351.79 226.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0b5ac815-4e60-495f-ae4f-2aa78176df19")
+	)
+	(wire
+		(pts
+			(xy 313.69 215.9) (xy 325.12 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0bdb5f21-c60a-4b69-84e2-9c187cf4f52e")
+	)
+	(wire
+		(pts
 			(xy 85.09 201.93) (xy 101.6 201.93)
 		)
 		(stroke
@@ -11421,7 +11515,7 @@
 	)
 	(wire
 		(pts
-			(xy 377.19 158.75) (xy 369.57 158.75)
+			(xy 381 158.75) (xy 378.46 158.75)
 		)
 		(stroke
 			(width 0)
@@ -11531,6 +11625,16 @@
 	)
 	(wire
 		(pts
+			(xy 85.09 50.8) (xy 97.79 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "13a179a1-f280-4a4a-8d41-9c1e37502b91")
+	)
+	(wire
+		(pts
 			(xy 58.42 107.95) (xy 58.42 106.68)
 		)
 		(stroke
@@ -11611,7 +11715,7 @@
 	)
 	(wire
 		(pts
-			(xy 359.41 147.32) (xy 369.57 147.32)
+			(xy 347.98 147.32) (xy 359.41 147.32)
 		)
 		(stroke
 			(width 0)
@@ -11698,6 +11802,16 @@
 			(type default)
 		)
 		(uuid "19664826-6459-44e6-ab78-c5eff6363585")
+	)
+	(wire
+		(pts
+			(xy 381 165.1) (xy 378.46 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1985915d-1c87-4265-a79e-4c7d9ba2b8dc")
 	)
 	(wire
 		(pts
@@ -11841,6 +11955,16 @@
 	)
 	(wire
 		(pts
+			(xy 55.88 46.99) (xy 68.58 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "21c6ceac-3a1d-400b-975f-eb7384781832")
+	)
+	(wire
+		(pts
 			(xy 284.48 50.8) (xy 288.29 50.8)
 		)
 		(stroke
@@ -11848,6 +11972,16 @@
 			(type default)
 		)
 		(uuid "2202dc75-0521-40bb-9082-c9ed8af0645a")
+	)
+	(wire
+		(pts
+			(xy 317.5 234.95) (xy 317.5 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "220b4248-e745-4364-b70c-0132f0265509")
 	)
 	(wire
 		(pts
@@ -12021,7 +12155,7 @@
 	)
 	(wire
 		(pts
-			(xy 326.39 226.06) (xy 326.39 227.33)
+			(xy 317.5 226.06) (xy 317.5 227.33)
 		)
 		(stroke
 			(width 0)
@@ -12128,6 +12262,16 @@
 			(type default)
 		)
 		(uuid "2e7ffb7b-b9df-4312-95e3-17e446c268d2")
+	)
+	(wire
+		(pts
+			(xy 308.61 215.9) (xy 308.61 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ea97ae9-2b49-4ab7-a57a-86418faa1af0")
 	)
 	(wire
 		(pts
@@ -12248,6 +12392,16 @@
 			(type default)
 		)
 		(uuid "337c370c-ab1d-46d0-bb2a-6dec1de06fe8")
+	)
+	(wire
+		(pts
+			(xy 378.46 158.75) (xy 378.46 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "339b92bf-c2da-4f93-8245-03d33ac5c56a")
 	)
 	(wire
 		(pts
@@ -12571,6 +12725,16 @@
 	)
 	(wire
 		(pts
+			(xy 340.36 227.33) (xy 340.36 226.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3edd01dd-01a6-415a-9ce2-24c903b41ede")
+	)
+	(wire
+		(pts
 			(xy 284.48 31.75) (xy 288.29 31.75)
 		)
 		(stroke
@@ -12591,13 +12755,23 @@
 	)
 	(wire
 		(pts
-			(xy 384.81 158.75) (xy 400.05 158.75)
+			(xy 388.62 158.75) (xy 391.16 158.75)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "3fc72144-fbd2-4479-a390-0bd76625a27c")
+	)
+	(wire
+		(pts
+			(xy 55.88 39.37) (xy 62.23 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "40c914c3-d795-4c84-b207-41a20206d3e2")
 	)
 	(wire
 		(pts
@@ -12768,16 +12942,6 @@
 			(type default)
 		)
 		(uuid "47664175-89f8-45be-89e5-2e8ee6c8bfd0")
-	)
-	(wire
-		(pts
-			(xy 311.15 212.09) (xy 311.15 218.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "488a2775-9e33-4d3e-8cc3-b8396be38317")
 	)
 	(wire
 		(pts
@@ -13061,6 +13225,16 @@
 	)
 	(wire
 		(pts
+			(xy 311.15 212.09) (xy 311.15 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53b856d7-e8c5-431a-bee4-20d8410cccea")
+	)
+	(wire
+		(pts
 			(xy 381 214.63) (xy 381 215.9)
 		)
 		(stroke
@@ -13201,7 +13375,7 @@
 	)
 	(wire
 		(pts
-			(xy 341.63 236.22) (xy 341.63 234.95)
+			(xy 351.79 237.49) (xy 351.79 236.22)
 		)
 		(stroke
 			(width 0)
@@ -13218,16 +13392,6 @@
 			(type default)
 		)
 		(uuid "5ba5fbb2-5d12-47ae-964a-7f271fc4ebc1")
-	)
-	(wire
-		(pts
-			(xy 308.61 231.14) (xy 297.18 231.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5bbca13a-92d9-491a-b945-b5d7f1a0317d")
 	)
 	(wire
 		(pts
@@ -13261,7 +13425,7 @@
 	)
 	(wire
 		(pts
-			(xy 326.39 234.95) (xy 337.82 234.95)
+			(xy 317.5 236.22) (xy 328.93 236.22)
 		)
 		(stroke
 			(width 0)
@@ -13491,13 +13655,13 @@
 	)
 	(wire
 		(pts
-			(xy 317.5 234.95) (xy 317.5 218.44)
+			(xy 85.09 43.18) (xy 97.79 43.18)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "67b5f5a7-29a6-408f-9944-831541543759")
+		(uuid "6715751f-c4e8-472b-bdfa-e597ddf030a2")
 	)
 	(wire
 		(pts
@@ -13601,16 +13765,6 @@
 	)
 	(wire
 		(pts
-			(xy 317.5 218.44) (xy 313.69 218.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6d303b2c-2e14-4faf-afee-57e5c0f59df2")
-	)
-	(wire
-		(pts
 			(xy 29.21 179.07) (xy 44.45 179.07)
 		)
 		(stroke
@@ -13658,6 +13812,16 @@
 			(type default)
 		)
 		(uuid "6fc5b51c-af70-4649-bea2-c3e9e354e10c")
+	)
+	(wire
+		(pts
+			(xy 328.93 234.95) (xy 328.93 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6fc7afce-1f68-41a5-8d5d-90f7f74c0460")
 	)
 	(wire
 		(pts
@@ -13728,16 +13892,6 @@
 			(type default)
 		)
 		(uuid "73f0e27a-f71f-462b-aa96-578c2ede2e9f")
-	)
-	(wire
-		(pts
-			(xy 308.61 220.98) (xy 308.61 222.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "74135bab-3713-4d51-9805-2d0b64524fd3")
 	)
 	(wire
 		(pts
@@ -13871,7 +14025,7 @@
 	)
 	(wire
 		(pts
-			(xy 341.63 234.95) (xy 337.82 234.95)
+			(xy 328.93 236.22) (xy 340.36 236.22)
 		)
 		(stroke
 			(width 0)
@@ -13881,7 +14035,7 @@
 	)
 	(wire
 		(pts
-			(xy 356.87 160.02) (xy 356.87 158.75)
+			(xy 347.98 160.02) (xy 347.98 158.75)
 		)
 		(stroke
 			(width 0)
@@ -13891,13 +14045,33 @@
 	)
 	(wire
 		(pts
-			(xy 325.12 220.98) (xy 325.12 214.63)
+			(xy 311.15 215.9) (xy 313.69 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e63eb08-f3c1-49b4-b4b1-d006cba865ab")
+	)
+	(wire
+		(pts
+			(xy 325.12 215.9) (xy 325.12 214.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "7e9874c0-9f3a-44cf-a286-d0a6b37fbc05")
+	)
+	(wire
+		(pts
+			(xy 313.69 212.09) (xy 313.69 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7ea8960b-4ce4-4b83-83dc-574df631f71b")
 	)
 	(wire
 		(pts
@@ -13948,6 +14122,16 @@
 			(type default)
 		)
 		(uuid "802e2314-b645-4c9e-8346-b0812db8cecf")
+	)
+	(wire
+		(pts
+			(xy 388.62 165.1) (xy 391.16 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80e6b666-b2d8-4feb-9ca9-53291a178d1b")
 	)
 	(wire
 		(pts
@@ -14008,6 +14192,26 @@
 			(type default)
 		)
 		(uuid "82936c8b-b56c-473f-92f1-d52bd29a8b0c")
+	)
+	(wire
+		(pts
+			(xy 391.16 158.75) (xy 406.4 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83f33c68-58b8-4c61-8339-a6a1d4a24691")
+	)
+	(wire
+		(pts
+			(xy 85.09 48.26) (xy 97.79 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "84553fea-985e-46cb-86a1-aa007aed8488")
 	)
 	(wire
 		(pts
@@ -14121,6 +14325,16 @@
 	)
 	(wire
 		(pts
+			(xy 85.09 45.72) (xy 97.79 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8937dee8-072a-4745-8cc1-bb52fb24f562")
+	)
+	(wire
+		(pts
 			(xy 247.65 129.54) (xy 247.65 132.08)
 		)
 		(stroke
@@ -14231,16 +14445,6 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 229.87) (xy 297.18 231.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8d2f5fbb-d22a-4bd2-b28f-03b228434a33")
-	)
-	(wire
-		(pts
 			(xy 149.86 81.28) (xy 168.91 81.28)
 		)
 		(stroke
@@ -14301,6 +14505,16 @@
 	)
 	(wire
 		(pts
+			(xy 359.41 167.64) (xy 359.41 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8f691079-ad0c-4cbf-babf-5efbe2acb64f")
+	)
+	(wire
+		(pts
 			(xy 247.65 187.96) (xy 247.65 190.5)
 		)
 		(stroke
@@ -14348,6 +14562,16 @@
 			(type default)
 		)
 		(uuid "90aa3f84-d8b5-4513-bca9-a09c27653f52")
+	)
+	(wire
+		(pts
+			(xy 68.58 38.1) (xy 68.58 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "90d6bc49-a41b-499c-bc01-01c67f8e8d27")
 	)
 	(wire
 		(pts
@@ -14471,23 +14695,13 @@
 	)
 	(wire
 		(pts
-			(xy 345.44 224.79) (xy 345.44 226.06)
+			(xy 351.79 224.79) (xy 351.79 226.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "9627dbee-a507-49b7-9ee5-6a067a732f81")
-	)
-	(wire
-		(pts
-			(xy 297.18 231.14) (xy 289.56 231.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "965e4b3c-7a2c-4006-bfba-228825f08963")
 	)
 	(wire
 		(pts
@@ -14521,13 +14735,13 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 220.98) (xy 297.18 222.25)
+			(xy 351.79 226.06) (xy 340.36 226.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "975bdf04-aced-4d29-809f-f3ce085c8d87")
+		(uuid "97268b0f-5d1a-49fe-9e79-1480a59b98d4")
 	)
 	(wire
 		(pts
@@ -14721,16 +14935,6 @@
 	)
 	(wire
 		(pts
-			(xy 311.15 218.44) (xy 313.69 218.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a2ad4a69-1774-4f3b-a5ec-1ef7ef4143d7")
-	)
-	(wire
-		(pts
 			(xy 392.43 226.06) (xy 392.43 223.52)
 		)
 		(stroke
@@ -14751,7 +14955,7 @@
 	)
 	(wire
 		(pts
-			(xy 308.61 220.98) (xy 325.12 220.98)
+			(xy 308.61 215.9) (xy 311.15 215.9)
 		)
 		(stroke
 			(width 0)
@@ -14788,6 +14992,16 @@
 			(type default)
 		)
 		(uuid "a3832487-7bc5-4808-86b8-fe4419cde477")
+	)
+	(wire
+		(pts
+			(xy 359.41 147.32) (xy 359.41 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a43bdff7-8171-46b9-b8e2-560c0a14bf30")
 	)
 	(wire
 		(pts
@@ -14831,7 +15045,17 @@
 	)
 	(wire
 		(pts
-			(xy 326.39 226.06) (xy 337.82 226.06)
+			(xy 378.46 158.75) (xy 369.57 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a62e47c8-c367-4f28-9bc1-7a25e7ffa8dd")
+	)
+	(wire
+		(pts
+			(xy 317.5 226.06) (xy 328.93 226.06)
 		)
 		(stroke
 			(width 0)
@@ -14918,6 +15142,16 @@
 			(type default)
 		)
 		(uuid "a90064f4-141b-471c-932f-106bae6216e2")
+	)
+	(wire
+		(pts
+			(xy 359.41 168.91) (xy 369.57 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a914b15f-f326-450e-a814-642093ae819a")
 	)
 	(wire
 		(pts
@@ -15018,26 +15252,6 @@
 			(type default)
 		)
 		(uuid "ac71a4b6-e12b-4237-b3fa-2b30ef667cac")
-	)
-	(wire
-		(pts
-			(xy 289.56 229.87) (xy 289.56 231.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "acf454da-bbdc-4f31-ac4c-0d8154ed5b7c")
-	)
-	(wire
-		(pts
-			(xy 313.69 212.09) (xy 313.69 218.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "acfa0735-d280-41ae-b011-de931c6447a4")
 	)
 	(wire
 		(pts
@@ -15151,7 +15365,17 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 226.06) (xy 345.44 226.06)
+			(xy 347.98 168.91) (xy 359.41 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0f7dbf7-a033-4233-bc29-c171ed829e15")
+	)
+	(wire
+		(pts
+			(xy 328.93 226.06) (xy 340.36 226.06)
 		)
 		(stroke
 			(width 0)
@@ -15211,7 +15435,7 @@
 	)
 	(wire
 		(pts
-			(xy 337.82 226.06) (xy 337.82 227.33)
+			(xy 328.93 226.06) (xy 328.93 227.33)
 		)
 		(stroke
 			(width 0)
@@ -15371,16 +15595,6 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 220.98) (xy 308.61 220.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bc90294f-50eb-4c3f-9b10-53febb828274")
-	)
-	(wire
-		(pts
 			(xy 166.37 160.02) (xy 166.37 162.56)
 		)
 		(stroke
@@ -15431,16 +15645,6 @@
 	)
 	(wire
 		(pts
-			(xy 308.61 229.87) (xy 308.61 231.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "be98e9a0-3649-4ec6-ae25-d1823e79094d")
-	)
-	(wire
-		(pts
 			(xy 83.82 167.64) (xy 91.44 167.64)
 		)
 		(stroke
@@ -15488,6 +15692,16 @@
 			(type default)
 		)
 		(uuid "c0e4b1c0-7396-4972-a8d2-486044ca18d6")
+	)
+	(wire
+		(pts
+			(xy 62.23 38.1) (xy 62.23 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c14d954a-094a-4b2a-80a7-4e964fff4596")
 	)
 	(wire
 		(pts
@@ -15821,7 +16035,7 @@
 	)
 	(wire
 		(pts
-			(xy 356.87 167.64) (xy 356.87 168.91)
+			(xy 347.98 167.64) (xy 347.98 168.91)
 		)
 		(stroke
 			(width 0)
@@ -15858,6 +16072,16 @@
 			(type default)
 		)
 		(uuid "d10a65eb-8bec-472f-93ef-fa59401469dc")
+	)
+	(wire
+		(pts
+			(xy 359.41 147.32) (xy 369.57 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d10dba7c-2b66-48fa-9464-99180daa0777")
 	)
 	(wire
 		(pts
@@ -16151,6 +16375,16 @@
 	)
 	(wire
 		(pts
+			(xy 391.16 158.75) (xy 391.16 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dfce1783-468d-416f-84c0-35b56cbc4da8")
+	)
+	(wire
+		(pts
 			(xy 166.37 134.62) (xy 166.37 137.16)
 		)
 		(stroke
@@ -16221,7 +16455,7 @@
 	)
 	(wire
 		(pts
-			(xy 317.5 234.95) (xy 326.39 234.95)
+			(xy 308.61 236.22) (xy 317.5 236.22)
 		)
 		(stroke
 			(width 0)
@@ -16391,6 +16625,16 @@
 	)
 	(wire
 		(pts
+			(xy 351.79 236.22) (xy 340.36 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9ce4688-3e34-4aee-9de4-59b3bc830a6b")
+	)
+	(wire
+		(pts
 			(xy 168.91 165.1) (xy 166.37 165.1)
 		)
 		(stroke
@@ -16461,6 +16705,16 @@
 	)
 	(wire
 		(pts
+			(xy 369.57 170.18) (xy 369.57 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ee7bf4cf-7afd-4651-af3b-c7df12bfe297")
+	)
+	(wire
+		(pts
 			(xy 106.68 114.3) (xy 133.35 114.3)
 		)
 		(stroke
@@ -16511,6 +16765,16 @@
 	)
 	(wire
 		(pts
+			(xy 351.79 236.22) (xy 351.79 234.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f1690ee9-b658-42e7-a2d1-38ab29e8ad4d")
+	)
+	(wire
+		(pts
 			(xy 247.65 223.52) (xy 247.65 241.3)
 		)
 		(stroke
@@ -16528,6 +16792,16 @@
 			(type default)
 		)
 		(uuid "f1dda68c-c2e2-495f-95dd-d426091813aa")
+	)
+	(wire
+		(pts
+			(xy 340.36 234.95) (xy 340.36 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f21bb1cf-2a18-43e4-8089-fe69a4ff4f61")
 	)
 	(wire
 		(pts
@@ -16671,7 +16945,7 @@
 	)
 	(wire
 		(pts
-			(xy 356.87 158.75) (xy 369.57 158.75)
+			(xy 347.98 158.75) (xy 369.57 158.75)
 		)
 		(stroke
 			(width 0)
@@ -16818,16 +17092,6 @@
 			(type default)
 		)
 		(uuid "fd59fbbe-c509-4930-8c25-f1d8abe32a57")
-	)
-	(wire
-		(pts
-			(xy 284.48 220.98) (xy 297.18 220.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fd86f502-ccc3-41ed-9886-c4a472cdc4d4")
 	)
 	(wire
 		(pts
@@ -17311,7 +17575,7 @@
 		(uuid "3c4a1e8e-b747-4f6f-a06a-024e484b53c4")
 	)
 	(label "VREF+"
-		(at 359.41 147.32 0)
+		(at 347.98 147.32 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18021,6 +18285,16 @@
 		)
 		(uuid "98caf31e-91c2-4bd8-b61b-c236f5a035bb")
 	)
+	(label "VCC"
+		(at 85.09 43.18 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9a1a8902-2f59-4863-9ab2-92e59be20b7b")
+	)
 	(label "USB_D+"
 		(at 337.82 158.75 180)
 		(effects
@@ -18072,7 +18346,7 @@
 		(uuid "9ec05682-7e6f-4d2e-a225-8e55e6624f53")
 	)
 	(label "AUD_IN_GND"
-		(at 400.05 158.75 180)
+		(at 406.4 158.75 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18181,6 +18455,16 @@
 		)
 		(uuid "b93fb1f8-e23c-4288-9735-15278b879da6")
 	)
+	(label "VREF+"
+		(at 85.09 48.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "be14907f-2014-408a-a5a8-e06ccbf2d861")
+	)
 	(label "USB_D-"
 		(at 379.73 48.26 180)
 		(effects
@@ -18251,6 +18535,16 @@
 		)
 		(uuid "c8d3ba4b-5301-4ede-9cbc-1750d1e16c73")
 	)
+	(label "VDDA"
+		(at 85.09 45.72 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c8dfd6f0-a01f-483c-be09-c3470963ba39")
+	)
 	(label "DEBUG_TX"
 		(at 264.16 99.06 180)
 		(effects
@@ -18290,6 +18584,16 @@
 			(justify left bottom)
 		)
 		(uuid "d1bf21da-b15c-424b-a357-a5769620447c")
+	)
+	(label "GND"
+		(at 85.09 50.8 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d4c8d8f2-7948-416e-85b1-dca39f5b21d6")
 	)
 	(label "DISPLAY_CS"
 		(at 102.87 248.92 180)
@@ -18653,7 +18957,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "01d89a6a-b1f9-4840-bab3-650cbffdddb1")
-		(property "Reference" "#PWR042"
+		(property "Reference" "#PWR041"
 			(at 389.89 149.86 0)
 			(effects
 				(font
@@ -18703,7 +19007,74 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR042")
+					(reference "#PWR041")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 97.79 43.18 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "03dfebb0-18c5-40cc-9cbf-b1a96f5c4d97")
+		(property "Reference" "TP1"
+			(at 102.87 43.18 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 102.87 44.4499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
+			(at 97.79 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 97.79 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 97.79 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "677b8e7d-31ae-461a-91de-b3099e2392d9")
+		)
+		(instances
+			(project ""
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "TP1")
 					(unit 1)
 				)
 			)
@@ -18735,7 +19106,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Bournes:PEC11L4115FS0020"
+		(property "Footprint" "Rotary_Encoder:RotaryEncoder_Bourns_Vertical_PEC12R-3x17F-Sxxxx"
 			(at 45.72 100.076 0)
 			(effects
 				(font
@@ -18744,7 +19115,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/813ba859aa39800d8985101ba93a9d0ddd989c2/pec12r.pdf"
 			(at 49.53 97.536 0)
 			(effects
 				(font
@@ -18762,7 +19133,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "PEC12R-4225F-S0024 "
 			(at 49.53 104.14 0)
 			(effects
 				(font
@@ -18790,6 +19161,72 @@
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
 					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 62.23 38.1 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "05a6069a-73e6-480e-8009-1232a22b6888")
+		(property "Reference" "#PWR09"
+			(at 62.23 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 62.23 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 62.23 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 62.23 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 62.23 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "320cf54b-9a13-4236-89b5-4af08a643c99")
+		)
+		(instances
+			(project ""
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "#PWR09")
 					(unit 1)
 				)
 			)
@@ -18969,7 +19406,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "064697b8-9a36-4a71-a610-ffe519f16b1a")
-		(property "Reference" "#PWR044"
+		(property "Reference" "#PWR043"
 			(at 392.43 227.33 0)
 			(effects
 				(font
@@ -19019,7 +19456,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR044")
+					(reference "#PWR043")
 					(unit 1)
 				)
 			)
@@ -19045,7 +19482,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" ".1u"
+		(property "Value" "0.1u"
 			(at 377.19 212.0899 0)
 			(effects
 				(font
@@ -19063,7 +19500,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 381 210.82 0)
 			(effects
 				(font
@@ -19081,7 +19518,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 381 210.82 0)
 			(effects
 				(font
@@ -19140,7 +19577,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://github.com/SimonMerrett/SOICbite"
 			(at 312.42 116.84 0)
 			(effects
 				(font
@@ -19158,7 +19595,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 312.42 116.84 0)
 			(effects
 				(font
@@ -19237,7 +19674,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/9397205c8be17179bbb473c130c80ff3e4804ff3/lmk107bj225kaht_ss.pdf"
 			(at 135.89 248.92 0)
 			(effects
 				(font
@@ -19255,7 +19692,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "LMK107BJ225KAHT"
 			(at 135.89 248.92 0)
 			(effects
 				(font
@@ -19289,7 +19726,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0fe41610-d131-4c33-b957-3182971f91c4")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR025"
 			(at 248.92 62.23 0)
 			(effects
 				(font
@@ -19339,7 +19776,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR023")
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -19356,7 +19793,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "11045377-38af-4fea-a695-c6e8c8b1d8c6")
-		(property "Reference" "C29"
+		(property "Reference" "C30"
 			(at 364.49 220.3449 0)
 			(effects
 				(font
@@ -19383,7 +19820,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/97b3b42f57b4b7ca0dcb4053d7e24cfc9cb3e2c6/lmk107bbj106kalt_ss.pdf"
 			(at 368.3 220.98 0)
 			(effects
 				(font
@@ -19401,7 +19838,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "LMK107BBJ106KALT"
 			(at 368.3 220.98 0)
 			(effects
 				(font
@@ -19419,7 +19856,7 @@
 		(instances
 			(project "effect-pedal_LOCAL_118574"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "C29")
+					(reference "C30")
 					(unit 1)
 				)
 			)
@@ -19460,7 +19897,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://github.com/SimonMerrett/SOICbite"
 			(at 312.42 96.52 0)
 			(effects
 				(font
@@ -19478,7 +19915,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 312.42 96.52 0)
 			(effects
 				(font
@@ -19546,7 +19983,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ4HCD2_Horizontal"
+		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ6HCD3_Horizontal"
 			(at 58.42 241.3 0)
 			(effects
 				(font
@@ -19555,7 +19992,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.neutrik.com/en/product/nj3fd-v"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/92dcaaf397de4010b6795e1437bcb1ba6b87645f/nmj6hcd3.pdf"
 			(at 58.42 241.3 0)
 			(effects
 				(font
@@ -19573,7 +20010,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "NMJ6HCD3"
 			(at 58.42 241.3 0)
 			(effects
 				(font
@@ -19676,7 +20113,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "153dfe3a-9d0f-46fd-82ef-40d4688739f1")
-		(property "Reference" "#PWR022"
+		(property "Reference" "#PWR024"
 			(at 224.79 48.26 0)
 			(effects
 				(font
@@ -19726,7 +20163,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR022")
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -19734,15 +20171,15 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 326.39 231.14 0)
+		(at 317.5 231.14 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "179c04b6-e3a0-4dbf-b107-9e154da88432")
-		(property "Reference" "C22"
-			(at 329.438 229.616 0)
+		(property "Reference" "C19"
+			(at 320.548 229.616 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19751,7 +20188,7 @@
 			)
 		)
 		(property "Value" "0.1u"
-			(at 329.438 232.156 0)
+			(at 320.548 232.156 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19760,7 +20197,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 327.3552 234.95 0)
+			(at 318.4652 234.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19768,8 +20205,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 326.39 231.14 0)
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
+			(at 317.5 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19778,7 +20215,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 326.39 231.14 0)
+			(at 317.5 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19786,8 +20223,8 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
-			(at 326.39 231.14 0)
+		(property "Part" "GMK107BJ104MAHT"
+			(at 317.5 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19804,7 +20241,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "C22")
+					(reference "C19")
 					(unit 1)
 				)
 			)
@@ -19862,7 +20299,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 307.34 73.66 90)
 			(effects
 				(font
@@ -19896,7 +20333,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1cb9a50c-df7a-4871-ab76-03d612eeb74e")
-		(property "Reference" "C27"
+		(property "Reference" "C28"
 			(at 370.84 190.4999 0)
 			(effects
 				(font
@@ -19923,7 +20360,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/89a71613b039248f81c89b963b8ea577a338ea19/hmk107b7222kaht_ss.pdf"
 			(at 367.03 191.77 0)
 			(effects
 				(font
@@ -19941,7 +20378,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "HMK107B7222KAHT"
 			(at 367.03 191.77 0)
 			(effects
 				(font
@@ -19959,7 +20396,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "C27")
+					(reference "C28")
 					(unit 1)
 				)
 			)
@@ -19983,7 +20420,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 293.624 49.53 90)
 			(effects
 				(font
@@ -20001,7 +20438,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 292.1 50.8 0)
 			(effects
 				(font
@@ -20019,7 +20456,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 292.1 50.8 90)
 			(effects
 				(font
@@ -20053,7 +20490,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1dde962a-9c62-47d7-93b5-f71c8f13c209")
-		(property "Reference" "#PWR012"
+		(property "Reference" "#PWR014"
 			(at 88.9 132.08 0)
 			(effects
 				(font
@@ -20103,7 +20540,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR012")
+					(reference "#PWR014")
 					(unit 1)
 				)
 			)
@@ -20135,7 +20572,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ4HCD2_Horizontal"
+		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ6HCD3_Horizontal"
 			(at 58.42 261.62 0)
 			(effects
 				(font
@@ -20144,7 +20581,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.neutrik.com/en/product/nj3fd-v"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/92dcaaf397de4010b6795e1437bcb1ba6b87645f/nmj6hcd3.pdf"
 			(at 58.42 261.62 0)
 			(effects
 				(font
@@ -20162,7 +20599,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "NMJ6HCD3"
 			(at 58.42 261.62 0)
 			(effects
 				(font
@@ -20184,6 +20621,73 @@
 			(project "effect-pedal_LOCAL_118574"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
 					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 97.79 45.72 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "270786b4-78d1-4308-9e03-19a5e1de7bed")
+		(property "Reference" "TP2"
+			(at 102.87 45.72 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 102.87 46.9899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
+			(at 97.79 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 97.79 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 97.79 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ecd95db3-e3b7-46e7-bf60-cd8835bfb37d")
+		)
+		(instances
+			(project "effect-pedal"
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "TP2")
 					(unit 1)
 				)
 			)
@@ -20276,7 +20780,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "299c7622-bea7-4e01-8bad-a67e73b87e0e")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR023"
 			(at 207.01 265.43 0)
 			(effects
 				(font
@@ -20326,7 +20830,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR021")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -20338,7 +20842,7 @@
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
-		(on_board yes)
+		(on_board no)
 		(dnp no)
 		(uuid "29b60ffe-5daa-4430-b2cc-0246779240f5")
 		(property "Reference" "J4"
@@ -20384,7 +20888,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 106.68 209.55 0)
 			(effects
 				(font
@@ -20439,7 +20943,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2d4f6e5b-5474-4a20-b380-b35b6cc6d42a")
-		(property "Reference" "#PWR010"
+		(property "Reference" "#PWR012"
 			(at 88.9 96.52 0)
 			(effects
 				(font
@@ -20489,7 +20993,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR010")
+					(reference "#PWR012")
 					(unit 1)
 				)
 			)
@@ -20530,7 +21034,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://github.com/SimonMerrett/SOICbite"
 			(at 312.42 135.89 0)
 			(effects
 				(font
@@ -20548,7 +21052,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 312.42 135.89 0)
 			(effects
 				(font
@@ -20616,7 +21120,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_USB:USB_C_Receptacle_GCT_USB4135-GF-A_6P_TopMnt_Horizontal"
+		(property "Footprint" ""
 			(at 332.74 48.26 0)
 			(effects
 				(font
@@ -20625,7 +21129,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/48b9372ed78b4386e3b46b6c327c2c6d468b8fba/2169900003_sd.pdf"
 			(at 332.74 48.26 0)
 			(effects
 				(font
@@ -20643,7 +21147,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "2169900002"
 			(at 328.93 48.26 0)
 			(effects
 				(font
@@ -20810,7 +21314,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.st.com/resource/en/datasheet/usblc6-2.pdf"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/a0f2be571114e5d3d9a5df77814c23cad8c94880/usblc6-2.pdf"
 			(at 364.49 56.515 0)
 			(effects
 				(font
@@ -20829,7 +21333,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "USBLC6-2SC6"
 			(at 363.22 48.26 0)
 			(effects
 				(font
@@ -20875,7 +21379,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3d1f44aa-2018-4279-9c0d-f7c27ad17781")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR016"
 			(at 124.46 66.04 0)
 			(effects
 				(font
@@ -20925,7 +21429,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR014")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -20949,7 +21453,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 237.744 52.07 90)
 			(effects
 				(font
@@ -20967,7 +21471,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 236.22 53.34 0)
 			(effects
 				(font
@@ -20985,7 +21489,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 236.22 53.34 90)
 			(effects
 				(font
@@ -21010,72 +21514,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:VCC")
-		(at 289.56 229.87 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3ed3efc5-ee15-4ce1-8aac-69f3b758d662")
-		(property "Reference" "#PWR028"
-			(at 289.56 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VCC"
-			(at 289.56 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 289.56 229.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 289.56 229.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 289.56 229.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "aedb5eda-2184-41ff-bcfd-fb131bb6d824")
-		)
-		(instances
-			(project "effect-pedal"
-				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR028")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 370.84 124.46 0)
 		(unit 1)
@@ -21085,7 +21523,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3ef724cf-f346-41fc-ad8e-1d4274241aaf")
-		(property "Reference" "#PWR040"
+		(property "Reference" "#PWR039"
 			(at 370.84 130.81 0)
 			(effects
 				(font
@@ -21135,7 +21573,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR040")
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -21320,7 +21758,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://github.com/SimonMerrett/SOICbite"
 			(at 312.42 153.67 0)
 			(effects
 				(font
@@ -21338,7 +21776,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 312.42 153.67 0)
 			(effects
 				(font
@@ -21435,7 +21873,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 120.65 179.07 0)
 			(effects
 				(font
@@ -21496,7 +21934,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.st.com/resource/en/datasheet/stm32h723zg.pdf"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/477e202ab1f9ec666b887e2508f03705f7ba6043/stm32h723ze.pdf"
 			(at 207.01 160.02 0)
 			(effects
 				(font
@@ -21514,7 +21952,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "STM32H723ZGT6TR"
 			(at 207.01 160.02 0)
 			(effects
 				(font
@@ -21995,7 +22433,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "48beadf8-0c11-4f85-aee1-a521c16d74c2")
-		(property "Reference" "#PWR013"
+		(property "Reference" "#PWR015"
 			(at 90.17 154.94 0)
 			(effects
 				(font
@@ -22045,7 +22483,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR013")
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
@@ -22053,7 +22491,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 341.63 236.22 0)
+		(at 351.79 237.49 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -22061,8 +22499,8 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4c9b770c-8502-4b61-bcc2-98be4d8b8a3e")
-		(property "Reference" "#PWR033"
-			(at 341.63 242.57 0)
+		(property "Reference" "#PWR035"
+			(at 351.79 243.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22071,7 +22509,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 341.63 240.03 0)
+			(at 351.79 241.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22079,7 +22517,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 341.63 236.22 0)
+			(at 351.79 237.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22088,7 +22526,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 341.63 236.22 0)
+			(at 351.79 237.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22097,7 +22535,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 341.63 236.22 0)
+			(at 351.79 237.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22111,7 +22549,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR033")
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -22204,7 +22642,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4f6d519d-1b97-4664-8cad-a0dd99e76ffc")
-		(property "Reference" "#PWR020"
+		(property "Reference" "#PWR022"
 			(at 187.96 48.26 0)
 			(effects
 				(font
@@ -22254,7 +22692,86 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR020")
+					(reference "#PWR022")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 359.41 163.83 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4fee7413-143a-4dc6-9011-1c983916bae3")
+		(property "Reference" "C27"
+			(at 363.22 162.5599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1u"
+			(at 363.22 165.0999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 358.4448 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/616e300eec918a276b65a8cc8dbba70f6d65bf92/jmk107bj105kaht_ss.pdf"
+			(at 359.41 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 359.41 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "JMK107BJ105KAHT"
+			(at 359.41 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5d96c8bb-5ca4-45af-8112-3d8a976dfc96")
+		)
+		(pin "2"
+			(uuid "57d347cd-9cde-4b97-b970-91dbc1bac219")
+		)
+		(instances
+			(project "effect-pedal"
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "C27")
 					(unit 1)
 				)
 			)
@@ -22278,7 +22795,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 270.764 55.88 90)
 			(effects
 				(font
@@ -22296,7 +22813,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 269.24 57.15 0)
 			(effects
 				(font
@@ -22314,7 +22831,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 269.24 57.15 90)
 			(effects
 				(font
@@ -22348,7 +22865,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "527a0343-aad2-4663-8215-aff5d195aa03")
-		(property "Reference" "C25"
+		(property "Reference" "C26"
 			(at 358.14 190.4999 0)
 			(effects
 				(font
@@ -22375,7 +22892,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/89a71613b039248f81c89b963b8ea577a338ea19/hmk107b7222kaht_ss.pdf"
 			(at 354.33 191.77 0)
 			(effects
 				(font
@@ -22393,7 +22910,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "HMK107B7222KAHT"
 			(at 354.33 191.77 0)
 			(effects
 				(font
@@ -22411,7 +22928,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "C25")
+					(reference "C26")
 					(unit 1)
 				)
 			)
@@ -22472,7 +22989,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 369.57 163.83 0)
 			(effects
 				(font
@@ -22533,7 +23050,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/9397205c8be17179bbb473c130c80ff3e4804ff3/lmk107bj225kaht_ss.pdf"
 			(at 124.46 248.92 0)
 			(effects
 				(font
@@ -22551,7 +23068,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "LMK107BJ225KAHT"
 			(at 124.46 248.92 0)
 			(effects
 				(font
@@ -22662,7 +23179,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "57e0be29-aa97-427b-b294-9d93b79a2f10")
-		(property "Reference" "#PWR043"
+		(property "Reference" "#PWR042"
 			(at 392.43 58.42 0)
 			(effects
 				(font
@@ -22712,7 +23229,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR043")
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
@@ -22770,7 +23287,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 345.44 186.69 90)
 			(effects
 				(font
@@ -22849,7 +23366,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 138.43 50.8 0)
 			(effects
 				(font
@@ -22868,6 +23385,73 @@
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
 					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 97.79 50.8 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5cf1e6e9-3cc6-449d-9bcc-2132743a6a40")
+		(property "Reference" "TP4"
+			(at 102.87 50.8 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 102.87 52.0699 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
+			(at 97.79 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 97.79 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 97.79 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dc1f10fa-72bc-48df-b7f1-3d291177ed99")
+		)
+		(instances
+			(project "effect-pedal"
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "TP4")
 					(unit 1)
 				)
 			)
@@ -22949,7 +23533,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "66458142-85d9-487e-b8af-4cdad460c777")
-		(property "Reference" "C23"
+		(property "Reference" "C22"
 			(at 334.01 194.3099 0)
 			(effects
 				(font
@@ -22976,7 +23560,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/9397205c8be17179bbb473c130c80ff3e4804ff3/lmk107bj225kaht_ss.pdf"
 			(at 330.2 195.58 0)
 			(effects
 				(font
@@ -22994,7 +23578,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "LMK107BJ225KAHT"
 			(at 330.2 195.58 0)
 			(effects
 				(font
@@ -23012,7 +23596,7 @@
 		(instances
 			(project "effect-pedal_LOCAL_118574"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "C23")
+					(reference "C22")
 					(unit 1)
 				)
 			)
@@ -23136,7 +23720,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 336.55 184.15 90)
 			(effects
 				(font
@@ -23281,7 +23865,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "PCM5102AQPWRQ1"
 			(at 311.15 194.31 0)
 			(effects
 				(font
@@ -23361,15 +23945,15 @@
 	)
 	(symbol
 		(lib_id "Device:C_Polarized_US")
-		(at 337.82 231.14 0)
+		(at 340.36 231.14 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "70dbdff8-f733-4d41-9561-0923480eb26d")
-		(property "Reference" "C24"
-			(at 341.376 229.616 0)
+		(property "Reference" "C23"
+			(at 343.916 229.616 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23378,7 +23962,7 @@
 			)
 		)
 		(property "Value" "10u"
-			(at 341.376 232.156 0)
+			(at 343.916 232.156 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23387,7 +23971,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 337.82 231.14 0)
+			(at 340.36 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23395,8 +23979,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 337.82 231.14 0)
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/97b3b42f57b4b7ca0dcb4053d7e24cfc9cb3e2c6/lmk107bbj106kalt_ss.pdf"
+			(at 340.36 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23405,7 +23989,7 @@
 			)
 		)
 		(property "Description" "Polarized capacitor, US symbol"
-			(at 337.82 231.14 0)
+			(at 340.36 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23413,8 +23997,8 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
-			(at 337.82 231.14 0)
+		(property "Part" "LMK107BBJ106KALT"
+			(at 340.36 231.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23431,7 +24015,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "C24")
+					(reference "C23")
 					(unit 1)
 				)
 			)
@@ -23447,7 +24031,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "78a10e31-a305-44fb-b2c5-5d96f5cfb97e")
-		(property "Reference" "#PWR037"
+		(property "Reference" "#PWR036"
 			(at 363.22 64.77 0)
 			(effects
 				(font
@@ -23497,7 +24081,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR037")
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -23810,7 +24394,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7bd6b80e-f9e5-4969-bbdf-a860c0601af7")
-		(property "Reference" "#PWR025"
+		(property "Reference" "#PWR027"
 			(at 276.86 72.39 0)
 			(effects
 				(font
@@ -23860,7 +24444,74 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR025")
+					(reference "#PWR027")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 97.79 48.26 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7da3beca-49f5-49b3-b310-d0cf05538530")
+		(property "Reference" "TP3"
+			(at 102.87 48.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 102.87 49.5299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
+			(at 97.79 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 97.79 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 97.79 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8ec2d7df-f4ec-461f-87ed-e423b5bda8c2")
+		)
+		(instances
+			(project "effect-pedal"
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "TP3")
 					(unit 1)
 				)
 			)
@@ -23921,7 +24572,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 130.81 157.48 0)
 			(effects
 				(font
@@ -23952,7 +24603,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8435431e-fbaf-4f5c-b874-bb58d5392d32")
 		(property "Reference" "C1"
@@ -23980,7 +24631,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/e72c36e9e58da272e03d2b8bdc15e97b0c636618/c0gnp0kgm.pdf"
 			(at 97.79 114.3 0)
 			(effects
 				(font
@@ -23998,7 +24649,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "KGM15ACG1E100KT"
 			(at 97.79 114.3 90)
 			(effects
 				(font
@@ -24040,7 +24691,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 270.764 49.53 90)
 			(effects
 				(font
@@ -24058,7 +24709,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 269.24 50.8 0)
 			(effects
 				(font
@@ -24076,7 +24727,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 269.24 50.8 90)
 			(effects
 				(font
@@ -24118,7 +24769,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 270.764 43.18 90)
 			(effects
 				(font
@@ -24136,7 +24787,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 269.24 44.45 0)
 			(effects
 				(font
@@ -24154,7 +24805,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 269.24 44.45 90)
 			(effects
 				(font
@@ -24204,7 +24855,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Bournes:PEC11L4115FS0020"
+		(property "Footprint" "Rotary_Encoder:RotaryEncoder_Bourns_Vertical_PEC12R-3x17F-Sxxxx"
 			(at 45.72 119.126 0)
 			(effects
 				(font
@@ -24213,7 +24864,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/813ba859aa39800d8985101ba93a9d0ddd989c2/pec12r.pdf"
 			(at 49.53 116.586 0)
 			(effects
 				(font
@@ -24231,7 +24882,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "PEC12R-4225F-S0024 "
 			(at 49.53 123.19 0)
 			(effects
 				(font
@@ -24397,7 +25048,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 381 158.75 90)
+		(at 384.81 158.75 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -24405,16 +25056,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "89da7996-06db-4557-b4b9-aedd915bd212")
-		(property "Reference" "C30"
-			(at 381 151.13 90)
+		(property "Reference" "C33"
+			(at 384.81 151.13 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "15u"
-			(at 381 153.67 90)
+		(property "Value" "10u"
+			(at 384.81 153.67 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24422,7 +25073,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 384.81 157.7848 0)
+			(at 388.62 157.7848 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24430,8 +25081,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 381 158.75 0)
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/97b3b42f57b4b7ca0dcb4053d7e24cfc9cb3e2c6/lmk107bbj106kalt_ss.pdf"
+			(at 384.81 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24440,7 +25091,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 381 158.75 0)
+			(at 384.81 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24448,8 +25099,8 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
-			(at 381 158.75 90)
+		(property "Part" "LMK107BBJ106KALT"
+			(at 384.81 158.75 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24466,7 +25117,7 @@
 		(instances
 			(project "effect-pedal_LOCAL_118574"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "C30")
+					(reference "C33")
 					(unit 1)
 				)
 			)
@@ -24498,7 +25149,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Bournes:PEC11L4115FS0020"
+		(property "Footprint" "Rotary_Encoder:RotaryEncoder_Bourns_Vertical_PEC12R-3x17F-Sxxxx"
 			(at 45.72 139.446 0)
 			(effects
 				(font
@@ -24507,7 +25158,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/813ba859aa39800d8985101ba93a9d0ddd989c2/pec12r.pdf"
 			(at 49.53 136.906 0)
 			(effects
 				(font
@@ -24525,7 +25176,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "PEC12R-4225F-S0024 "
 			(at 49.53 143.51 0)
 			(effects
 				(font
@@ -24595,7 +25246,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/7cf5b115bc39ef1d3976a221d3a0b7971fd41a67/28qblp631_series.pdf"
 			(at 130.81 177.8 0)
 			(effects
 				(font
@@ -24622,7 +25273,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "QBLP631-R "
 			(at 130.81 177.8 90)
 			(effects
 				(font
@@ -24780,7 +25431,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/616e300eec918a276b65a8cc8dbba70f6d65bf92/jmk107bj105kaht_ss.pdf"
 			(at 236.22 46.99 0)
 			(effects
 				(font
@@ -24798,7 +25449,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "JMK107BJ105KAHT"
 			(at 236.22 46.99 90)
 			(effects
 				(font
@@ -24833,7 +25484,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "91816ec5-ff23-4b20-bc6c-4adf8ee1c106")
-		(property "Reference" "#PWR019"
+		(property "Reference" "#PWR021"
 			(at 170.18 60.96 0)
 			(effects
 				(font
@@ -24883,7 +25534,85 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR019")
+					(reference "#PWR021")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 328.93 231.14 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "91ef2c35-b84a-4643-a44e-32f177ad67ab")
+		(property "Reference" "C21"
+			(at 331.978 229.616 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1u"
+			(at 331.978 232.156 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 329.8952 234.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
+			(at 328.93 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 328.93 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "GMK107BJ104MAHT"
+			(at 328.93 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "ebb5fa2f-e0b3-4fd4-92a3-56f18815e0e6")
+		)
+		(pin "1"
+			(uuid "a344b69f-0a8d-4d1c-9daf-a9e9e08e987e")
+		)
+		(instances
+			(project "effect-pedal"
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "C21")
 					(unit 1)
 				)
 			)
@@ -24899,7 +25628,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "93b07804-727f-4c67-b7ab-88dda370c9e2")
-		(property "Reference" "#PWR041"
+		(property "Reference" "#PWR040"
 			(at 387.35 234.95 0)
 			(effects
 				(font
@@ -24949,7 +25678,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR041")
+					(reference "#PWR040")
 					(unit 1)
 				)
 			)
@@ -24965,7 +25694,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "98b5e17a-81e1-4051-9480-f9fee744086d")
-		(property "Reference" "#PWR011"
+		(property "Reference" "#PWR013"
 			(at 88.9 116.84 0)
 			(effects
 				(font
@@ -25015,7 +25744,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR011")
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)
@@ -25073,7 +25802,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 83.82 251.46 0)
 			(effects
 				(font
@@ -25125,7 +25854,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9bfb2bca-82a8-404c-a3db-38776cc01b14")
-		(property "Reference" "#PWR018"
+		(property "Reference" "#PWR020"
 			(at 166.37 269.24 0)
 			(effects
 				(font
@@ -25175,7 +25904,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR018")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -25207,7 +25936,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_0603_1608Metric"
+		(property "Footprint" "Inductor_SMD:L_1206_3216Metric"
 			(at 201.93 55.118 90)
 			(effects
 				(font
@@ -25216,7 +25945,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/6189e9b1c6dd152fa2e0e7a0e083e3e52963238b/czp.pdf"
 			(at 201.93 53.34 0)
 			(effects
 				(font
@@ -25234,7 +25963,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "CZP2BFTTE601P"
 			(at 201.93 53.34 90)
 			(effects
 				(font
@@ -25432,7 +26161,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a2c6f5ac-71ac-4211-9475-aec529293aee")
-		(property "Reference" "#PWR026"
+		(property "Reference" "#PWR028"
 			(at 284.48 35.56 0)
 			(effects
 				(font
@@ -25482,73 +26211,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR026")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 356.87 168.91 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a3326f9d-b19d-4159-af7e-af0be12f7bf0")
-		(property "Reference" "#PWR036"
-			(at 356.87 175.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 356.87 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 356.87 168.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 356.87 168.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 356.87 168.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "84ae9c5f-e4d9-454f-81bb-0f1a84b801ab")
-		)
-		(instances
-			(project ""
-				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR036")
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -25564,7 +26227,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a6ded841-4fce-4787-babc-4a2b2d7a3b20")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR019"
 			(at 138.43 46.99 0)
 			(effects
 				(font
@@ -25614,7 +26277,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR017")
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -25630,7 +26293,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a75933e8-ba40-45a4-8c91-e873a6782b01")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR011"
 			(at 88.9 81.28 0)
 			(effects
 				(font
@@ -25680,7 +26343,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR09")
+					(reference "#PWR011")
 					(unit 1)
 				)
 			)
@@ -25696,7 +26359,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a7b55702-8d18-4fe2-9e41-37c2e5602e0f")
-		(property "Reference" "#PWR024"
+		(property "Reference" "#PWR026"
 			(at 261.62 35.56 0)
 			(effects
 				(font
@@ -25746,7 +26409,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR024")
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)
@@ -25770,7 +26433,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 270.764 30.48 90)
 			(effects
 				(font
@@ -25788,7 +26451,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 269.24 31.75 0)
 			(effects
 				(font
@@ -25806,7 +26469,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 269.24 31.75 90)
 			(effects
 				(font
@@ -25839,7 +26502,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a97bda9b-18b7-4ef3-9315-31f1855972b6")
-		(property "Reference" "C21"
+		(property "Reference" "C20"
 			(at 330.2 209.55 0)
 			(effects
 				(font
@@ -25864,7 +26527,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/9397205c8be17179bbb473c130c80ff3e4804ff3/lmk107bj225kaht_ss.pdf"
 			(at 325.12 210.82 0)
 			(effects
 				(font
@@ -25882,7 +26545,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "LMK107BJ225KAHT"
 			(at 325.12 210.82 0)
 			(effects
 				(font
@@ -25900,7 +26563,7 @@
 		(instances
 			(project "effect-pedal_LOCAL_118574"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "C21")
+					(reference "C20")
 					(unit 1)
 				)
 			)
@@ -25924,7 +26587,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 293.624 36.83 90)
 			(effects
 				(font
@@ -25942,7 +26605,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 292.1 38.1 0)
 			(effects
 				(font
@@ -25960,7 +26623,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 292.1 38.1 90)
 			(effects
 				(font
@@ -26039,7 +26702,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 102.87 157.48 0)
 			(effects
 				(font
@@ -26058,6 +26721,84 @@
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
 					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_US")
+		(at 351.79 231.14 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ac8a778d-c520-4908-bb29-c7bd2dd0ce88")
+		(property "Reference" "C25"
+			(at 355.346 229.616 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10u"
+			(at 355.346 232.156 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 351.79 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/97b3b42f57b4b7ca0dcb4053d7e24cfc9cb3e2c6/lmk107bbj106kalt_ss.pdf"
+			(at 351.79 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Polarized capacitor, US symbol"
+			(at 351.79 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "LMK107BBJ106KALT"
+			(at 351.79 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "f4c51bff-15ba-43bf-b1a2-3f71392b1d7d")
+		)
+		(pin "1"
+			(uuid "f431a8c2-b009-4d1c-8a65-4e0a29eb7ba5")
+		)
+		(instances
+			(project "effect-pedal"
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "C25")
 					(unit 1)
 				)
 			)
@@ -26118,7 +26859,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 382.27 45.72 0)
 			(effects
 				(font
@@ -26168,7 +26909,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Bournes:PEC11L4115FS0020"
+		(property "Footprint" "Rotary_Encoder:RotaryEncoder_Bourns_Vertical_PEC12R-3x17F-Sxxxx"
 			(at 45.72 78.486 0)
 			(effects
 				(font
@@ -26177,7 +26918,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/813ba859aa39800d8985101ba93a9d0ddd989c2/pec12r.pdf"
 			(at 49.53 75.946 0)
 			(effects
 				(font
@@ -26195,7 +26936,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "PEC12R-4225F-S0024 "
 			(at 49.53 82.55 0)
 			(effects
 				(font
@@ -26303,7 +27044,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b57b938f-c717-4f63-8389-6fbe9596813c")
-		(property "Reference" "TP1"
+		(property "Reference" "TP5"
 			(at 179.07 62.23 90)
 			(effects
 				(font
@@ -26363,7 +27104,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "TP1")
+					(reference "TP5")
 					(unit 1)
 				)
 			)
@@ -26379,7 +27120,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b5eeb42e-a2ca-489e-8711-7fbc1f470ade")
-		(property "Reference" "C28"
+		(property "Reference" "C29"
 			(at 364.49 209.55 0)
 			(effects
 				(font
@@ -26406,7 +27147,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/97b3b42f57b4b7ca0dcb4053d7e24cfc9cb3e2c6/lmk107bbj106kalt_ss.pdf"
 			(at 368.3 210.82 0)
 			(effects
 				(font
@@ -26424,7 +27165,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "LMK107BBJ106KALT"
 			(at 368.3 210.82 0)
 			(effects
 				(font
@@ -26442,7 +27183,7 @@
 		(instances
 			(project "effect-pedal_LOCAL_118574"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "C28")
+					(reference "C29")
 					(unit 1)
 				)
 			)
@@ -26484,7 +27225,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/616e300eec918a276b65a8cc8dbba70f6d65bf92/jmk107bj105kaht_ss.pdf"
 			(at 179.07 53.34 0)
 			(effects
 				(font
@@ -26502,7 +27243,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "JMK107BJ105KAHT"
 			(at 179.07 53.34 90)
 			(effects
 				(font
@@ -26544,7 +27285,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 293.624 30.48 90)
 			(effects
 				(font
@@ -26562,7 +27303,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 292.1 31.75 0)
 			(effects
 				(font
@@ -26580,7 +27321,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 292.1 31.75 90)
 			(effects
 				(font
@@ -26599,6 +27340,148 @@
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
 					(reference "C14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VDDA")
+		(at 68.58 38.1 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bac2ca4c-c96d-415a-b39b-af4bc07c7775")
+		(property "Reference" "#PWR010"
+			(at 68.58 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VDDA"
+			(at 68.58 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 68.58 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 68.58 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VDDA\""
+			(at 68.58 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2f9fc4d6-e204-4222-b093-2bcbc2e731ae")
+		)
+		(instances
+			(project ""
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 384.81 165.1 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "be0ba9e0-f657-4cbb-ae84-8e27f97dbc98")
+		(property "Reference" "C34"
+			(at 384.81 169.672 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "10u"
+			(at 384.81 172.212 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 388.62 164.1348 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/97b3b42f57b4b7ca0dcb4053d7e24cfc9cb3e2c6/lmk107bbj106kalt_ss.pdf"
+			(at 384.81 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 384.81 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part" "LMK107BBJ106KALT"
+			(at 384.81 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9d8f1787-fab4-4f3f-8a1e-a52b5c7b85f3")
+		)
+		(pin "2"
+			(uuid "78eb9b94-bd8c-4d9e-8eaf-9eeef247270c")
+		)
+		(instances
+			(project "effect-pedal"
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "C34")
 					(unit 1)
 				)
 			)
@@ -26672,7 +27555,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 369.57 168.91 0)
+		(at 369.57 170.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -26680,8 +27563,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bf802222-3d45-4cba-99ca-5f14453336f2")
-		(property "Reference" "#PWR038"
-			(at 369.57 175.26 0)
+		(property "Reference" "#PWR037"
+			(at 369.57 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26690,7 +27573,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 369.57 173.99 0)
+			(at 369.57 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26698,7 +27581,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 369.57 168.91 0)
+			(at 369.57 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26707,7 +27590,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 369.57 168.91 0)
+			(at 369.57 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26716,7 +27599,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 369.57 168.91 0)
+			(at 369.57 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26730,7 +27613,7 @@
 		(instances
 			(project "effect-pedal_LOCAL_118574"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR038")
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -26791,7 +27674,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 91.44 179.07 0)
 			(effects
 				(font
@@ -26870,7 +27753,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 166.37 257.81 0)
 			(effects
 				(font
@@ -27013,7 +27896,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 120.65 209.55 0)
 			(effects
 				(font
@@ -27059,84 +27942,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Polarized_US")
-		(at 297.18 226.06 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c8fb9946-08f6-4187-af1a-a7386bf7a277")
-		(property "Reference" "C19"
-			(at 300.482 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "10u"
-			(at 300.482 227.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 297.18 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 297.18 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Polarized capacitor, US symbol"
-			(at 297.18 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" ""
-			(at 297.18 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "7613c062-157d-403b-bcc2-e2a29b334ef5")
-		)
-		(pin "1"
-			(uuid "ead52749-68e9-480c-be3d-8b3c057b1f80")
-		)
-		(instances
-			(project "effect-pedal_LOCAL_118574"
-				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "C19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 130.81 186.69 0)
 		(unit 1)
@@ -27145,7 +27950,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "cea6c428-7a4e-4b4d-be66-667e722d73ef")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR017"
 			(at 130.81 193.04 0)
 			(effects
 				(font
@@ -27195,7 +28000,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR015")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -27208,7 +28013,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "cfdd1e4b-bf94-48e5-b977-b84071641acb")
 		(property "Reference" "C2"
 			(at 97.79 132.08 90)
@@ -27235,7 +28040,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/e72c36e9e58da272e03d2b8bdc15e97b0c636618/c0gnp0kgm.pdf"
 			(at 97.79 124.46 0)
 			(effects
 				(font
@@ -27253,7 +28058,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "KGM15ACG1E100KT"
 			(at 97.79 124.46 90)
 			(effects
 				(font
@@ -27297,7 +28102,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" ".1u"
+		(property "Value" "0.1u"
 			(at 377.19 222.2499 0)
 			(effects
 				(font
@@ -27315,7 +28120,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 381 220.98 0)
 			(effects
 				(font
@@ -27333,7 +28138,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 381 220.98 0)
 			(effects
 				(font
@@ -27375,7 +28180,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 270.764 62.23 90)
 			(effects
 				(font
@@ -27393,7 +28198,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 269.24 63.5 0)
 			(effects
 				(font
@@ -27411,7 +28216,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 269.24 63.5 90)
 			(effects
 				(font
@@ -27490,7 +28295,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 369.57 153.67 0)
 			(effects
 				(font
@@ -27612,7 +28417,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 293.624 55.88 90)
 			(effects
 				(font
@@ -27630,7 +28435,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 292.1 57.15 0)
 			(effects
 				(font
@@ -27648,7 +28453,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 292.1 57.15 90)
 			(effects
 				(font
@@ -27788,7 +28593,7 @@
 	)
 	(symbol
 		(lib_id "power:VCC")
-		(at 345.44 224.79 0)
+		(at 351.79 224.79 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -27797,8 +28602,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e7f694e8-18d0-45a2-a319-9d5d865dc416")
-		(property "Reference" "#PWR035"
-			(at 345.44 228.6 0)
+		(property "Reference" "#PWR034"
+			(at 351.79 228.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27807,7 +28612,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 345.44 219.71 0)
+			(at 351.79 219.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27815,7 +28620,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 345.44 224.79 0)
+			(at 351.79 224.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27824,7 +28629,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 345.44 224.79 0)
+			(at 351.79 224.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27833,7 +28638,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 345.44 224.79 0)
+			(at 351.79 224.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27847,72 +28652,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR035")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 284.48 220.98 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e921edbe-8efd-4f54-82ba-b6dbeaddfb81")
-		(property "Reference" "#PWR027"
-			(at 284.48 227.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 284.48 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 284.48 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 284.48 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 284.48 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3b3d91c0-626a-4eb7-9f14-0f7f63e45b3a")
-		)
-		(instances
-			(project "effect-pedal"
-				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR027")
+					(reference "#PWR034")
 					(unit 1)
 				)
 			)
@@ -27929,7 +28669,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e9970b27-247d-480f-80cf-fa314d76d9ae")
-		(property "Reference" "#PWR039"
+		(property "Reference" "#PWR038"
 			(at 370.84 88.9 0)
 			(effects
 				(font
@@ -27979,7 +28719,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR039")
+					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -28038,7 +28778,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 107.95 83.82 90)
 			(effects
 				(font
@@ -28064,7 +28804,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 356.87 163.83 180)
+		(at 347.98 163.83 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -28072,8 +28812,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ef6eb8f8-f84c-4e75-8d6a-2ce359b9bc86")
-		(property "Reference" "C26"
-			(at 360.68 162.5599 0)
+		(property "Reference" "C24"
+			(at 351.79 162.5599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28082,7 +28822,7 @@
 			)
 		)
 		(property "Value" "10n"
-			(at 360.68 165.0999 0)
+			(at 351.79 165.0999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28091,7 +28831,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 355.9048 160.02 0)
+			(at 347.0148 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28099,8 +28839,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 356.87 163.83 0)
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/7b635d058cc37036f35e570ce9a782e6d06f0e36/hmj107bb7103kaht_ss.pdf"
+			(at 347.98 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28109,7 +28849,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 356.87 163.83 0)
+			(at 347.98 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28117,8 +28857,8 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
-			(at 356.87 163.83 0)
+		(property "Part" "HMJ107BB7103KAHT"
+			(at 347.98 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28135,85 +28875,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "C26")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 308.61 226.06 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ef8d5933-9641-49b4-a0b1-c7b94298b4bd")
-		(property "Reference" "C20"
-			(at 311.912 224.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "0.1u"
-			(at 311.912 227.076 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 307.6448 222.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 308.61 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 308.61 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" ""
-			(at 308.61 226.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "948b45c6-d39e-41e5-974c-4f4fe681aae4")
-		)
-		(pin "2"
-			(uuid "7bab0f7b-5aa2-41dd-9ab1-725feca2a7f6")
-		)
-		(instances
-			(project "effect-pedal_LOCAL_118574"
-				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "C20")
+					(reference "C24")
 					(unit 1)
 				)
 			)
@@ -28237,7 +28899,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 293.624 43.18 90)
 			(effects
 				(font
@@ -28255,7 +28917,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 292.1 44.45 0)
 			(effects
 				(font
@@ -28273,7 +28935,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 292.1 44.45 90)
 			(effects
 				(font
@@ -28352,7 +29014,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "Generic"
 			(at 392.43 45.72 0)
 			(effects
 				(font
@@ -28385,7 +29047,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f3d19460-cc9f-4f91-b5ad-8e81b343f8b9")
-		(property "Reference" "#PWR034"
+		(property "Reference" "#PWR033"
 			(at 345.44 81.28 0)
 			(effects
 				(font
@@ -28435,7 +29097,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR034")
+					(reference "#PWR033")
 					(unit 1)
 				)
 			)
@@ -28451,7 +29113,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f8386648-673e-453b-99f5-2a124211a626")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR018"
 			(at 135.89 264.16 0)
 			(effects
 				(font
@@ -28501,7 +29163,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
-					(reference "#PWR016")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -28593,7 +29255,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "0.1u"
 			(at 270.764 36.83 90)
 			(effects
 				(font
@@ -28611,7 +29273,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/c37ccde02277915a8830da1bc30148835b3681d7/gmk107bj104maht_ss.pdf"
 			(at 269.24 38.1 0)
 			(effects
 				(font
@@ -28629,7 +29291,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "GMK107BJ104MAHT"
 			(at 269.24 38.1 90)
 			(effects
 				(font
@@ -28690,7 +29352,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/7cf5b115bc39ef1d3976a221d3a0b7971fd41a67/28qblp631_series.pdf"
 			(at 102.87 177.8 0)
 			(effects
 				(font
@@ -28717,7 +29379,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "QBLP631-R "
 			(at 102.87 177.8 90)
 			(effects
 				(font
@@ -28742,8 +29404,8 @@
 		)
 	)
 	(sheet
-		(at 37.592 32.766)
-		(size 41.91 20.32)
+		(at 33.655 32.766)
+		(size 22.225 20.32)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -28758,7 +29420,7 @@
 		)
 		(uuid "50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5")
 		(property "Sheetname" "Power"
-			(at 37.592 32.0544 0)
+			(at 33.655 32.0544 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28767,12 +29429,32 @@
 			)
 		)
 		(property "Sheetfile" "power.kicad_sch"
-			(at 37.592 53.6706 0)
+			(at 33.655 53.6706 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
+			)
+		)
+		(pin "VCC" input
+			(at 55.88 39.37 0)
+			(uuid "bdf11782-aa5d-4b46-acbb-e78278addc0e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "VDDA" input
+			(at 55.88 46.99 0)
+			(uuid "1cb20ff4-3427-4a6f-afdf-c9a47e514b6b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
