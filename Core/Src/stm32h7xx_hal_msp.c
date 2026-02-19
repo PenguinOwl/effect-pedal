@@ -25,6 +25,8 @@
 /* USER CODE END Includes */
 extern DMA_HandleTypeDef hdma_adc1;
 
+extern DMA_HandleTypeDef hdma_spi6_tx;
+
 extern DMA_HandleTypeDef hdma_spi2_tx;
 
 /* Private typedef -----------------------------------------------------------*/
@@ -307,6 +309,24 @@ void HAL_I2S_MspInit(I2S_HandleTypeDef* hi2s)
     GPIO_InitStruct.Alternate = GPIO_AF8_SPI6;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+    /* I2S6 DMA Init */
+    /* SPI6_TX Init */
+    hdma_spi6_tx.Instance = BDMA_Channel0;
+    hdma_spi6_tx.Init.Request = BDMA_REQUEST_SPI6_TX;
+    hdma_spi6_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+    hdma_spi6_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_spi6_tx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_spi6_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
+    hdma_spi6_tx.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
+    hdma_spi6_tx.Init.Mode = DMA_CIRCULAR;
+    hdma_spi6_tx.Init.Priority = DMA_PRIORITY_VERY_HIGH;
+    if (HAL_DMA_Init(&hdma_spi6_tx) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(hi2s,hdmatx,hdma_spi6_tx);
+
     /* USER CODE BEGIN SPI6_MspInit 1 */
 
     /* USER CODE END SPI6_MspInit 1 */
@@ -338,6 +358,8 @@ void HAL_I2S_MspDeInit(I2S_HandleTypeDef* hi2s)
     */
     HAL_GPIO_DeInit(GPIOA, EDAC_LRCLK_Pin|EDAC_BCLK_Pin|EDAC_DOUT_Pin);
 
+    /* I2S6 DMA DeInit */
+    HAL_DMA_DeInit(hi2s->hdmatx);
     /* USER CODE BEGIN SPI6_MspDeInit 1 */
 
     /* USER CODE END SPI6_MspDeInit 1 */
@@ -504,12 +526,12 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     PC1     ------> SPI2_MOSI
     PB10     ------> SPI2_SCK
     */
-    GPIO_InitStruct.Pin = DISPLAY_MOSI_Pin;
+    GPIO_InitStruct.Pin = DISPLAY_DATA_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
-    HAL_GPIO_Init(DISPLAY_MOSI_GPIO_Port, &GPIO_InitStruct);
+    HAL_GPIO_Init(DISPLAY_DATA_GPIO_Port, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = DISPLAY_SCK_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -568,7 +590,7 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
     PC1     ------> SPI2_MOSI
     PB10     ------> SPI2_SCK
     */
-    HAL_GPIO_DeInit(DISPLAY_MOSI_GPIO_Port, DISPLAY_MOSI_Pin);
+    HAL_GPIO_DeInit(DISPLAY_DATA_GPIO_Port, DISPLAY_DATA_Pin);
 
     HAL_GPIO_DeInit(DISPLAY_SCK_GPIO_Port, DISPLAY_SCK_Pin);
 
@@ -685,61 +707,88 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
 }
 
 /**
-  * @brief PCD MSP Initialization
+  * @brief UART MSP Initialization
   * This function configures the hardware resources used in this example
-  * @param hpcd: PCD handle pointer
+  * @param huart: UART handle pointer
   * @retval None
   */
-void HAL_PCD_MspInit(PCD_HandleTypeDef* hpcd)
+void HAL_UART_MspInit(UART_HandleTypeDef* huart)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
-  if(hpcd->Instance==USB_OTG_HS)
+  if(huart->Instance==USART1)
   {
-    /* USER CODE BEGIN USB_OTG_HS_MspInit 0 */
+    /* USER CODE BEGIN USART1_MspInit 0 */
 
-    /* USER CODE END USB_OTG_HS_MspInit 0 */
+    /* USER CODE END USART1_MspInit 0 */
 
   /** Initializes the peripherals clock
   */
-    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USB;
-    PeriphClkInitStruct.UsbClockSelection = RCC_USBCLKSOURCE_HSI48;
+    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART1;
+    PeriphClkInitStruct.Usart16ClockSelection = RCC_USART16910CLKSOURCE_D2PCLK2;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
     {
       Error_Handler();
     }
 
-  /** Enable USB Voltage detector
-  */
-    HAL_PWREx_EnableUSBVoltageDetector();
-
     /* Peripheral clock enable */
-    __HAL_RCC_USB_OTG_HS_CLK_ENABLE();
-    /* USER CODE BEGIN USB_OTG_HS_MspInit 1 */
+    __HAL_RCC_USART1_CLK_ENABLE();
 
-    /* USER CODE END USB_OTG_HS_MspInit 1 */
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    /**USART1 GPIO Configuration
+    PA10     ------> USART1_RX
+    PB6     ------> USART1_TX
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_10;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_6;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /* USER CODE BEGIN USART1_MspInit 1 */
+
+    /* USER CODE END USART1_MspInit 1 */
 
   }
 
 }
 
 /**
-  * @brief PCD MSP De-Initialization
+  * @brief UART MSP De-Initialization
   * This function freeze the hardware resources used in this example
-  * @param hpcd: PCD handle pointer
+  * @param huart: UART handle pointer
   * @retval None
   */
-void HAL_PCD_MspDeInit(PCD_HandleTypeDef* hpcd)
+void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
 {
-  if(hpcd->Instance==USB_OTG_HS)
+  if(huart->Instance==USART1)
   {
-    /* USER CODE BEGIN USB_OTG_HS_MspDeInit 0 */
+    /* USER CODE BEGIN USART1_MspDeInit 0 */
 
-    /* USER CODE END USB_OTG_HS_MspDeInit 0 */
+    /* USER CODE END USART1_MspDeInit 0 */
     /* Peripheral clock disable */
-    __HAL_RCC_USB_OTG_HS_CLK_DISABLE();
-    /* USER CODE BEGIN USB_OTG_HS_MspDeInit 1 */
+    __HAL_RCC_USART1_CLK_DISABLE();
 
-    /* USER CODE END USB_OTG_HS_MspDeInit 1 */
+    /**USART1 GPIO Configuration
+    PA10     ------> USART1_RX
+    PB6     ------> USART1_TX
+    */
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_10);
+
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_6);
+
+    /* USER CODE BEGIN USART1_MspDeInit 1 */
+
+    /* USER CODE END USART1_MspDeInit 1 */
   }
 
 }

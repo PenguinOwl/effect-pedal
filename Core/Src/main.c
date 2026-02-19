@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -51,6 +52,7 @@ DMA_HandleTypeDef hdma_adc1;
 DAC_HandleTypeDef hdac1;
 
 I2S_HandleTypeDef hi2s6;
+DMA_HandleTypeDef hdma_spi6_tx;
 
 OPAMP_HandleTypeDef hopamp1;
 OPAMP_HandleTypeDef hopamp2;
@@ -62,7 +64,7 @@ TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
 
-PCD_HandleTypeDef hpcd_USB_OTG_HS;
+UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 uint32_t adc_buf[4];
@@ -83,6 +85,7 @@ void SystemClock_Config(void);
 static void MPU_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
+static void MX_BDMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_DAC1_Init(void);
@@ -91,8 +94,8 @@ static void MX_SPI2_Init(void);
 static void MX_OPAMP1_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
-static void MX_USB_OTG_HS_PCD_Init(void);
 static void MX_I2S6_Init(void);
+static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -111,13 +114,13 @@ uint16_t process_audio(uint32_t in) {
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
 	dac_buf[0] = process_audio(adc_buf[0]);
 	dac_buf[1] = process_audio(adc_buf[1]);
-	HAL_I2S_Transmit_DMA(&hi2s1, dac_buf, 2);
+	HAL_I2S_Transmit_DMA(&hi2s6, dac_buf, 2);
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 	dac_buf[2] = process_audio(adc_buf[2]);
 	dac_buf[3] = process_audio(adc_buf[3]);
-	HAL_I2S_Transmit_DMA(&hi2s1, dac_buf + 2, 2);
+	HAL_I2S_Transmit_DMA(&hi2s6, dac_buf + 2, 2);
 }
 
 void lcd_color_transfer_ready_cb(SPI_HandleTypeDef *hspi) {
@@ -239,6 +242,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
+  MX_BDMA_Init();
   MX_ADC1_Init();
   MX_TIM2_Init();
   MX_DAC1_Init();
@@ -247,8 +251,9 @@ int main(void)
   MX_OPAMP1_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
-  MX_USB_OTG_HS_PCD_Init();
   MX_I2S6_Init();
+  MX_USART1_UART_Init();
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 	HAL_OPAMP_SelfCalibrate(&hopamp1);
 	HAL_OPAMP_SelfCalibrate(&hopamp2);
@@ -529,7 +534,7 @@ static void MX_I2S6_Init(void)
   hi2s6.Init.Standard = I2S_STANDARD_PHILIPS;
   hi2s6.Init.DataFormat = I2S_DATAFORMAT_16B;
   hi2s6.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
-  hi2s6.Init.AudioFreq = I2S_AUDIOFREQ_44K;
+  hi2s6.Init.AudioFreq = I2S_AUDIOFREQ_48K;
   hi2s6.Init.CPOL = I2S_CPOL_LOW;
   hi2s6.Init.FirstBit = I2S_FIRSTBIT_MSB;
   hi2s6.Init.WSInversion = I2S_WS_INVERSION_DISABLE;
@@ -788,38 +793,66 @@ static void MX_TIM4_Init(void)
 }
 
 /**
-  * @brief USB_OTG_HS Initialization Function
+  * @brief USART1 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_USB_OTG_HS_PCD_Init(void)
+static void MX_USART1_UART_Init(void)
 {
 
-  /* USER CODE BEGIN USB_OTG_HS_Init 0 */
+  /* USER CODE BEGIN USART1_Init 0 */
 
-  /* USER CODE END USB_OTG_HS_Init 0 */
+  /* USER CODE END USART1_Init 0 */
 
-  /* USER CODE BEGIN USB_OTG_HS_Init 1 */
+  /* USER CODE BEGIN USART1_Init 1 */
 
-  /* USER CODE END USB_OTG_HS_Init 1 */
-  hpcd_USB_OTG_HS.Instance = USB_OTG_HS;
-  hpcd_USB_OTG_HS.Init.dev_endpoints = 9;
-  hpcd_USB_OTG_HS.Init.speed = PCD_SPEED_FULL;
-  hpcd_USB_OTG_HS.Init.dma_enable = DISABLE;
-  hpcd_USB_OTG_HS.Init.phy_itface = USB_OTG_EMBEDDED_PHY;
-  hpcd_USB_OTG_HS.Init.Sof_enable = DISABLE;
-  hpcd_USB_OTG_HS.Init.low_power_enable = DISABLE;
-  hpcd_USB_OTG_HS.Init.lpm_enable = DISABLE;
-  hpcd_USB_OTG_HS.Init.vbus_sensing_enable = DISABLE;
-  hpcd_USB_OTG_HS.Init.use_dedicated_ep1 = DISABLE;
-  hpcd_USB_OTG_HS.Init.use_external_vbus = DISABLE;
-  if (HAL_PCD_Init(&hpcd_USB_OTG_HS) != HAL_OK)
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN USB_OTG_HS_Init 2 */
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart1, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart1, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
 
-  /* USER CODE END USB_OTG_HS_Init 2 */
+  /* USER CODE END USART1_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_BDMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_BDMA_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* BDMA_Channel0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(BDMA_Channel0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(BDMA_Channel0_IRQn);
 
 }
 
@@ -865,16 +898,19 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOF, DISPLAY_DC_Pin|DISPLAY_RST_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOF, DISPLAY_BL_Pin|EDAC_FLT_Pin|EDAC_DEMP_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOF, DISPLAY_DC_Pin|DISPLAY_RST_Pin|EDAC_XSMT_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(DISPLAY_CS_GPIO_Port, DISPLAY_CS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(EDAC_FMT_GPIO_Port, EDAC_FMT_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(EDAC_SCK_GPIO_Port, EDAC_SCK_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOF, EDAC_XSMT_Pin|EDAC_FLT_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(EDAC_FMT_GPIO_Port, EDAC_FMT_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOG, LED_1_Pin|LED_2_Pin, GPIO_PIN_RESET);
@@ -905,12 +941,19 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : PF0 PF1 PF2 PF3
                            PF4 PF5 PF6 PF7
-                           PF8 PF13 PF14 PF15 */
+                           PF14 PF15 */
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3
                           |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7
-                          |GPIO_PIN_8|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
+                          |GPIO_PIN_14|GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : DISPLAY_BL_Pin EDAC_XSMT_Pin EDAC_FLT_Pin EDAC_DEMP_Pin */
+  GPIO_InitStruct.Pin = DISPLAY_BL_Pin|EDAC_XSMT_Pin|EDAC_FLT_Pin|EDAC_DEMP_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
   /*Configure GPIO pin : DISPLAY_DC_Pin */
@@ -934,20 +977,25 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(DISPLAY_CS_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA1 PA2 PA3 PA8
-                           PA9 PA10 PA15 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_8
-                          |GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_15;
+  /*Configure GPIO pins : PA1 PA2 PA8 PA9
+                           PA15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_8|GPIO_PIN_9
+                          |GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB1 PB11 PB12 PB3
-                           PB4 PB5 PB6 PB7
-                           PB8 PB9 */
-  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_3
-                          |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7
-                          |GPIO_PIN_8|GPIO_PIN_9;
+  /*Configure GPIO pin : EDAC_SCK_Pin */
+  GPIO_InitStruct.Pin = EDAC_SCK_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(EDAC_SCK_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB1 PB11 PB12 PB4
+                           PB5 PB7 PB8 PB9 */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_4
+                          |GPIO_PIN_5|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -958,13 +1006,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(EDAC_FMT_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : EDAC_XSMT_Pin EDAC_FLT_Pin */
-  GPIO_InitStruct.Pin = EDAC_XSMT_Pin|EDAC_FLT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PG0 PG1 PG7 PG8
                            PG9 PG10 PG11 PG12
@@ -982,10 +1023,16 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : ENC3_B_Pin ENC3_R_Pin ENC3_L_Pin ENC2_B_Pin
-                           ENC2_R_Pin ENC2_L_Pin */
-  GPIO_InitStruct.Pin = ENC3_B_Pin|ENC3_R_Pin|ENC3_L_Pin|ENC2_B_Pin
-                          |ENC2_R_Pin|ENC2_L_Pin;
+  /*Configure GPIO pin : PD8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : ENC3_R_Pin ENC3_L_Pin ENC2_B_Pin ENC2_R_Pin
+                           ENC2_L_Pin */
+  GPIO_InitStruct.Pin = ENC3_R_Pin|ENC3_L_Pin|ENC2_B_Pin|ENC2_R_Pin
+                          |ENC2_L_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);

@@ -53,20 +53,24 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+void update_text(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define DISPLAY_BL_Pin GPIO_PIN_8
+#define DISPLAY_BL_GPIO_Port GPIOF
 #define DISPLAY_DC_Pin GPIO_PIN_9
 #define DISPLAY_DC_GPIO_Port GPIOF
 #define DISPLAY_RST_Pin GPIO_PIN_10
 #define DISPLAY_RST_GPIO_Port GPIOF
 #define DISPLAY_CS_Pin GPIO_PIN_0
 #define DISPLAY_CS_GPIO_Port GPIOC
-#define DISPLAY_MOSI_Pin GPIO_PIN_1
-#define DISPLAY_MOSI_GPIO_Port GPIOC
+#define DISPLAY_DATA_Pin GPIO_PIN_1
+#define DISPLAY_DATA_GPIO_Port GPIOC
 #define EDAC_LRCLK_Pin GPIO_PIN_0
 #define EDAC_LRCLK_GPIO_Port GPIOA
+#define EDAC_SCK_Pin GPIO_PIN_3
+#define EDAC_SCK_GPIO_Port GPIOA
 #define EDAC_BCLK_Pin GPIO_PIN_5
 #define EDAC_BCLK_GPIO_Port GPIOA
 #define EDAC_DOUT_Pin GPIO_PIN_7
@@ -77,6 +81,8 @@ void Error_Handler(void);
 #define EDAC_XSMT_GPIO_Port GPIOF
 #define EDAC_FLT_Pin GPIO_PIN_12
 #define EDAC_FLT_GPIO_Port GPIOF
+#define EDAC_DEMP_Pin GPIO_PIN_13
+#define EDAC_DEMP_GPIO_Port GPIOF
 #define DISPLAY_SCK_Pin GPIO_PIN_10
 #define DISPLAY_SCK_GPIO_Port GPIOB
 #define ENC4_B_Pin GPIO_PIN_13
@@ -85,8 +91,6 @@ void Error_Handler(void);
 #define ENC4_R_GPIO_Port GPIOB
 #define ENC4_L_Pin GPIO_PIN_15
 #define ENC4_L_GPIO_Port GPIOB
-#define ENC3_B_Pin GPIO_PIN_8
-#define ENC3_B_GPIO_Port GPIOD
 #define ENC3_R_Pin GPIO_PIN_9
 #define ENC3_R_GPIO_Port GPIOD
 #define ENC3_L_Pin GPIO_PIN_10
