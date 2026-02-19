@@ -11,9 +11,9 @@
 		(company "ECE 212 Group 2")
 	)
 	(lib_symbols
-		(symbol "Connector:Barrel_Jack"
+		(symbol "Connector:Barrel_Jack_Switch"
 			(pin_names
-				(offset 1.016)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -26,7 +26,7 @@
 					)
 				)
 			)
-			(property "Value" "Barrel_Jack"
+			(property "Value" "Barrel_Jack_Switch"
 				(at 0 -5.08 0)
 				(effects
 					(font
@@ -52,7 +52,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "DC Barrel Jack"
+			(property "Description" "DC Barrel Jack with an internal switch"
 				(at 0 0 0)
 				(effects
 					(font
@@ -79,7 +79,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "Barrel_Jack_0_1"
+			(symbol "Barrel_Jack_Switch_0_1"
 				(rectangle
 					(start -5.08 3.81)
 					(end 5.08 -3.81)
@@ -127,6 +127,18 @@
 						(type outline)
 					)
 				)
+				(polyline
+					(pts
+						(xy 1.27 -2.286) (xy 1.905 -1.651)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(rectangle
 					(start 3.683 3.175)
 					(end -3.302 1.905)
@@ -150,8 +162,20 @@
 						(type none)
 					)
 				)
+				(polyline
+					(pts
+						(xy 5.08 0) (xy 1.27 0) (xy 1.27 -2.286) (xy 0.635 -1.651)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 			)
-			(symbol "Barrel_Jack_1_1"
+			(symbol "Barrel_Jack_Switch_1_1"
 				(pin passive line
 					(at 7.62 2.54 180)
 					(length 2.54)
@@ -163,6 +187,24 @@
 						)
 					)
 					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1747,6 +1789,179 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "power:GNDPWR"
+			(power)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "GNDPWR"
+				(at 0 -3.302 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"GNDPWR\" , global ground"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global ground"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GNDPWR_0_1"
+				(polyline
+					(pts
+						(xy -1.016 -1.27) (xy -1.27 -2.032) (xy -1.27 -2.032)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 -1.27) (xy -0.762 -2.032) (xy -0.762 -2.032)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy -0.254 -2.032) (xy -0.254 -2.032)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 -1.27) (xy 0.254 -2.032) (xy 0.254 -2.032)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 -1.27) (xy -1.016 -1.27) (xy -1.016 -1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 -1.27) (xy 0.762 -2.032) (xy 0.762 -2.032) (xy 0.762 -2.032)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GNDPWR_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:PWR_FLAG"
 			(power)
 			(pin_numbers
@@ -2030,6 +2245,16 @@
 			(type default)
 		)
 		(uuid "0df8f157-a42e-4047-a62d-e0aa8af4fea5")
+	)
+	(wire
+		(pts
+			(xy 78.74 91.44) (xy 87.63 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0f5d9e22-05d7-404c-93f9-4cf4e1cccc85")
 	)
 	(wire
 		(pts
@@ -2320,6 +2545,16 @@
 			(type default)
 		)
 		(uuid "87468edb-b2d6-4a2b-8805-c350c27299e8")
+	)
+	(wire
+		(pts
+			(xy 87.63 91.44) (xy 87.63 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8be9246b-b318-4028-a741-7620b262e1e8")
 	)
 	(wire
 		(pts
@@ -2715,7 +2950,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "009e4c80-87cf-43d0-b77d-e81692ca910c")
-		(property "Reference" "C38"
+		(property "Reference" "C39"
 			(at 193.04 113.0299 0)
 			(effects
 				(font
@@ -2778,7 +3013,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "C38")
+					(reference "C39")
 					(unit 1)
 				)
 			)
@@ -2794,7 +3029,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "016e2151-1554-4f49-baec-8529762b5d5b")
-		(property "Reference" "C39"
+		(property "Reference" "C40"
 			(at 220.98 113.0299 0)
 			(effects
 				(font
@@ -2857,7 +3092,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "C39")
+					(reference "C40")
 					(unit 1)
 				)
 			)
@@ -2925,6 +3160,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "17"
@@ -2997,7 +3233,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2bb1c17d-ba7d-4bf3-bbed-2640d99147bc")
-		(property "Reference" "D3"
+		(property "Reference" "D5"
 			(at 84.1375 71.12 0)
 			(effects
 				(font
@@ -3058,14 +3294,14 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "D3")
+					(reference "D5")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Connector:Barrel_Jack")
+		(lib_id "Connector:Barrel_Jack_Switch")
 		(at 71.12 91.44 0)
 		(mirror x)
 		(unit 1)
@@ -3090,7 +3326,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SameSky:CUI_PJ-002A"
+		(property "Footprint" "SameSky:PJ002AHSMTTR"
 			(at 72.39 90.424 0)
 			(effects
 				(font
@@ -3099,7 +3335,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/6118/1/pj_002ah_smt_tr.pdf"
 			(at 72.39 90.424 0)
 			(effects
 				(font
@@ -3108,7 +3344,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "DC Barrel Jack"
+		(property "Description" "DC Barrel Jack with an internal switch"
 			(at 71.12 91.44 0)
 			(effects
 				(font
@@ -3117,7 +3353,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" ""
+		(property "Part" "PJ-002AH-SMT-TR"
 			(at 71.12 91.44 0)
 			(effects
 				(font
@@ -3131,6 +3367,9 @@
 		)
 		(pin "2"
 			(uuid "2d60f3ee-4ce6-47fa-8144-21d8b89b5364")
+		)
+		(pin "3"
+			(uuid "62ce5114-7134-452b-afcf-2ace0c9e0ec5")
 		)
 		(instances
 			(project "power"
@@ -3156,7 +3395,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3868d1dc-3f7e-4ecb-a1fd-3be92ffebe52")
-		(property "Reference" "JP4"
+		(property "Reference" "JP5"
 			(at 203.2 86.36 0)
 			(effects
 				(font
@@ -3173,7 +3412,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-3_P1.3mm_Bridged12_Pad1.0x1.5mm"
 			(at 203.2 82.55 0)
 			(effects
 				(font
@@ -3212,7 +3451,7 @@
 		(instances
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "JP4")
+					(reference "JP5")
 					(unit 1)
 				)
 			)
@@ -3228,7 +3467,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4821d52a-4745-45dc-b8c7-9cae7c682f7a")
-		(property "Reference" "#PWR044"
+		(property "Reference" "#PWR053"
 			(at 96.52 130.81 0)
 			(effects
 				(font
@@ -3284,7 +3523,7 @@
 			)
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "#PWR044")
+					(reference "#PWR053")
 					(unit 1)
 				)
 			)
@@ -3300,7 +3539,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4bb475a9-39d1-443c-a017-5566d9af9f8b")
-		(property "Reference" "#PWR045"
+		(property "Reference" "#PWR054"
 			(at 177.8 130.81 0)
 			(effects
 				(font
@@ -3356,7 +3595,7 @@
 			)
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "#PWR045")
+					(reference "#PWR054")
 					(unit 1)
 				)
 			)
@@ -3372,7 +3611,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "50171096-ee85-4b2d-a7bf-0b3f9141af2c")
-		(property "Reference" "#FLG04"
+		(property "Reference" "#FLG05"
 			(at 110.49 86.995 0)
 			(effects
 				(font
@@ -3429,7 +3668,7 @@
 			)
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "#FLG04")
+					(reference "#FLG05")
 					(unit 1)
 				)
 			)
@@ -3445,7 +3684,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "60c496ee-644e-4db9-857f-92c73c15b80b")
-		(property "Reference" "C37"
+		(property "Reference" "C38"
 			(at 166.37 113.0299 0)
 			(effects
 				(font
@@ -3514,7 +3753,7 @@
 			)
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "C37")
+					(reference "C38")
 					(unit 1)
 				)
 			)
@@ -3529,7 +3768,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6ca87038-0dbc-4b24-98e3-597232c41688")
-		(property "Reference" "#FLG03"
+		(property "Reference" "#FLG04"
 			(at 82.55 95.885 0)
 			(effects
 				(font
@@ -3586,7 +3825,7 @@
 			)
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "#FLG03")
+					(reference "#FLG04")
 					(unit 1)
 				)
 			)
@@ -3602,7 +3841,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7abde673-c998-495a-93c0-202d0fe36f38")
-		(property "Reference" "R15"
+		(property "Reference" "R21"
 			(at 170.18 101.5999 0)
 			(effects
 				(font
@@ -3671,7 +3910,74 @@
 			)
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "R15")
+					(reference "R21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDPWR")
+		(at 87.63 97.79 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "85661ed7-fafe-496e-a3b6-54e56de1afa5")
+		(property "Reference" "#PWR052"
+			(at 87.63 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GNDPWR"
+			(at 87.503 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 87.63 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 87.63 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GNDPWR\" , global ground"
+			(at 87.63 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "06eedfa0-d5ab-4f78-a145-4a9feeae47c5")
+		)
+		(instances
+			(project ""
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
+					(reference "#PWR052")
 					(unit 1)
 				)
 			)
@@ -3856,7 +4162,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cdba638c-75e6-482c-86c8-63f4fe552b5f")
-		(property "Reference" "C35"
+		(property "Reference" "C36"
 			(at 105.41 106.6799 0)
 			(effects
 				(font
@@ -3925,7 +4231,7 @@
 			)
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "C35")
+					(reference "C36")
 					(unit 1)
 				)
 			)
@@ -3941,7 +4247,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e2c8a115-1606-4d20-a383-f46faf898ece")
-		(property "Reference" "C36"
+		(property "Reference" "C37"
 			(at 114.3 113.0299 0)
 			(effects
 				(font
@@ -4010,7 +4316,7 @@
 			)
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "C36")
+					(reference "C37")
 					(unit 1)
 				)
 			)
@@ -4026,7 +4332,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e369d30c-aabb-4c2e-9e0a-0141fe242fbd")
-		(property "Reference" "#FLG05"
+		(property "Reference" "#FLG06"
 			(at 167.64 97.155 0)
 			(effects
 				(font
@@ -4083,7 +4389,7 @@
 			)
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "#FLG05")
+					(reference "#FLG06")
 					(unit 1)
 				)
 			)
@@ -4099,7 +4405,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fc36917a-6bff-45aa-a4c9-5b06936a7ac6")
-		(property "Reference" "D4"
+		(property "Reference" "D6"
 			(at 84.1375 82.55 0)
 			(effects
 				(font
@@ -4160,7 +4466,7 @@
 		(instances
 			(project "effect-pedal"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b/50d1ea01-1e05-4a9c-ae07-2b1d5c2735d5"
-					(reference "D4")
+					(reference "D6")
 					(unit 1)
 				)
 			)
