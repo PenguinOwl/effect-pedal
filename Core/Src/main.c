@@ -309,7 +309,7 @@ int main(void)
 			uint16_t vol_perc = encoder.spin_buf*2 + 100;
 			if (vol_perc < 0)
 				vol_perc = 0;
-			lv_label_set_text_fmt(label, "Vol: %i%%", vol_perc);
+			lv_label_set_text_fmt(label, "Volume: %i%%", vol_perc);
 			if (encoder.pressed) {
 				lv_obj_set_style_bg_color(lv_screen_active(),
 						lv_color_hex(0x003a57 ^ 0xffffff), LV_PART_MAIN);
