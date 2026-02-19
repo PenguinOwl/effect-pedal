@@ -898,10 +898,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOF, DISPLAY_BL_Pin|EDAC_FLT_Pin|EDAC_DEMP_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOF, DISPLAY_DC_Pin|DISPLAY_RST_Pin|EDAC_XSMT_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOF, DISPLAY_BL_Pin|DISPLAY_DC_Pin|DISPLAY_RST_Pin|EDAC_XSMT_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(DISPLAY_CS_GPIO_Port, DISPLAY_CS_Pin, GPIO_PIN_RESET);
@@ -911,6 +908,9 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(EDAC_FMT_GPIO_Port, EDAC_FMT_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOF, EDAC_FLT_Pin|EDAC_DEMP_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOG, LED_1_Pin|LED_2_Pin, GPIO_PIN_RESET);
@@ -1023,11 +1023,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PD8 */
-  GPIO_InitStruct.Pin = GPIO_PIN_8;
+  /*Configure GPIO pin : ENC3_B_Pin */
+  GPIO_InitStruct.Pin = ENC3_B_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+  HAL_GPIO_Init(ENC3_B_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : ENC3_R_Pin ENC3_L_Pin ENC2_B_Pin ENC2_R_Pin
                            ENC2_L_Pin */

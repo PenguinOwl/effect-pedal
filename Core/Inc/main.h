@@ -91,6 +91,8 @@ void update_text(void);
 #define ENC4_R_GPIO_Port GPIOB
 #define ENC4_L_Pin GPIO_PIN_15
 #define ENC4_L_GPIO_Port GPIOB
+#define ENC3_B_Pin GPIO_PIN_8
+#define ENC3_B_GPIO_Port GPIOD
 #define ENC3_R_Pin GPIO_PIN_9
 #define ENC3_R_GPIO_Port GPIOD
 #define ENC3_L_Pin GPIO_PIN_10
