@@ -2248,7 +2248,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 91.44) (xy 87.63 91.44)
+			(xy 67.31 91.44) (xy 87.63 91.44)
 		)
 		(stroke
 			(width 0)
@@ -2278,7 +2278,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 93.98) (xy 82.55 93.98)
+			(xy 67.31 93.98) (xy 82.55 93.98)
 		)
 		(stroke
 			(width 0)
@@ -2398,7 +2398,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 99.06) (xy 151.13 99.06)
+			(xy 144.78 99.06) (xy 153.67 99.06)
 		)
 		(stroke
 			(width 0)
@@ -2478,6 +2478,16 @@
 	)
 	(wire
 		(pts
+			(xy 217.17 99.06) (xy 232.41 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6d8c18da-1ba2-4173-a74f-054f25bf6a5f")
+	)
+	(wire
+		(pts
 			(xy 162.56 104.14) (xy 162.56 110.49)
 		)
 		(stroke
@@ -2518,7 +2528,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 77.47) (xy 80.01 77.47)
+			(xy 66.04 77.47) (xy 80.01 77.47)
 		)
 		(stroke
 			(width 0)
@@ -2528,7 +2538,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 99.06) (xy 162.56 99.06)
+			(xy 161.29 99.06) (xy 162.56 99.06)
 		)
 		(stroke
 			(width 0)
@@ -2608,7 +2618,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 88.9) (xy 80.01 88.9)
+			(xy 67.31 88.9) (xy 80.01 88.9)
 		)
 		(stroke
 			(width 0)
@@ -2886,6 +2896,36 @@
 		)
 		(uuid "fee6bdef-4b62-4149-af64-34cad80b8a63")
 	)
+	(label "SS"
+		(at 110.49 101.6 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0602a4aa-60f4-4bb9-ac14-cc95d633ce78")
+	)
+	(label "VIN_JACK"
+		(at 69.85 88.9 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "18d71e0b-31ca-40b4-8f22-01af5779e4cb")
+	)
+	(label "PWR_SW"
+		(at 144.78 99.06 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4c1f627f-3f24-4559-a83e-ac2112d22cfa")
+	)
 	(label "VIN"
 		(at 95.25 88.9 0)
 		(effects
@@ -2896,9 +2936,29 @@
 		)
 		(uuid "6952ba8f-711f-4a88-863a-bdcf48b2ea5a")
 	)
+	(label "PWR_LDO_OUT"
+		(at 232.41 99.06 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "83705dc0-2828-4d0d-9781-cca7791aa3b8")
+	)
+	(label "PG"
+		(at 144.78 106.68 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f581e936-52cd-4918-9739-6333b56f7874")
+	)
 	(global_label "USB_VBUS"
 		(shape input)
-		(at 78.74 77.47 180)
+		(at 66.04 77.47 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2908,7 +2968,7 @@
 		)
 		(uuid "2757a18a-03ed-4ce2-b5d4-b9e11991f72d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 66.0786 77.47 0)
+			(at 53.3786 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3302,7 +3362,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Barrel_Jack_Switch")
-		(at 71.12 91.44 0)
+		(at 59.69 91.44 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3311,7 +3371,7 @@
 		(dnp no)
 		(uuid "343411cc-7b2f-46dc-9378-2ace39d7a31b")
 		(property "Reference" "J12"
-			(at 71.12 85.344 0)
+			(at 59.69 85.344 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3319,15 +3379,15 @@
 			)
 		)
 		(property "Value" "Barrel_Jack"
-			(at 71.12 82.804 0)
+			(at 59.69 82.804 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "SameSky:PJ002AHSMTTR"
-			(at 72.39 90.424 0)
+		(property "Footprint" "Custom:CUI_PJ-002AH-SMT-TR"
+			(at 60.96 90.424 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3336,7 +3396,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/6118/1/pj_002ah_smt_tr.pdf"
-			(at 72.39 90.424 0)
+			(at 60.96 90.424 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3345,7 +3405,7 @@
 			)
 		)
 		(property "Description" "DC Barrel Jack with an internal switch"
-			(at 71.12 91.44 0)
+			(at 59.69 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3354,7 +3414,7 @@
 			)
 		)
 		(property "Part" "PJ-002AH-SMT-TR"
-			(at 71.12 91.44 0)
+			(at 59.69 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4071,7 +4131,7 @@
 	)
 	(symbol
 		(lib_id "Device:L")
-		(at 154.94 99.06 90)
+		(at 157.48 99.06 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4080,7 +4140,7 @@
 		(fields_autoplaced yes)
 		(uuid "a1b59918-2d95-495d-9fc9-e4ba20e7be58")
 		(property "Reference" "L1"
-			(at 154.94 93.98 90)
+			(at 157.48 93.98 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4088,7 +4148,7 @@
 			)
 		)
 		(property "Value" "2.2u"
-			(at 154.94 96.52 90)
+			(at 157.48 96.52 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4096,7 +4156,7 @@
 			)
 		)
 		(property "Footprint" "Inductor_SMD:L_Vishay_IHLP-1212"
-			(at 154.94 99.06 0)
+			(at 157.48 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4105,7 +4165,7 @@
 			)
 		)
 		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/e61ca248c29f222088e35e1929f9b032fcf99ef/ihlp1212bz11.pdf"
-			(at 154.94 99.06 0)
+			(at 157.48 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4114,7 +4174,7 @@
 			)
 		)
 		(property "Description" "Inductor"
-			(at 154.94 99.06 0)
+			(at 157.48 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4123,7 +4183,7 @@
 			)
 		)
 		(property "Part" "IHLP1212BZEV2R2M11"
-			(at 154.94 99.06 90)
+			(at 157.48 99.06 90)
 			(effects
 				(font
 					(size 1.27 1.27)

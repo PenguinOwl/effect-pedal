@@ -3,4 +3,7 @@
   (lib (name "SOICBite")(type "KiCad")(uri "${KIPRJMOD}/Footprints/SOICBite")(options "")(descr ""))
   (lib (name "SameSky")(type "KiCad")(uri "${KIPRJMOD}/Footprints/SameSky")(options "")(descr ""))
   (lib (name "Bournes")(type "KiCad")(uri "${KIPRJMOD}/Footprints/Bournes.pretty")(options "")(descr ""))
+  (lib (name "Neutrik")(type "KiCad")(uri "${KIPRJMOD}/Footprints/Neutrik.pretty")(options "")(descr ""))
+  (lib (name "Waveshare")(type "KiCad")(uri "${KIPRJMOD}/Footprints/Waveshare.pretty")(options "")(descr ""))
+  (lib (name "Custom")(type "KiCad")(uri "${KIPRJMOD}/Footprints/Custom.pretty")(options "")(descr ""))
 )

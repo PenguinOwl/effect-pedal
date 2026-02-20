@@ -9257,6 +9257,113 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Mechanical:MountingHole_Pad"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole_Pad"
+				(at 0 4.445 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole with connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*Pad*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_Pad_0_1"
+				(circle
+					(center 0 1.27)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MountingHole_Pad_1_1"
+				(pin input line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Power_Protection:USBLC6-2SC6"
 			(pin_names
 				(hide yes)
@@ -11168,6 +11275,16 @@
 		)
 		(uuid "497f941d-cce0-4d97-929b-78538822df3c")
 	)
+	(text "Additional Mounting Holes"
+		(exclude_from_sim no)
+		(at 274.828 263.652 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "5da3528b-8ac4-4020-b7d2-ff34b1992628")
+	)
 	(text "Power Supply"
 		(exclude_from_sim no)
 		(at 44.958 26.67 0)
@@ -11290,7 +11407,7 @@
 	)
 	(text "LDO Decoupling"
 		(exclude_from_sim no)
-		(at 130.048 239.014 0)
+		(at 128.778 239.014 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -11330,7 +11447,7 @@
 	)
 	(text "Power Coupling"
 		(exclude_from_sim no)
-		(at 279.908 21.59 0)
+		(at 283.972 21.59 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -11798,7 +11915,7 @@
 		(uuid "74967052-1edb-4bd8-b26c-cb315e52f48b")
 	)
 	(junction
-		(at 139.7 259.08)
+		(at 138.43 259.08)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "769d59db-6f6b-40c5-9d87-ff52ac1cd6ca")
@@ -11958,6 +12075,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a639934f-bc3f-405c-92be-547aa4d4ab14")
+	)
+	(junction
+		(at 279.4 273.05)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a8861efd-1105-4edc-a4d4-d794739b1efc")
 	)
 	(junction
 		(at 292.1 45.72)
@@ -12170,6 +12293,12 @@
 		(uuid "ea704cae-603a-405b-9c75-76a01701826a")
 	)
 	(junction
+		(at 248.92 46.99)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "eb4a0323-61ac-41a1-88ea-7f74f457396f")
+	)
+	(junction
 		(at 247.65 205.74)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -12236,7 +12365,7 @@
 		(uuid "f5e29944-235f-4d92-a346-e85544985d04")
 	)
 	(junction
-		(at 128.27 245.11)
+		(at 127 245.11)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f629f770-c72d-4336-a8d3-d83c13026336")
@@ -12393,6 +12522,16 @@
 	)
 	(wire
 		(pts
+			(xy 255.27 33.02) (xy 254 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "02f259f2-b87c-4a01-84cb-a8fb98bccf29")
+	)
+	(wire
+		(pts
 			(xy 187.96 53.34) (xy 203.2 53.34)
 		)
 		(stroke
@@ -12463,7 +12602,7 @@
 	)
 	(wire
 		(pts
-			(xy 118.11 245.11) (xy 128.27 245.11)
+			(xy 116.84 245.11) (xy 127 245.11)
 		)
 		(stroke
 			(width 0)
@@ -12603,7 +12742,7 @@
 	)
 	(wire
 		(pts
-			(xy 264.16 33.02) (xy 266.7 33.02)
+			(xy 264.16 33.02) (xy 262.89 33.02)
 		)
 		(stroke
 			(width 0)
@@ -12783,7 +12922,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 259.08) (xy 128.27 259.08)
+			(xy 138.43 259.08) (xy 127 259.08)
 		)
 		(stroke
 			(width 0)
@@ -13590,6 +13729,16 @@
 			(type default)
 		)
 		(uuid "35d20d64-6dab-4867-8caf-af0b38589c5d")
+	)
+	(wire
+		(pts
+			(xy 250.19 46.99) (xy 248.92 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "35db706c-dbe6-47d5-98cf-baa234865f61")
 	)
 	(wire
 		(pts
@@ -14553,7 +14702,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 259.08) (xy 139.7 260.35)
+			(xy 138.43 259.08) (xy 138.43 260.35)
 		)
 		(stroke
 			(width 0)
@@ -15403,6 +15552,16 @@
 	)
 	(wire
 		(pts
+			(xy 269.24 273.05) (xy 279.4 273.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "815c618e-e24b-4ab7-8392-34acb406084c")
+	)
+	(wire
+		(pts
 			(xy 88.9 114.3) (xy 93.98 114.3)
 		)
 		(stroke
@@ -16213,16 +16372,6 @@
 	)
 	(wire
 		(pts
-			(xy 264.16 43.18) (xy 264.16 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a188a4bb-ebe2-42e2-902b-b91983ff2f63")
-	)
-	(wire
-		(pts
 			(xy 105.41 81.28) (xy 118.11 81.28)
 		)
 		(stroke
@@ -16233,7 +16382,7 @@
 	)
 	(wire
 		(pts
-			(xy 255.27 33.02) (xy 264.16 33.02)
+			(xy 273.05 33.02) (xy 264.16 33.02)
 		)
 		(stroke
 			(width 0)
@@ -16963,6 +17112,16 @@
 	)
 	(wire
 		(pts
+			(xy 279.4 274.32) (xy 279.4 273.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bf66759e-a3e6-4786-89d9-41fac63e5a52")
+	)
+	(wire
+		(pts
 			(xy 125.73 217.17) (xy 140.97 217.17)
 		)
 		(stroke
@@ -17273,7 +17432,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 255.27) (xy 139.7 259.08)
+			(xy 138.43 255.27) (xy 138.43 259.08)
 		)
 		(stroke
 			(width 0)
@@ -17403,7 +17562,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 245.11) (xy 139.7 245.11)
+			(xy 127 245.11) (xy 138.43 245.11)
 		)
 		(stroke
 			(width 0)
@@ -17533,6 +17692,16 @@
 	)
 	(wire
 		(pts
+			(xy 279.4 273.05) (xy 279.4 271.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d56efc29-b9ea-4d63-a6f8-638eaf9382dc")
+	)
+	(wire
+		(pts
 			(xy 168.91 157.48) (xy 166.37 157.48)
 		)
 		(stroke
@@ -17563,7 +17732,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 245.11) (xy 139.7 247.65)
+			(xy 138.43 245.11) (xy 138.43 247.65)
 		)
 		(stroke
 			(width 0)
@@ -17580,6 +17749,16 @@
 			(type default)
 		)
 		(uuid "d92c90d9-e1dd-44ad-8e70-88e10b5041d7")
+	)
+	(wire
+		(pts
+			(xy 269.24 271.78) (xy 269.24 273.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d9f20d9f-31d6-4211-b649-c25860cf3512")
 	)
 	(wire
 		(pts
@@ -17650,16 +17829,6 @@
 			(type default)
 		)
 		(uuid "dc8efddb-9572-486a-8a27-c07c87fe0c21")
-	)
-	(wire
-		(pts
-			(xy 274.32 33.02) (xy 276.86 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dca8f2d1-7d6a-4b22-bd03-3c0e36a2b90c")
 	)
 	(wire
 		(pts
@@ -18283,7 +18452,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 255.27) (xy 128.27 259.08)
+			(xy 127 255.27) (xy 127 259.08)
 		)
 		(stroke
 			(width 0)
@@ -18323,7 +18492,7 @@
 	)
 	(wire
 		(pts
-			(xy 128.27 247.65) (xy 128.27 245.11)
+			(xy 127 247.65) (xy 127 245.11)
 		)
 		(stroke
 			(width 0)
@@ -20044,7 +20213,7 @@
 		(uuid "cadd5231-aa2d-4629-bd6d-3555842b8a7a")
 	)
 	(label "VCAP"
-		(at 118.11 245.11 0)
+		(at 116.84 245.11 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20064,12 +20233,12 @@
 		(uuid "d1bf21da-b15c-424b-a357-a5769620447c")
 	)
 	(label "VREF+"
-		(at 255.27 33.02 0)
+		(at 273.05 33.02 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
 		(uuid "d47eee96-b27d-4729-9ee6-9beed8e4bd2c")
 	)
@@ -20646,7 +20815,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/40/1/PEC12R.pdf"
 			(at 49.53 110.49 0)
 			(effects
 				(font
@@ -20664,7 +20833,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "PEC12R-4225F-S0024 "
+		(property "Part" "PEC12R-4230F-S0024 "
 			(at 49.53 97.79 0)
 			(effects
 				(font
@@ -21107,7 +21276,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 139.7 251.46 0)
+		(at 138.43 251.46 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -21116,7 +21285,7 @@
 		(fields_autoplaced yes)
 		(uuid "0f86dea2-ba3a-4e8b-a04b-29dc3c41a623")
 		(property "Reference" "C4"
-			(at 143.51 250.1899 0)
+			(at 142.24 250.1899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21125,7 +21294,7 @@
 			)
 		)
 		(property "Value" "2.2u"
-			(at 143.51 252.7299 0)
+			(at 142.24 252.7299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21134,7 +21303,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 140.6652 255.27 0)
+			(at 139.3952 255.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21143,7 +21312,7 @@
 			)
 		)
 		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/9397205c8be17179bbb473c130c80ff3e4804ff3/lmk107bj225kaht_ss.pdf"
-			(at 139.7 251.46 0)
+			(at 138.43 251.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21152,7 +21321,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 139.7 251.46 0)
+			(at 138.43 251.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21161,7 +21330,7 @@
 			)
 		)
 		(property "Part" "LMK107BJ225KAHT"
-			(at 139.7 251.46 0)
+			(at 138.43 251.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21443,7 +21612,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "NJ6FD-H"
+		(property "Value" "NMJ6HCD3"
 			(at 73.66 248.9199 0)
 			(effects
 				(font
@@ -21452,7 +21621,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ6HCD3_Horizontal"
+		(property "Footprint" "Neutrik:Jack_6.35mm_Neutrik_NMJ6HCD3_Horizontal"
 			(at 66.04 248.92 0)
 			(effects
 				(font
@@ -21461,7 +21630,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.neutrik.com/en/product/nj6fd-v"
+		(property "Datasheet" "https://www.neutrik.com/media/10096/download/02%20Neutrik%20PG%20EN%20-%20Section%20Plugs%20%26%20Jacks%20-%20202110-V24.pdf?v=9"
 			(at 66.04 248.92 0)
 			(effects
 				(font
@@ -22318,7 +22487,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "NJ6FD-H"
+		(property "Value" "NMJ6HCD3"
 			(at 73.66 271.7799 0)
 			(effects
 				(font
@@ -22327,7 +22496,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Connector_Audio:Jack_6.35mm_Neutrik_NMJ6HCD3_Horizontal"
+		(property "Footprint" "Neutrik:Jack_6.35mm_Neutrik_NMJ6HCD3_Horizontal"
 			(at 66.04 271.78 0)
 			(effects
 				(font
@@ -22336,7 +22505,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.neutrik.com/en/product/nj6fd-v"
+		(property "Datasheet" "https://www.neutrik.com/media/10096/download/02%20Neutrik%20PG%20EN%20-%20Section%20Plugs%20%26%20Jacks%20-%20202110-V24.pdf?v=9"
 			(at 66.04 271.78 0)
 			(effects
 				(font
@@ -22385,6 +22554,73 @@
 			(project "effect-pedal_LOCAL_118574"
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
 					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 269.24 269.24 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "20781ebc-e83b-4539-926d-ef7c726f1fd5")
+		(property "Reference" "H1"
+			(at 272.034 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 271.78 269.2399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad"
+			(at 269.24 269.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 269.24 269.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 269.24 269.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4afa8289-4ef3-4fd7-bf7e-2ab0e5c8fd23")
+		)
+		(instances
+			(project ""
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "H1")
 					(unit 1)
 				)
 			)
@@ -22682,7 +22918,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x06"
+		(property "Value" "Conn_01x09"
 			(at 98.806 223.774 0)
 			(effects
 				(font
@@ -22757,6 +22993,73 @@
 			(project ""
 				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
 					(reference "J4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VDDA")
+		(at 254 33.02 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2d0c479e-800a-4877-b656-d69e24df7cd5")
+		(property "Reference" "#PWR056"
+			(at 254 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VDDA"
+			(at 254 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 254 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 254 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VDDA\""
+			(at 254 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "af8a7a6c-f7b7-4480-9151-503e08c3a78a")
+		)
+		(instances
+			(project "effect-pedal"
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "#PWR056")
 					(unit 1)
 				)
 			)
@@ -23003,16 +23306,16 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 264.16 38.1 180)
+		(at 264.16 38.1 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "33cdb086-2692-4658-ad42-e73baca2e18f")
 		(property "Reference" "C8"
-			(at 267.97 36.8299 0)
+			(at 270.002 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23021,7 +23324,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 267.97 39.3699 0)
+			(at 270.002 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23030,7 +23333,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 263.1948 34.29 0)
+			(at 265.1252 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23106,7 +23409,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_USB:USB_C_Receptacle_GCT_USB4110"
+		(property "Footprint" "Custom:USB_C_Receptacle_GCT_USB4110"
 			(at 339.09 44.45 0)
 			(effects
 				(font
@@ -23115,7 +23418,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/GCT_USB4110%20Product%20Drawing%20-%2020k%20cycles.pdf"
 			(at 339.09 44.45 0)
 			(effects
 				(font
@@ -23305,7 +23608,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/3736/1/1CF8FEFEAB765E1EF304E8557FDB8371A3BCB303D473F946E2A1A20F1D9A33E7.pdf"
 			(at 386.08 142.24 0)
 			(effects
 				(font
@@ -23733,6 +24036,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GNDPWR")
+		(at 279.4 274.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3f73e22a-3f62-4f78-bea6-ff36e2735321")
+		(property "Reference" "#PWR057"
+			(at 279.4 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GNDPWR"
+			(at 279.273 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 279.4 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 279.4 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GNDPWR\" , global ground"
+			(at 279.4 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2ff0dacc-5175-4719-8576-6328470dbc1f")
+		)
+		(instances
+			(project "effect-pedal"
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "#PWR057")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 40.64 101.6 0)
 		(unit 1)
@@ -23914,7 +24284,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/3736/1/1CF8FEFEAB765E1EF304E8557FDB8371A3BCB303D473F946E2A1A20F1D9A33E7.pdf"
 			(at 391.16 187.96 0)
 			(effects
 				(font
@@ -23961,7 +24331,8 @@
 	)
 	(symbol
 		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 270.51 33.02 180)
+		(at 259.08 33.02 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -23969,7 +24340,7 @@
 		(dnp no)
 		(uuid "44743762-19ba-4b2b-8c3b-ee4a8f44047c")
 		(property "Reference" "JP4"
-			(at 270.51 30.48 0)
+			(at 259.08 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23977,7 +24348,7 @@
 			)
 		)
 		(property "Value" "SolderJumper_2_Open"
-			(at 271.7799 30.48 90)
+			(at 257.8101 30.48 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23987,7 +24358,7 @@
 			)
 		)
 		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm"
-			(at 270.51 33.02 0)
+			(at 259.08 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23996,7 +24367,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 270.51 33.02 0)
+			(at 259.08 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24005,7 +24376,7 @@
 			)
 		)
 		(property "Description" "Solder Jumper, 2-pole, open"
-			(at 270.51 33.02 0)
+			(at 259.08 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24014,7 +24385,7 @@
 			)
 		)
 		(property "Part" ""
-			(at 270.51 33.02 0)
+			(at 259.08 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25313,6 +25684,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 279.4 269.24 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "53bb2366-f1dd-41d0-8b80-2752372e7940")
+		(property "Reference" "H2"
+			(at 282.194 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 281.94 269.2399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_ISO7380_Pad"
+			(at 279.4 269.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 279.4 269.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 279.4 269.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4fc30237-3a66-4ee6-b8a0-620d24882fd5")
+		)
+		(instances
+			(project "effect-pedal"
+				(path "/79bfec23-3e7b-4837-8996-6bbe67be3d6b"
+					(reference "H2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_US")
 		(at 358.14 154.94 0)
 		(unit 1)
@@ -25393,7 +25831,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 128.27 251.46 0)
+		(at 127 251.46 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -25402,7 +25840,7 @@
 		(fields_autoplaced yes)
 		(uuid "56da822d-6140-404f-95ab-06b14167e38a")
 		(property "Reference" "C3"
-			(at 132.08 250.1899 0)
+			(at 130.81 250.1899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25411,7 +25849,7 @@
 			)
 		)
 		(property "Value" "2.2u"
-			(at 132.08 252.7299 0)
+			(at 130.81 252.7299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25420,7 +25858,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 129.2352 255.27 0)
+			(at 127.9652 255.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25429,7 +25867,7 @@
 			)
 		)
 		(property "Datasheet" "https://static6.arrow.com/aropdfconversion/9397205c8be17179bbb473c130c80ff3e4804ff3/lmk107bj225kaht_ss.pdf"
-			(at 128.27 251.46 0)
+			(at 127 251.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25438,7 +25876,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 128.27 251.46 0)
+			(at 127 251.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25447,7 +25885,7 @@
 			)
 		)
 		(property "Part" "LMK107BJ225KAHT"
-			(at 128.27 251.46 0)
+			(at 127 251.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26997,7 +27435,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/3736/1/1CF8FEFEAB765E1EF304E8557FDB8371A3BCB303D473F946E2A1A20F1D9A33E7.pdf"
 			(at 391.16 157.48 0)
 			(effects
 				(font
@@ -27145,7 +27583,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/3736/1/1CF8FEFEAB765E1EF304E8557FDB8371A3BCB303D473F946E2A1A20F1D9A33E7.pdf"
 			(at 386.08 172.72 0)
 			(effects
 				(font
@@ -27604,7 +28042,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/40/1/PEC12R.pdf"
 			(at 49.53 134.62 0)
 			(effects
 				(font
@@ -27622,7 +28060,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "PEC12R-4225F-S0024 "
+		(property "Part" "PEC12R-4230F-S0024 "
 			(at 49.53 121.92 0)
 			(effects
 				(font
@@ -27835,7 +28273,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/40/1/PEC12R.pdf"
 			(at 49.53 157.48 0)
 			(effects
 				(font
@@ -27853,7 +28291,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "PEC12R-4225F-S0024 "
+		(property "Part" "PEC12R-4230F-S0024 "
 			(at 49.53 144.78 0)
 			(effects
 				(font
@@ -28589,7 +29027,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_S8B-PH-SM4-TB_1x08-1MP_P2.00mm_Horizontal"
+		(property "Footprint" "Waveshare:Waveshare_2.4in_LCD"
 			(at 90.17 251.46 0)
 			(effects
 				(font
@@ -28598,7 +29036,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/10129380.pdf"
 			(at 90.17 251.46 0)
 			(effects
 				(font
@@ -28616,7 +29054,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "S8B-PH-SM4-TB"
+		(property "Part" "10129380-908001BLF "
 			(at 90.17 251.46 0)
 			(effects
 				(font
@@ -29389,7 +29827,8 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 264.16 43.18 0)
+		(at 264.16 41.91 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -29398,7 +29837,7 @@
 		(fields_autoplaced yes)
 		(uuid "a9dab489-d062-4c71-84eb-753551652275")
 		(property "Reference" "#PWR033"
-			(at 264.16 49.53 0)
+			(at 264.16 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29407,7 +29846,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 264.16 48.26 0)
+			(at 264.16 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29415,7 +29854,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 264.16 43.18 0)
+			(at 264.16 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29424,7 +29863,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 264.16 43.18 0)
+			(at 264.16 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29433,7 +29872,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 264.16 43.18 0)
+			(at 264.16 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29949,7 +30388,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/40/1/PEC12R.pdf"
 			(at 49.53 87.63 0)
 			(effects
 				(font
@@ -29967,7 +30406,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "PEC12R-4225F-S0024 "
+		(property "Part" "PEC12R-4230F-S0024 "
 			(at 49.53 74.93 0)
 			(effects
 				(font
@@ -30763,7 +31202,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_PH_S9B-PH-SM4-TB_1x09-1MP_P2.00mm_Horizontal"
+		(property "Footprint" "Custom:JST_PH_S9B-PH-SM4-TB_1x09-1MP_P2.00mm_Horizontal"
 			(at 120.65 209.55 0)
 			(effects
 				(font
@@ -30772,7 +31211,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/JST_B4B_PH_SM4_TB_LF_SN_ePH.pdf"
 			(at 120.65 209.55 0)
 			(effects
 				(font
@@ -31387,7 +31826,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_1.27mm:PinHeader_2x07_P1.27mm_Vertical_SMD"
+		(property "Footprint" "Custom:STDC14_Connector"
 			(at 370.84 104.14 0)
 			(effects
 				(font
@@ -31396,7 +31835,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/85/1/ftsh_smt.pdf"
+		(property "Datasheet" "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/20021512.pdf"
 			(at 361.95 135.89 90)
 			(effects
 				(font
@@ -31414,7 +31853,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "FTSH-107-01-L-DV-K-A "
+		(property "Part" "20021512-00014T1LF"
 			(at 370.84 104.14 0)
 			(effects
 				(font
@@ -32041,7 +32480,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 139.7 260.35 0)
+		(at 138.43 260.35 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -32050,7 +32489,7 @@
 		(fields_autoplaced yes)
 		(uuid "f8386648-673e-453b-99f5-2a124211a626")
 		(property "Reference" "#PWR026"
-			(at 139.7 266.7 0)
+			(at 138.43 266.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -32059,7 +32498,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 139.7 265.43 0)
+			(at 138.43 265.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -32067,7 +32506,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 139.7 260.35 0)
+			(at 138.43 260.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -32076,7 +32515,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 139.7 260.35 0)
+			(at 138.43 260.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -32085,7 +32524,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 139.7 260.35 0)
+			(at 138.43 260.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)

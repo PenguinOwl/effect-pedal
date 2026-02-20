@@ -545,15 +545,15 @@
 		(uuid "84861d25-bb31-4f1c-9d0d-268457bda5de")
 	)
 	(embedded_fonts no)
-	(model "${KICAD9_3DMODEL_DIR}/Rotary_Encoder.3dshapes/RotaryEncoder_Bourns_Vertical_PEC12R-3x17F-Sxxxx.step"
+	(model "${KIPRJMOD}/Models/PEC12R-4230F-S0024.STEP"
 		(offset
-			(xyz 0 0 0)
+			(xyz 7.5 -2.5 0)
 		)
 		(scale
 			(xyz 1 1 1)
 		)
 		(rotate
-			(xyz 0 0 0)
+			(xyz -90 -0 90)
 		)
 	)
 )
