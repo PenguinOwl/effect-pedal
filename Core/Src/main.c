@@ -25,6 +25,7 @@
 #include "lvgl/lvgl.h"
 #include "lvgl/examples/lv_examples.h"
 #include "encoders.h"
+#include "screen.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -292,37 +293,17 @@ int main(void)
 			LV_PART_MAIN);
 	lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
 
+	Screen_Init();
+
 	HAL_TIM_Base_Start_IT(&htim3);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while (1) {
-		lv_timer_periodic_handler();
-
-		if (text_needs_update) {
-			encoder_t encoder = get_encoders()[0];
-			double pos = encoder.spin_buf / 20.0;
-			vol_mod = exp(pos);
-			if (encoder.spin_buf < -49)
-				vol_mod = 0.;
-			uint16_t vol_perc = encoder.spin_buf*2 + 100;
-			if (vol_perc < 0)
-				vol_perc = 0;
-			lv_label_set_text_fmt(label, "Volume: %i%%", vol_perc);
-			if (encoder.pressed) {
-				lv_obj_set_style_bg_color(lv_screen_active(),
-						lv_color_hex(0x003a57 ^ 0xffffff), LV_PART_MAIN);
-				lv_obj_set_style_text_color(lv_screen_active(),
-						lv_color_hex(0x000000), LV_PART_MAIN);
-			} else {
-				lv_obj_set_style_bg_color(lv_screen_active(),
-						lv_color_hex(0x003a57), LV_PART_MAIN);
-				lv_obj_set_style_text_color(lv_screen_active(),
-						lv_color_hex(0xffffff), LV_PART_MAIN);
-			}
-			text_needs_update = 0;
-		}
+		lv_timer_handler();
+		Screen_Update();
+		HAL_Delay(5);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
