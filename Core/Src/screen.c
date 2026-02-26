@@ -16,6 +16,12 @@
 #define FREQ_MIN 20.0f		// 20Hz
 #define FREQ_MAX 20000.0f	// 20kHz
 
+#define FFT_SIZE 1024
+
+static float fft_buffer[FFT_SIZE];
+static volatile uint16_t fft_index = 0;
+static volatile uint8_t fft_ready = 0;
+
 static lv_obj_t * eq_bg;
 
 static int freq_to_x(float freq, int width) // math to turn frequency to plotted x-value
@@ -134,6 +140,26 @@ void Screen_Init(void) // this function is called in main
 	    lv_obj_align(label, LV_ALIGN_BOTTOM_LEFT, 0, +10);
 	    lv_obj_set_x(label, x - lv_obj_get_width(label) / 3);
 	}
+}
+
+void Screen_Add_Sample(int16_t sample)
+{
+	fft_buffer[fft_index++] = (float)sample;
+
+	if (fft_index >= FFT_SIZE)
+	{
+		fft_index = 0;
+		fft_ready = 1;
+	}
+}
+
+void Screen_Process_Fft(void)
+{
+	if (!fft_ready) return;
+
+	fft_ready = 0;
+
+	// fft shit
 }
 
 // this is where the constantly updating code will go

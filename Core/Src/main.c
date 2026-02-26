@@ -113,12 +113,26 @@ uint16_t process_audio(uint32_t in) {
 }
 
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
+
+	int16_t s0 = (int16_t)(adc_buf[0] - 32768);
+	int16_t s1 = (int16_t)(adc_buf[1] - 32768);
+
+	Screen_Add_Sample(s0);
+	Screen_Add_Sample(s1);
+
 	dac_buf[0] = process_audio(adc_buf[0]);
 	dac_buf[1] = process_audio(adc_buf[1]);
 	HAL_I2S_Transmit_DMA(&hi2s6, dac_buf, 2);
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
+
+	int16_t s2 = (int16_t)(adc_buf[2] - 32768);
+	int16_t s3 = (int16_t)(adc_buf[3] - 32768);
+
+	Screen_Add_Sample(s2);
+	Screen_Add_Sample(s3);
+
 	dac_buf[2] = process_audio(adc_buf[2]);
 	dac_buf[3] = process_audio(adc_buf[3]);
 	HAL_I2S_Transmit_DMA(&hi2s6, dac_buf + 2, 2);

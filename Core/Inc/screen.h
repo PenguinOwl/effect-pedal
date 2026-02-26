@@ -14,6 +14,7 @@
 void Screen_Init();
 void Screen_Update();
 
-
+void Screen_Add_Sample(int16_t sample);
+void Screen_Process_Fft(void);
 
 #endif /* INC_SCREEN_H_ */
