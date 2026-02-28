@@ -122,7 +122,7 @@ void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
 
 	dac_buf[0] = process_audio(adc_buf[0]);
 	dac_buf[1] = process_audio(adc_buf[1]);
-	HAL_I2S_Transmit_DMA(&hi2s6, dac_buf, 2);
+
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
