@@ -44,14 +44,38 @@ const unsigned char ttable[7][4] = {
 };
 
 void init_encoders() {
-	encoder_t encoder0;
-	encoder0.gpio_pin_button  = ENC1_B_Pin;
-	encoder0.gpio_port_button = ENC1_B_GPIO_Port;
-	encoder0.gpio_pin_left    = ENC1_L_Pin;
-	encoder0.gpio_port_left   = ENC1_L_GPIO_Port;
-	encoder0.gpio_pin_right   = ENC1_R_Pin;
-	encoder0.gpio_port_right  = ENC1_R_GPIO_Port;
-	encoders[0] = encoder0;
+	encoder_t encoder1;
+	encoder1.gpio_pin_button  = ENC1_B_Pin;
+	encoder1.gpio_port_button = ENC1_B_GPIO_Port;
+	encoder1.gpio_pin_left    = ENC1_L_Pin;
+	encoder1.gpio_port_left   = ENC1_L_GPIO_Port;
+	encoder1.gpio_pin_right   = ENC1_R_Pin;
+	encoder1.gpio_port_right  = ENC1_R_GPIO_Port;
+	encoder_t encoder2;
+	encoder2.gpio_pin_button  = ENC2_B_Pin;
+	encoder2.gpio_port_button = ENC2_B_GPIO_Port;
+	encoder2.gpio_pin_left    = ENC2_L_Pin;
+	encoder2.gpio_port_left   = ENC2_L_GPIO_Port;
+	encoder2.gpio_pin_right   = ENC2_R_Pin;
+	encoder2.gpio_port_right  = ENC2_R_GPIO_Port;
+	encoder_t encoder3;
+	encoder3.gpio_pin_button  = ENC3_B_Pin;
+	encoder3.gpio_port_button = ENC3_B_GPIO_Port;
+	encoder3.gpio_pin_left    = ENC3_L_Pin;
+	encoder3.gpio_port_left   = ENC3_L_GPIO_Port;
+	encoder3.gpio_pin_right   = ENC3_R_Pin;
+	encoder3.gpio_port_right  = ENC3_R_GPIO_Port;
+	encoder_t encoder4;
+	encoder4.gpio_pin_button  = ENC4_B_Pin;
+	encoder4.gpio_port_button = ENC4_B_GPIO_Port;
+	encoder4.gpio_pin_left    = ENC4_L_Pin;
+	encoder4.gpio_port_left   = ENC4_L_GPIO_Port;
+	encoder4.gpio_pin_right   = ENC4_R_Pin;
+	encoder4.gpio_port_right  = ENC4_R_GPIO_Port;
+	encoders[0] = encoder1;
+	encoders[1] = encoder2;
+	encoders[2] = encoder3;
+	encoders[3] = encoder4;
 	for (int i = 0; i < ENCODER_COUNT; i++) {
 			encoder_t *encoder = encoders + i;
 			encoder->spin_buf = 0;
@@ -65,8 +89,8 @@ void update_encoders() {
 	uint32_t current_time = HAL_GetTick();
 	for (int i = 0; i < ENCODER_COUNT; i++) {
 		encoder_t *encoder = encoders + i;
-		uint8_t pin0 = HAL_GPIO_ReadPin(encoder->gpio_port_left, encoder->gpio_pin_left) == GPIO_PIN_SET;
-		uint8_t pin1 = HAL_GPIO_ReadPin(encoder->gpio_port_right, encoder->gpio_pin_right) == GPIO_PIN_SET;
+		uint8_t pin0 = HAL_GPIO_ReadPin(encoder->gpio_port_right, encoder->gpio_pin_right) == GPIO_PIN_SET;
+		uint8_t pin1 = HAL_GPIO_ReadPin(encoder->gpio_port_left, encoder->gpio_pin_left) == GPIO_PIN_SET;
 		uint8_t new_pressed = HAL_GPIO_ReadPin(encoder->gpio_port_button, encoder->gpio_pin_button) == GPIO_PIN_RESET;
 
 		if (new_pressed) {

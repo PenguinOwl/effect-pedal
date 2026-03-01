@@ -165,6 +165,11 @@ SECTIONS
     . = . + _Min_Stack_Size;
     . = ALIGN(8);
   } >RAM_D1
+  
+  .bdma_buffer : /* Space before ':' is critical */
+  {
+    *(.bdma_buffer)
+  } >RAM_D3
 
   /* Remove information from the standard libraries */
   /DISCARD/ :

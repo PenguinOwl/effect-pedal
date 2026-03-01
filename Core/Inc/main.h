@@ -46,7 +46,13 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
+#if defined( __ICCARM__ )
+  #define BDMA_BUFFER \
+      _Pragma("location=\".bdma_buffer\"")
+#else
+  #define BDMA_BUFFER \
+      __attribute__((section(".bdma_buffer")))
+#endif
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
