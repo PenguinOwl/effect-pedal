@@ -109,7 +109,6 @@ uint16_t process_audio(uint32_t in) {
 	diff *= vol_mod;
 	uint16_t res = diff + mid;
 	res ^= (1 << 15);
-	res *= 0xff;
 	return res;
 }
 
