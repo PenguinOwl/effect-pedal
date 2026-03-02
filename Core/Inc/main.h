@@ -41,7 +41,7 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-
+extern uint16_t dac_buf[4];
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

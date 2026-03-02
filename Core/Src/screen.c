@@ -9,8 +9,7 @@
 #include <math.h>
 #include <stdio.h>
 #include "Adafruit_Zero_FFT_Library/Adafruit_ZeroFFT.h"
-#include "Adafruit_ZeroFFT.h"
-#include "adc_shared.h"
+#include "main.h"
 #define SAMPLE_RATE 48000.0f
 #define EQ_WIDTH 320
 #define EQ_HEIGHT 240
@@ -124,12 +123,7 @@ void Screen_Init(void) // this function is called in main
 }
 void Screen_Add_Sample(void)
 {
-	for (int i = 0; i < FFT_SIZE; i++)
-	{
-		int16_t centered = (int16_t)adc_buf[0] - 32768;
-		realbuf[fft_index++] = centered;
-
-	}
+	realbuf[fft_index++] = (int16_t) dac_buf[0];
 	if (fft_index >= FFT_SIZE)
 	{
 		fft_index = 0;
