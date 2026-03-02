@@ -10,7 +10,7 @@
 
 #include "main.h"
 
-#define ENCODER_COUNT 1
+#define ENCODER_COUNT 4
 #define DEBOUNCE_DELAY 20
 
 typedef struct encoder_t {

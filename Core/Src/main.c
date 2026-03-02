@@ -69,7 +69,7 @@ UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 uint32_t adc_buf[4];
-uint16_t dac_buf[4];
+BDMA_BUFFER uint16_t dac_buf[4];
 
 lv_color_t lcd_buf1[LCD_BUF_SIZE];
 lv_color_t lcd_buf2[LCD_BUF_SIZE];
@@ -116,7 +116,7 @@ void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
 
 	dac_buf[0] = process_audio(adc_buf[0]);
 	dac_buf[1] = process_audio(adc_buf[1]);
-	HAL_I2S_Transmit_DMA(&hi2s6, dac_buf, 2);
+
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
@@ -618,7 +618,7 @@ static void MX_SPI2_Init(void)
   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32;
   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -887,7 +887,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOF, DISPLAY_BL_Pin|DISPLAY_DC_Pin|DISPLAY_RST_Pin|EDAC_XSMT_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(DISPLAY_CS_GPIO_Port, DISPLAY_CS_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(DISPLAY_CS_GPIO_Port, DISPLAY_CS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(EDAC_SCK_GPIO_Port, EDAC_SCK_Pin, GPIO_PIN_RESET);
