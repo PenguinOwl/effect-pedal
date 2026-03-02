@@ -32,6 +32,7 @@
  * -------------------------------------------------------------------- */
 
 #include "arm_common_tables.h"
+#include <stdint.h>
 
 /**
  * @ingroup groupTransforms

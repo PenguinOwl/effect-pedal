@@ -10,11 +10,11 @@
 
 #include "lv_conf.h"
 #include "lvgl/lvgl.h"
+#include <stdint.h>
 
-void Screen_Init();
-void Screen_Update();
-
-void Screen_Add_Sample(int16_t sample);
-void Screen_Process_Fft(void);
+void Screen_Init(void);
+void Screen_Update(void);
+void Screen_Add_Sample(void);
+void Compute_FFT(void);
 
 #endif /* INC_SCREEN_H_ */

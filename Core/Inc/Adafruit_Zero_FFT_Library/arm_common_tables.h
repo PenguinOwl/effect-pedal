@@ -26,6 +26,7 @@
 #define _ARM_COMMON_TABLES_H
 
 #include "Adafruit_ZeroFFT.h"
+#include <stdint.h>
 
 extern const uint16_t armBitRevTable[1024];
 extern const q15_t armRecipTableQ15[64];
