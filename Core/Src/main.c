@@ -123,8 +123,7 @@ static inline int16_t q15_mul(int16_t a, int16_t b)
     return (int16_t)(((int32_t)a * b) >> 15);
 }
 
-int32_t process_audio_fft(int32_t in) {
-	int32_t input = in;
+int32_t process_audio_fft(int32_t input) {
 
 	    // Read delayed sample
 	    int32_t delayed = delay_buffer[delay_index];
@@ -166,7 +165,7 @@ uint16_t process_audio(uint32_t in) {
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
 
 	dac_buf[0] = process_audio(adc_buf[0]);
-	dac_buf[1] = process_audio(adc_buf[1]);
+	dac_buf[1] = process_audio(adc_buf[0]);
 
 	HAL_I2S_Transmit_DMA(&hi2s6, dac_buf, 2);
 
@@ -175,7 +174,7 @@ void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
 
 	dac_buf[2] = process_audio(adc_buf[2]);
-	dac_buf[3] = process_audio(adc_buf[3]);
+	dac_buf[3] = process_audio(adc_buf[2]);
 	HAL_I2S_Transmit_DMA(&hi2s6, dac_buf + 2, 2);
 }
 
@@ -453,11 +452,11 @@ static void MX_ADC1_Init(void)
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
   hadc1.Init.Resolution = ADC_RESOLUTION_16B;
-  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
-  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.NbrOfConversion = 2;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T2_TRGO;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
@@ -491,6 +490,15 @@ static void MX_ADC1_Init(void)
   sConfig.OffsetNumber = ADC_OFFSET_NONE;
   sConfig.Offset = 0;
   sConfig.OffsetSignedSaturation = DISABLE;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_4;
+  sConfig.Rank = ADC_REGULAR_RANK_2;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
