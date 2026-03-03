@@ -60,6 +60,7 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 void update_text(void);
+void update_fft(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -119,7 +120,6 @@ void update_text(void);
 #define LED_1_GPIO_Port GPIOG
 #define LED_2_Pin GPIO_PIN_6
 #define LED_2_GPIO_Port GPIOG
-#define ARM_MATH_CM4
 
 /* USER CODE BEGIN Private defines */
 

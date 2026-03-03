@@ -61,6 +61,7 @@ OPAMP_HandleTypeDef hopamp2;
 SPI_HandleTypeDef hspi2;
 DMA_HandleTypeDef hdma_spi2_tx;
 
+TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
@@ -78,6 +79,7 @@ lv_display_t *lcd_disp;
 lv_obj_t *label;
 volatile int lcd_bus_busy = 0;
 uint8_t text_needs_update = 0;
+uint8_t fft_needs_update = 0;
 double vol_mod = 1.0;
 /* USER CODE END PV */
 
@@ -97,6 +99,7 @@ static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_I2S6_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -210,6 +213,10 @@ static void lcd_send_color(lv_display_t *disp, const uint8_t *cmd,
 void update_text() {
 	text_needs_update = 1;
 }
+
+void update_fft() {
+	fft_needs_update = 1;
+}
 /* USER CODE END 0 */
 
 /**
@@ -257,6 +264,7 @@ int main(void)
   MX_I2S6_Init();
   MX_USART1_UART_Init();
   MX_USB_DEVICE_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 	HAL_OPAMP_SelfCalibrate(&hopamp1);
 	HAL_OPAMP_SelfCalibrate(&hopamp2);
@@ -297,15 +305,22 @@ int main(void)
 
 	Screen_Init();
 
+	HAL_TIM_Base_Start_IT(&htim1);
 	HAL_TIM_Base_Start_IT(&htim3);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while (1) {
-		Screen_Add_Sample();
-		Compute_FFT();
-		Screen_Update();
+		if (fft_needs_update) {
+			Screen_Add_Sample();
+			fft_needs_update = 0;
+		}
+		if (text_needs_update) {
+			Compute_FFT();
+			Screen_Update();
+			text_needs_update = 0;
+		}
 
 
 		lv_timer_handler();
@@ -644,6 +659,53 @@ static void MX_SPI2_Init(void)
 }
 
 /**
+  * @brief TIM1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM1_Init(void)
+{
+
+  /* USER CODE BEGIN TIM1_Init 0 */
+
+  /* USER CODE END TIM1_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM1_Init 1 */
+
+  /* USER CODE END TIM1_Init 1 */
+  htim1.Instance = TIM1;
+  htim1.Init.Prescaler = 0;
+  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim1.Init.Period = 6876;
+  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim1.Init.RepetitionCounter = 0;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM1_Init 2 */
+
+  /* USER CODE END TIM1_Init 2 */
+
+}
+
+/**
   * @brief TIM2 Initialization Function
   * @param None
   * @retval None
@@ -707,7 +769,7 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 999;
+  htim3.Init.Prescaler = 9999;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim3.Init.Period = 9156;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;

@@ -10,12 +10,12 @@
 #include <stdio.h>
 #include "Adafruit_Zero_FFT_Library/Adafruit_ZeroFFT.h"
 #include "main.h"
-#define SAMPLE_RATE 48000.0f
+#define SAMPLE_RATE 40000.0f
 #define EQ_WIDTH 320
 #define EQ_HEIGHT 240
 #define FREQ_MIN 20.0f		// 20Hz
 #define FREQ_MAX 20000.0f	// 20kHz
-#define FFT_SIZE 1024
+#define FFT_SIZE 2048
 #define NUM_BANDS 32
 #define BINS_PER_BAND 16
 static float band_values[NUM_BANDS];
@@ -158,24 +158,19 @@ void Compute_FFT(void)
 }
 
 // this is where the constantly updating code will go
+// this is where the constantly updating code will go
 void Screen_Update(void)
 {
-	for (int i = 0; i < NUM_BANDS; i++)
-	{
-	    float db = band_values[i];
+	int height = lv_obj_get_height(eq_bg);
+	    for (int i = 0; i < NUM_BANDS; i++)
+	    {
+	        float db = band_values[i];
 
-	    int bar_height = db * 4;
-	    if (bar_height < 10) bar_height = 10;
-	    if (bar_height > 300) bar_height = 300;
-
-	    lv_obj_set_height(bands[i], bar_height);
-
-	    float bin_freq = (i * BINS_PER_BAND + BINS_PER_BAND/2)
-	                     * (SAMPLE_RATE / FFT_SIZE);
-
-	    int x = freq_to_x(bin_freq, EQ_WIDTH);
-
-	    lv_obj_set_x(bands[i], x);
-	}
+	        int bar_height = db * 4;
+	        if (bar_height < 10) bar_height = 10;
+	        if (bar_height > 200) bar_height = 200;
+	        lv_obj_set_height(bands[i], bar_height);
+	        lv_obj_set_x(bands[i], i * 8);
+	    }
 }
 
