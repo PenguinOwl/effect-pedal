@@ -160,16 +160,22 @@ void Compute_FFT(void)
 // this is where the constantly updating code will go
 void Screen_Update(void)
 {
-	int height = lv_obj_get_height(eq_bg);
-	    for (int i = 0; i < NUM_BANDS; i++)
-	    {
-	        float db = band_values[i];
+	for (int i = 0; i < NUM_BANDS; i++)
+	{
+	    float db = band_values[i];
 
-	        int bar_height = db * 4;
-	        if (bar_height < 10) bar_height = 10;
-	        if (bar_height > 200) bar_height = 200;
-	        lv_obj_set_height(bands[i], bar_height);
-	        lv_obj_set_x(bands[i], i * 8);
-	    }
+	    int bar_height = db * 4;
+	    if (bar_height < 10) bar_height = 10;
+	    if (bar_height > 300) bar_height = 300;
+
+	    lv_obj_set_height(bands[i], bar_height);
+
+	    float bin_freq = (i * BINS_PER_BAND + BINS_PER_BAND/2)
+	                     * (SAMPLE_RATE / FFT_SIZE);
+
+	    int x = freq_to_x(bin_freq, EQ_WIDTH);
+
+	    lv_obj_set_x(bands[i], x);
+	}
 }
 
