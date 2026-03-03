@@ -119,6 +119,7 @@ void update_text(void);
 #define LED_1_GPIO_Port GPIOG
 #define LED_2_Pin GPIO_PIN_6
 #define LED_2_GPIO_Port GPIOG
+#define ARM_MATH_CM4
 
 /* USER CODE BEGIN Private defines */
 

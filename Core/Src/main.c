@@ -39,12 +39,6 @@
 #define LCD_V_RES       320
 #define BUS_SPI2_POLL_TIMEOUT HAL_MAX_DELAY
 #define LCD_BUF_SIZE    LCD_H_RES * LCD_V_RES / 10
-
-// Delay settings
-#define SAMPLE_RATE 48000
-#define DELAY_MS   300
-#define DELAY_SAMPLES ((SAMPLE_RATE * DELAY_MS) / 1000)
-#define MAX_DELAY 48000   // 1 se
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -85,15 +79,6 @@ lv_obj_t *label;
 volatile int lcd_bus_busy = 0;
 uint8_t text_needs_update = 0;
 double vol_mod = 1.0;
-
-
-int16_t delay_buffer[MAX_DELAY];
-uint32_t delay_index = 0;
-
-// Fixed parameters for now
-int16_t feedback = 16000;   // 0.5 in Q15
-int16_t mix      = 16000;   // 0.5 in Q15
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -118,57 +103,19 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-static inline int16_t q15_mul(int16_t a, int16_t b)
-{
-    return (int16_t)(((int32_t)a * b) >> 15);
-}
-
-int32_t process_audio_fft(int32_t in) {
-	int32_t input = in;
-
-	    // Read delayed sample
-	    int32_t delayed = delay_buffer[delay_index];
-
-	    // Compute new sample to store (input + feedback * delayed)
-	    int32_t fb = q15_mul(delayed, feedback);
-	    int32_t write_sample = input + fb;
-
-	    delay_buffer[delay_index] = (int16_t)write_sample;
-
-	    // Increment circular index
-	    delay_index++;
-	    if (delay_index >= DELAY_SAMPLES)
-	        delay_index = 0;
-
-	    // Mix dry + wet
-	    int32_t wet  = delayed;
-	    int32_t dry  = input;
-
-	    int32_t wet_scaled = q15_mul(wet, mix);
-	    int32_t dry_scaled = q15_mul(dry, (32767 - mix));
-
-	    int32_t output = wet_scaled + dry_scaled;
-
-	    // Convert back to unsigned
-	    return output;
-
-}
 uint16_t process_audio(uint32_t in) {
 	uint32_t mid = 0xffff >> 1;
 	int32_t diff = in - mid;
 	diff *= vol_mod;
-	diff = process_audio_fft(diff);
 	uint16_t res = diff + mid;
 	res ^= (1 << 15);
-
 	return res;
 }
+
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
 
 	dac_buf[0] = process_audio(adc_buf[0]);
 	dac_buf[1] = process_audio(adc_buf[1]);
-
-	HAL_I2S_Transmit_DMA(&hi2s6, dac_buf, 2);
 
 }
 
@@ -453,11 +400,11 @@ static void MX_ADC1_Init(void)
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
   hadc1.Init.Resolution = ADC_RESOLUTION_16B;
-  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
-  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.NbrOfConversion = 2;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T2_TRGO;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
@@ -491,6 +438,15 @@ static void MX_ADC1_Init(void)
   sConfig.OffsetNumber = ADC_OFFSET_NONE;
   sConfig.Offset = 0;
   sConfig.OffsetSignedSaturation = DISABLE;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_4;
+  sConfig.Rank = ADC_REGULAR_RANK_2;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
