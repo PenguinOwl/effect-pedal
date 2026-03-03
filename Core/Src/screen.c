@@ -10,22 +10,20 @@
 #include <stdio.h>
 #include "Adafruit_Zero_FFT_Library/Adafruit_ZeroFFT.h"
 #include "main.h"
-#define SAMPLE_RATE 40000.0f
+#define SAMPLE_RATE 20000.0f
 #define EQ_WIDTH 320
 #define EQ_HEIGHT 240
 #define FREQ_MIN 20.0f		// 20Hz
 #define FREQ_MAX 20000.0f	// 20kHz
 #define FFT_SIZE 2048
+#define NUM_BINS FFT_SIZE / 2
 #define NUM_BANDS 32
-#define BINS_PER_BAND 16
 static float band_values[NUM_BANDS];
 static volatile uint16_t fft_index = 0;
 static volatile uint8_t fft_ready = 0;
 static lv_obj_t * eq_bg;
 static lv_obj_t * bands[NUM_BANDS];
 static int16_t realbuf[FFT_SIZE];
-#define ADC_CHANNEL_COUNT 4
-#define NUM_BINS (FFT_SIZE / 2)
 float magnitude[NUM_BINS];
 
 
@@ -143,15 +141,23 @@ void Compute_FFT(void)
 			magnitude[k] = sqrtf(real * real + imag * imag);
 		}
 
+		double freq_per_bin = SAMPLE_RATE / NUM_BINS;
+		double log_freq_max = log10(SAMPLE_RATE);
+		double log_freq_per_band = log_freq_max / NUM_BANDS;
+		double log_freq_offset = log10(20);
+
 		for (int band = 0; band < NUM_BANDS; band++)
 			{
+				double min_freq_in_band = pow(10.0, log_freq_per_band * band + log_freq_offset);
+				double max_freq_in_band = pow(10.0, log_freq_per_band * (band + 1) + log_freq_offset);
+				uint16_t min_bin = floor(min_freq_in_band / freq_per_bin);
+				uint16_t max_bin = floor(max_freq_in_band / freq_per_bin) + 1;
 				float sum = 0;
-				for (int i = 0; i < BINS_PER_BAND; i++)
+				for (int i = min_bin; i < max_bin; i++)
 				{
-					int bin = band * BINS_PER_BAND + i;
-					sum += magnitude[bin];
+					sum += magnitude[i];
 				}
-				float avg = sum / BINS_PER_BAND;
+				float avg = sum / (max_bin - min_bin);
 				band_values[band] = 20.0f * log10f(avg + 1e-6f);
 			}
 	}
@@ -161,12 +167,12 @@ void Compute_FFT(void)
 // this is where the constantly updating code will go
 void Screen_Update(void)
 {
-	int height = lv_obj_get_height(eq_bg);
+	// int height = lv_obj_get_height(eq_bg);
 	    for (int i = 0; i < NUM_BANDS; i++)
 	    {
 	        float db = band_values[i];
 
-	        int bar_height = db * 4;
+	        int bar_height = (db - 20) * 7;
 	        if (bar_height < 10) bar_height = 10;
 	        if (bar_height > 200) bar_height = 200;
 	        lv_obj_set_height(bands[i], bar_height);
