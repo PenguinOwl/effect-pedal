@@ -11,7 +11,7 @@
 #include "Adafruit_Zero_FFT_Library/Adafruit_ZeroFFT.h"
 #include "main.h"
 #define SAMPLE_RATE 20000.0f
-#define EQ_WIDTH 320
+#define EQ_WIDTH 310 // temporary fix to get 20k visible on screen (trust)
 #define EQ_HEIGHT 240
 #define FREQ_MIN 20.0f		// 20Hz
 #define FREQ_MAX 20000.0f	// 20kHz
@@ -23,6 +23,7 @@ static volatile uint16_t fft_index = 0;
 static volatile uint8_t fft_ready = 0;
 static lv_obj_t * eq_bg;
 static lv_obj_t * bands[NUM_BANDS];
+
 static int16_t realbuf[FFT_SIZE];
 float magnitude[NUM_BINS];
 
@@ -52,8 +53,8 @@ static void eq_draw_event_cb(lv_event_t * e) // called to initialize graph lines
    lv_draw_line_dsc_init(&line);
    line.color = lv_color_hex(0x303030);
    line.width = 1;
-   float freqs[] = {20,50,100,200,500,1000,2000,5000,10000}; // frequency lines present
-   for(int i = 0; i < 9; i++) // cycles through and plots each frequency line
+   float freqs[] = {20,50,100,200,500,1000,2000,5000,10000,20000}; // frequency lines present
+   for(int i = 0; i < 10; i++) // cycles through and plots each frequency line
    {
        int x = freq_to_x(freqs[i], width); // calls x-value function from earlier
        line.p1.x = x;
@@ -89,14 +90,17 @@ void Screen_Init(void) // this function is called in main
 	{
 	    lv_obj_t * label = lv_label_create(eq_bg);
 	    char buf[8];
-	    sprintf(buf, "%d", (int)db_values[i]);
+	    if (db_values[i] > 0)
+	    	sprintf(buf, "%+d", (int)db_values[i]);
+	    else
+	    	sprintf(buf, "%d", (int)db_values[i]);
 	    lv_label_set_text(label, buf);
 	    lv_obj_set_style_text_color(label, lv_color_hex(0x808080), LV_PART_MAIN);
 	    int y = db_to_y(db_values[i], height);
-	    lv_obj_set_pos(label, 0, y - 8);
+	    lv_obj_set_pos(label, -10, y-20);
 	}
-	float freqs[] = {50, 100, 1000, 2000, 10000}; // frequency labels that get plotted
-	for(int i = 0; i < 5; i++)
+	float freqs[] = {50,100,200,500,1000,2000,5000,10000,20000}; // frequency labels that get plotted
+	for(int i = 0; i < 9; i++)
 	{
 	    lv_obj_t * label = lv_label_create(eq_bg);
 	    char buf[10];
@@ -107,17 +111,17 @@ void Screen_Init(void) // this function is called in main
 	    lv_label_set_text(label, buf);
 	    lv_obj_set_style_text_color(label, lv_color_hex(0x808080), LV_PART_MAIN);
 	    int x = freq_to_x(freqs[i], width);
-	    lv_obj_align(label, LV_ALIGN_BOTTOM_LEFT, 0, +10);
-	    lv_obj_set_x(label, x - lv_obj_get_width(label) / 3);
+	    lv_obj_set_pos(label, x-30, +210);
 	}
 	for (int i = 0; i < NUM_BANDS; i++)
 	{
 		bands[i] = lv_obj_create(eq_bg);
 		lv_obj_set_size(bands[i], 5, 150);
 		lv_obj_set_style_bg_color(bands[i], lv_color_hex(0xFF0000), 0);
-		lv_obj_align(bands[i], LV_ALIGN_BOTTOM_LEFT, 0, +15);
+		lv_obj_align(bands[i], LV_ALIGN_BOTTOM_LEFT, 0, -15);
 		band_values[i] = 0.0f;
 	}
+
 }
 void Screen_Add_Sample(void)
 {
@@ -168,6 +172,7 @@ void Compute_FFT(void)
 void Screen_Update(void)
 {
 	// int height = lv_obj_get_height(eq_bg);
+
 	    for (int i = 0; i < NUM_BANDS; i++)
 	    {
 	        float db = band_values[i];
@@ -176,7 +181,7 @@ void Screen_Update(void)
 	        if (bar_height < 10) bar_height = 10;
 	        if (bar_height > 200) bar_height = 200;
 	        lv_obj_set_height(bands[i], bar_height);
-	        lv_obj_set_x(bands[i], i * 8);
+	        lv_obj_set_x(bands[i], (i * 9)+10); // funny number puts bars where i want
 	    }
 }
 
