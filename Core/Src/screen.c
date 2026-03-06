@@ -145,29 +145,32 @@ void Compute_FFT(void)
 			magnitude[k] = sqrtf(real * real + imag * imag);
 		}
 
-		double freq_per_bin = SAMPLE_RATE / NUM_BINS;
+		double freq_per_bin = SAMPLE_RATE / (NUM_BINS / 2);
 		double log_freq_max = log10(SAMPLE_RATE);
-		double log_freq_per_band = log_freq_max / NUM_BANDS;
-		double log_freq_offset = log10(20);
+		double log_freq_min = log10(60);
+		double log_freq_per_band = (log_freq_max - log_freq_min) / NUM_BANDS;
 
 		for (int band = 0; band < NUM_BANDS; band++)
 			{
-				double min_freq_in_band = pow(10.0, log_freq_per_band * band + log_freq_offset);
-				double max_freq_in_band = pow(10.0, log_freq_per_band * (band + 1) + log_freq_offset);
+				double min_freq_in_band = pow(10.0, log_freq_per_band * band + log_freq_min);
+				double max_freq_in_band = pow(10.0, log_freq_per_band * (band + 1) + log_freq_min);
 				uint16_t min_bin = floor(min_freq_in_band / freq_per_bin);
 				uint16_t max_bin = floor(max_freq_in_band / freq_per_bin) + 1;
-				float sum = 0;
+				if (min_bin < 0)
+					min_bin = 0;
+				if (max_bin >= NUM_BINS)
+					max_bin = NUM_BINS - 1;
+				double sum = 0;
 				for (int i = min_bin; i < max_bin; i++)
 				{
 					sum += magnitude[i];
 				}
-				float avg = sum / (max_bin - min_bin);
+				double avg = sum / pow(max_bin - min_bin, 0.4);
 				band_values[band] = 20.0f * log10f(avg + 1e-6f);
 			}
 	}
 }
 
-// this is where the constantly updating code will go
 // this is where the constantly updating code will go
 void Screen_Update(void)
 {
@@ -177,7 +180,7 @@ void Screen_Update(void)
 	    {
 	        float db = band_values[i];
 
-	        int bar_height = (db - 20) * 7;
+	        int bar_height = pow(2, (db - 1) / 6);
 	        if (bar_height < 10) bar_height = 10;
 	        if (bar_height > 200) bar_height = 200;
 	        lv_obj_set_height(bands[i], bar_height);
