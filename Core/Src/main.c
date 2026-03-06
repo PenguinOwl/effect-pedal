@@ -90,10 +90,35 @@ double vol_mod = 1.0;
 int16_t delay_buffer[MAX_DELAY];
 uint32_t delay_index = 0;
 
-// Fixed parameters for now
-int16_t feedback = 16000;   // 0.5 in Q15
-int16_t mix      = 16000;   // 0.5 in Q15
+int16_t feedback = 22000;   // reverb decay
+int16_t mix      = 14000;   // wet/dry mix
 
+
+// --- comb buffers ---
+#define C1_LEN 1557
+#define C2_LEN 1617
+#define C3_LEN 1491
+#define C4_LEN 1422
+
+static int16_t comb1[C1_LEN];
+static int16_t comb2[C2_LEN];
+static int16_t comb3[C3_LEN];
+static int16_t comb4[C4_LEN];
+
+static uint32_t c1_idx = 0;
+static uint32_t c2_idx = 0;
+static uint32_t c3_idx = 0;
+static uint32_t c4_idx = 0;
+
+// --- allpass buffers ---
+#define AP1_LEN 225
+#define AP2_LEN 556
+
+static int16_t ap1[AP1_LEN];
+static int16_t ap2[AP2_LEN];
+
+static uint32_t ap1_idx = 0;
+static uint32_t ap2_idx = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -123,44 +148,89 @@ static inline int16_t q15_mul(int16_t a, int16_t b)
     return (int16_t)(((int32_t)a * b) >> 15);
 }
 
-int32_t process_audio_fft(int32_t input) {
-
-	    // Read delayed sample
-	    int32_t delayed = delay_buffer[delay_index];
-
-	    // Compute new sample to store (input + feedback * delayed)
-	    int32_t fb = q15_mul(delayed, feedback);
-	    int32_t write_sample = input + fb;
-
-	    delay_buffer[delay_index] = (int16_t)write_sample;
-
-	    // Increment circular index
-	    delay_index++;
-	    if (delay_index >= DELAY_SAMPLES)
-	        delay_index = 0;
-
-	    // Mix dry + wet
-	    int32_t wet  = delayed;
-	    int32_t dry  = input;
-
-	    int32_t wet_scaled = q15_mul(wet, mix);
-	    int32_t dry_scaled = q15_mul(dry, (32767 - mix));
-
-	    int32_t output = wet_scaled + dry_scaled;
-
-	    // Convert back to unsigned
-	    return output;
-
+static inline int32_t clamp32(int32_t x, int32_t lo, int32_t hi)
+{
+    if (x < lo) return lo;
+    if (x > hi) return hi;
+    return x;
 }
-uint16_t process_audio(uint32_t in) {
-	uint32_t mid = 0xffff >> 1;
-	int32_t diff = in - mid;
-	diff *= vol_mod;
-	diff = process_audio_fft(diff);
-	uint16_t res = diff + mid;
-	res ^= (1 << 15);
+int32_t process_audio_fft(int32_t input)
+{
+    input = clamp32(input, -32768, 32767);
 
-	return res;
+    // ---- comb filters in parallel ----
+    int16_t d1 = comb1[c1_idx];
+    int16_t d2 = comb2[c2_idx];
+    int16_t d3 = comb3[c3_idx];
+    int16_t d4 = comb4[c4_idx];
+
+    int32_t w1 = input + q15_mul(d1, feedback);
+    int32_t w2 = input + q15_mul(d2, feedback);
+    int32_t w3 = input + q15_mul(d3, feedback);
+    int32_t w4 = input + q15_mul(d4, feedback);
+
+    comb1[c1_idx] = (int16_t)clamp32(w1, -32768, 32767);
+    comb2[c2_idx] = (int16_t)clamp32(w2, -32768, 32767);
+    comb3[c3_idx] = (int16_t)clamp32(w3, -32768, 32767);
+    comb4[c4_idx] = (int16_t)clamp32(w4, -32768, 32767);
+
+    c1_idx++; if (c1_idx >= C1_LEN) c1_idx = 0;
+    c2_idx++; if (c2_idx >= C2_LEN) c2_idx = 0;
+    c3_idx++; if (c3_idx >= C3_LEN) c3_idx = 0;
+    c4_idx++; if (c4_idx >= C4_LEN) c4_idx = 0;
+
+    int32_t wet = (d1 + d2 + d3 + d4) >> 2;
+
+    // ---- allpass 1 ----
+    {
+        int16_t bufout = ap1[ap1_idx];
+        int32_t y = bufout - q15_mul((int16_t)wet, 18000);   // ~0.55
+        int32_t w = wet + q15_mul((int16_t)y, 18000);
+
+        ap1[ap1_idx] = (int16_t)clamp32(w, -32768, 32767);
+        ap1_idx++;
+        if (ap1_idx >= AP1_LEN) ap1_idx = 0;
+
+        wet = clamp32(y, -32768, 32767);
+    }
+
+    // ---- allpass 2 ----
+    {
+        int16_t bufout = ap2[ap2_idx];
+        int32_t y = bufout - q15_mul((int16_t)wet, 18000);
+        int32_t w = wet + q15_mul((int16_t)y, 18000);
+
+        ap2[ap2_idx] = (int16_t)clamp32(w, -32768, 32767);
+        ap2_idx++;
+        if (ap2_idx >= AP2_LEN) ap2_idx = 0;
+
+        wet = clamp32(y, -32768, 32767);
+    }
+
+    // ---- dry/wet mix ----
+    int32_t dry = input;
+    int32_t wet_scaled = q15_mul((int16_t)wet, mix);
+    int32_t dry_scaled = q15_mul((int16_t)dry, (32767 - mix));
+
+    int32_t output = wet_scaled + dry_scaled;
+    output = clamp32(output, -32768, 32767);
+
+    return output;
+}
+uint16_t process_audio(uint32_t in)
+{
+    uint32_t mid = 0xffff >> 1;
+    int32_t diff = in - mid;
+
+    diff *= vol_mod;
+    diff = clamp32(diff, -32768, 32767);
+
+    diff = process_audio_fft(diff);
+
+    uint16_t res = (uint16_t)(diff + mid);
+    res ^= (1 << 15);
+
+    return res;
 }
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
 
