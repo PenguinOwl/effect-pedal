@@ -44,7 +44,7 @@
 #define SAMPLE_RATE 48000
 #define DELAY_MS   300
 #define DELAY_SAMPLES ((SAMPLE_RATE * DELAY_MS) / 1000)
-#define MAX_DELAY 48000   // 1 se
+#define MAX_DELAY 48000   // 1 sec
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -67,6 +67,7 @@ OPAMP_HandleTypeDef hopamp2;
 SPI_HandleTypeDef hspi2;
 DMA_HandleTypeDef hdma_spi2_tx;
 
+TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
@@ -84,16 +85,14 @@ lv_display_t *lcd_disp;
 lv_obj_t *label;
 volatile int lcd_bus_busy = 0;
 uint8_t text_needs_update = 0;
+uint8_t fft_needs_update = 0;
 double vol_mod = 1.0;
-
 
 int16_t delay_buffer[MAX_DELAY];
 uint32_t delay_index = 0;
 
-// Fixed parameters for now
 int16_t feedback = 16000;   // 0.5 in Q15
 int16_t mix      = 16000;   // 0.5 in Q15
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -112,6 +111,7 @@ static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_I2S6_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -123,7 +123,7 @@ static inline int16_t q15_mul(int16_t a, int16_t b)
     return (int16_t)(((int32_t)a * b) >> 15);
 }
 
-int32_t process_audio_fft(int32_t input) {
+int32_t process_audio_delay(int32_t input) {
 
 	    // Read delayed sample
 	    int32_t delayed = delay_buffer[delay_index];
@@ -152,23 +152,22 @@ int32_t process_audio_fft(int32_t input) {
 	    return output;
 
 }
+
 uint16_t process_audio(uint32_t in) {
 	uint32_t mid = 0xffff >> 1;
 	int32_t diff = in - mid;
 	diff *= vol_mod;
-	diff = process_audio_fft(diff);
+	diff = process_audio_delay(diff);
 	uint16_t res = diff + mid;
 	res ^= (1 << 15);
-
 	return res;
 }
+
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc) {
 
 	dac_buf[0] = process_audio(adc_buf[0]);
-	dac_buf[1] = process_audio(adc_buf[0]);
-
+	dac_buf[1] = process_audio(adc_buf[1]);
 	HAL_I2S_Transmit_DMA(&hi2s6, dac_buf, 2);
-
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
@@ -262,6 +261,10 @@ static void lcd_send_color(lv_display_t *disp, const uint8_t *cmd,
 void update_text() {
 	text_needs_update = 1;
 }
+
+void update_fft() {
+	fft_needs_update = 1;
+}
 /* USER CODE END 0 */
 
 /**
@@ -309,6 +312,7 @@ int main(void)
   MX_I2S6_Init();
   MX_USART1_UART_Init();
   MX_USB_DEVICE_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 	HAL_OPAMP_SelfCalibrate(&hopamp1);
 	HAL_OPAMP_SelfCalibrate(&hopamp2);
@@ -349,15 +353,22 @@ int main(void)
 
 	Screen_Init();
 
+	HAL_TIM_Base_Start_IT(&htim1);
 	HAL_TIM_Base_Start_IT(&htim3);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while (1) {
-		Screen_Add_Sample();
-		Compute_FFT();
-		Screen_Update();
+		if (fft_needs_update) {
+			Screen_Add_Sample();
+			fft_needs_update = 0;
+		}
+		if (text_needs_update) {
+			Compute_FFT();
+			Screen_Update();
+			text_needs_update = 0;
+		}
 
 
 		lv_timer_handler();
@@ -464,8 +475,8 @@ static void MX_ADC1_Init(void)
   hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
   hadc1.Init.LeftBitShift = ADC_LEFTBITSHIFT_NONE;
   hadc1.Init.OversamplingMode = ENABLE;
-  hadc1.Init.Oversampling.Ratio = 4;
-  hadc1.Init.Oversampling.RightBitShift = ADC_RIGHTBITSHIFT_2;
+  hadc1.Init.Oversampling.Ratio = 16;
+  hadc1.Init.Oversampling.RightBitShift = ADC_RIGHTBITSHIFT_4;
   hadc1.Init.Oversampling.TriggeredMode = ADC_TRIGGEREDMODE_SINGLE_TRIGGER;
   hadc1.Init.Oversampling.OversamplingStopReset = ADC_REGOVERSAMPLING_CONTINUED_MODE;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
@@ -485,7 +496,7 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_3;
   sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
   sConfig.SingleDiff = ADC_SINGLE_ENDED;
   sConfig.OffsetNumber = ADC_OFFSET_NONE;
   sConfig.Offset = 0;
@@ -696,6 +707,53 @@ static void MX_SPI2_Init(void)
 }
 
 /**
+  * @brief TIM1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM1_Init(void)
+{
+
+  /* USER CODE BEGIN TIM1_Init 0 */
+
+  /* USER CODE END TIM1_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM1_Init 1 */
+
+  /* USER CODE END TIM1_Init 1 */
+  htim1.Instance = TIM1;
+  htim1.Init.Prescaler = 0;
+  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim1.Init.Period = 6876;
+  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim1.Init.RepetitionCounter = 0;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_UPDATE;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM1_Init 2 */
+
+  /* USER CODE END TIM1_Init 2 */
+
+}
+
+/**
   * @brief TIM2 Initialization Function
   * @param None
   * @retval None
@@ -759,7 +817,7 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 999;
+  htim3.Init.Prescaler = 9999;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim3.Init.Period = 9156;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
