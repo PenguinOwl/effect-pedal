@@ -41,12 +41,18 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-
+extern uint16_t dac_buf[4];
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
+#if defined( __ICCARM__ )
+  #define BDMA_BUFFER \
+      _Pragma("location=\".bdma_buffer\"")
+#else
+  #define BDMA_BUFFER \
+      __attribute__((section(".bdma_buffer")))
+#endif
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
@@ -54,6 +60,7 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 void update_text(void);
+void update_fft(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

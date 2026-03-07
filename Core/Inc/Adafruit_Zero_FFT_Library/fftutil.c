@@ -6,8 +6,7 @@
  */
 
 #include "Adafruit_ZeroFFT.h"
-#include <math.h>
-#include <stdlib.h>
+#include <stdint.h>
 
 /*
  * @brief  In-place bit reversal function.
@@ -315,7 +314,7 @@ int ZeroFFT(q15_t *source, uint16_t length) {
   pOut = scratchData;
   for (int i = 0; i < length; i++) {
     q15_t val = *pOut++;
-    uint32_t v = abs(val);
+    uint32_t v = val;
     *pSrc++ = v;
     pOut++; // discard imaginary phase val
   }

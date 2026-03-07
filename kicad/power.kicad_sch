@@ -3134,7 +3134,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "JMK107BJ105KAHT"
+		(property "Part" "Generic"
 			(at 217.17 114.3 0)
 			(effects
 				(font
@@ -4182,7 +4182,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "IHLP1212BZEV2R2M11"
+		(property "Part" "MPX1D1250L2R2"
 			(at 157.48 99.06 90)
 			(effects
 				(font
@@ -4267,7 +4267,7 @@
 				(hide yes)
 			)
 		)
-		(property "Part" "LMK107BBJ106KALT"
+		(property "Part" "Generic"
 			(at 101.6 107.95 0)
 			(effects
 				(font
