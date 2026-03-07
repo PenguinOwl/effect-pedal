@@ -570,7 +570,7 @@
       "plot": "Fabrication/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "effect-pedal.step",
       "svg": "",
       "vrml": ""
     },
