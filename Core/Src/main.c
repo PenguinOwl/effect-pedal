@@ -343,15 +343,14 @@ int main(void)
 	lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0x003a57),
 			LV_PART_MAIN);
 
+	Screen_Init();
+
 	/*Create a white label, set its text and align it to the center*/
 	label = lv_label_create(lv_screen_active());
-	lv_label_set_text(label, "Hello world");
-	lv_obj_set_style_text_font(label, &lv_font_montserrat_32, 0);
+	lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
 	lv_obj_set_style_text_color(lv_screen_active(), lv_color_hex(0xffffff),
 			LV_PART_MAIN);
-	lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
-
-	Screen_Init();
+	lv_obj_align(label, LV_ALIGN_CENTER, 100, -35);
 
 	HAL_TIM_Base_Start_IT(&htim1);
 	HAL_TIM_Base_Start_IT(&htim3);
@@ -367,6 +366,11 @@ int main(void)
 		if (text_needs_update) {
 			Compute_FFT();
 			Screen_Update();
+			lv_label_set_text_fmt(label, "ENC1: %i\nENC2: %i\nENC3: %i\nENC4: %i\n",
+					get_encoders()[0].spin_buf,
+					get_encoders()[1].spin_buf,
+					get_encoders()[2].spin_buf,
+					get_encoders()[3].spin_buf);
 			text_needs_update = 0;
 		}
 
