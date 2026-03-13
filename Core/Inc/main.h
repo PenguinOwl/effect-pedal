@@ -61,6 +61,7 @@ void Error_Handler(void);
 /* USER CODE BEGIN EFP */
 void update_text(void);
 void update_fft(void);
+void update_parameters();
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

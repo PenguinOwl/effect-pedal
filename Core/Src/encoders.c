@@ -94,11 +94,15 @@ void update_encoders() {
 		uint8_t new_pressed = HAL_GPIO_ReadPin(encoder->gpio_port_button, encoder->gpio_pin_button) == GPIO_PIN_RESET;
 
 		if (new_pressed) {
+			if (encoder->pressed)
+				encoder->pressed_time += current_time - encoder->_last_press;
 			encoder->_last_press = current_time;
 			encoder->pressed = 1;
 		} else if (encoder->pressed) {
-			if (encoder->_last_press < current_time - DEBOUNCE_DELAY)
+			if (encoder->_last_press < current_time - DEBOUNCE_DELAY) {
 				encoder->pressed = 0;
+				encoder->pressed_time = 0;
+			}
 		}
 
 		uint8_t pinstate = (pin1 << 1) | pin0;
