@@ -86,13 +86,15 @@ lv_obj_t *label;
 volatile int lcd_bus_busy = 0;
 uint8_t text_needs_update = 0;
 uint8_t fft_needs_update = 0;
-double vol_mod = 1.0;
+double vol_mod = 0.0;
 
 int16_t delay_buffer[MAX_DELAY];
 uint32_t delay_index = 0;
 
 int16_t feedback = 16000;   // 0.5 in Q15
 int16_t mix      = 16000;   // 0.5 in Q15
+int32_t delay    = 48000;
+float gain = 1.0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -118,6 +120,32 @@ static void MX_TIM1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+int32_t clamp(int32_t a, int32_t b, int32_t c) {
+	if (a > c)
+		return c;
+	if (a < b)
+		return b;
+	return a;
+}
+
+void update_parameters() {
+	feedback = get_encoders()[3].spin_buf * 32767 / 30 + 32767 / 2;
+	feedback = clamp(delay, 0, 32767);
+	if (get_encoders()[3].pressed)
+		feedback = 32767 / 2;
+	mix = get_encoders()[1].spin_buf * 32767 / 30 + 32767 / 2;
+	mix = clamp(mix, 0, 32767);
+	if (get_encoders()[1].pressed)
+		mix = 32767 / 2;
+	delay = get_encoders()[2].spin_buf * 48000 / 30 + 48000;
+	delay = clamp(delay, 1, 48000*2);
+	if (get_encoders()[2].pressed)
+		delay = 48000;
+	gain = 0.1 * get_encoders()[0].spin_buf + 0.0;
+	if (get_encoders()[0].pressed)
+		gain = 0.0;
+}
+
 static inline int16_t q15_mul(int16_t a, int16_t b)
 {
     return (int16_t)(((int32_t)a * b) >> 15);
@@ -147,6 +175,8 @@ int32_t process_audio_delay(int32_t input) {
 	    int32_t dry_scaled = q15_mul(dry, (32767 - mix));
 
 	    int32_t output = wet_scaled + dry_scaled;
+
+	    output *= pow(10, gain);
 
 	    // Convert back to unsigned
 	    return output;
@@ -343,15 +373,14 @@ int main(void)
 	lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0x003a57),
 			LV_PART_MAIN);
 
+	Screen_Init();
+
 	/*Create a white label, set its text and align it to the center*/
 	label = lv_label_create(lv_screen_active());
-	lv_label_set_text(label, "Hello world");
-	lv_obj_set_style_text_font(label, &lv_font_montserrat_32, 0);
+	lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
 	lv_obj_set_style_text_color(lv_screen_active(), lv_color_hex(0xffffff),
 			LV_PART_MAIN);
-	lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
-
-	Screen_Init();
+	lv_obj_align(label, LV_ALIGN_CENTER, 80, -70);
 
 	HAL_TIM_Base_Start_IT(&htim1);
 	HAL_TIM_Base_Start_IT(&htim3);
@@ -360,6 +389,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	while (1) {
+		update_parameters();
 		if (fft_needs_update) {
 			Screen_Add_Sample();
 			fft_needs_update = 0;
@@ -367,9 +397,15 @@ int main(void)
 		if (text_needs_update) {
 			Compute_FFT();
 			Screen_Update();
+			lv_label_set_text_fmt(
+					label,
+					"GAIN: %.2f\nW/D: %i\nDELAY: %li\nFDBK: %i",
+					gain,
+					mix,
+					delay,
+					feedback);
 			text_needs_update = 0;
 		}
-
 
 		lv_timer_handler();
     /* USER CODE END WHILE */
