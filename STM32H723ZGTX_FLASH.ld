@@ -166,7 +166,7 @@ SECTIONS
     . = ALIGN(8);
   } >RAM_D1
   
-  .bdma_buffer : /* Space before ':' is critical */
+  .bdma_buffer :
   {
     *(.bdma_buffer)
   } >RAM_D3

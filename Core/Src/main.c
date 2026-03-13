@@ -23,7 +23,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "lvgl/lvgl.h"
-#include "lvgl/examples/lv_examples.h"
 #include "encoders.h"
 #include "screen.h"
 /* USER CODE END Includes */
@@ -44,7 +43,7 @@
 #define SAMPLE_RATE 48000
 #define DELAY_MS   300
 #define DELAY_SAMPLES ((SAMPLE_RATE * DELAY_MS) / 1000)
-#define MAX_DELAY 48000   // 1 sec
+#define MAX_DELAY 75000   // 1 sec
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -83,16 +82,20 @@ lv_color_t lcd_buf2[LCD_BUF_SIZE];
 
 lv_display_t *lcd_disp;
 lv_obj_t *label;
+lv_obj_t *label_vals;
 volatile int lcd_bus_busy = 0;
 uint8_t text_needs_update = 0;
 uint8_t fft_needs_update = 0;
-double vol_mod = 1.0;
+// double vol_mod = 0.0;
 
 int16_t delay_buffer[MAX_DELAY];
 uint32_t delay_index = 0;
 
-int16_t feedback = 16000;   // 0.5 in Q15
-int16_t mix      = 16000;   // 0.5 in Q15
+int32_t feedback = 16000;   // 0.5 in Q15
+int32_t mix      = 16000;   // 0.5 in Q15
+int32_t delay    = 48000;
+float gain = 0.0;
+float ngain = 0.0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -118,6 +121,33 @@ static void MX_TIM1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+int32_t clamp(int32_t a, int32_t b, int32_t c) {
+	if (a > c)
+		return c;
+	if (a < b)
+		return b;
+	return a;
+}
+
+void update_parameters() {
+	ngain = 0.2 * get_encoders()[0].spin_buf + 0.0;
+	gain = pow(10, ngain / 10);
+	if (get_encoders()[0].pressed)
+		get_encoders()[0].spin_buf = 0;
+	mix = get_encoders()[1].spin_buf * 32767 / 30 + 32767;
+	mix = clamp(mix, 0, 32767);
+	if (get_encoders()[1].pressed)
+		get_encoders()[1].spin_buf = 0;
+	delay = get_encoders()[2].spin_buf * 48000 / 30 + 48000;
+	delay = clamp(delay, 0, MAX_DELAY);
+	if (get_encoders()[2].pressed_time > 1000)
+		get_encoders()[2].spin_buf = 0;
+	feedback = get_encoders()[3].spin_buf * 32767 / 30 + 32767 / 2;
+	feedback = clamp(feedback, 0, 32767);
+	if (get_encoders()[3].pressed)
+		get_encoders()[3].spin_buf = 0;
+}
+
 static inline int16_t q15_mul(int16_t a, int16_t b)
 {
     return (int16_t)(((int32_t)a * b) >> 15);
@@ -136,7 +166,7 @@ int32_t process_audio_delay(int32_t input) {
 
 	    // Increment circular index
 	    delay_index++;
-	    if (delay_index >= DELAY_SAMPLES)
+	    if (delay_index >= delay)
 	        delay_index = 0;
 
 	    // Mix dry + wet
@@ -148,7 +178,8 @@ int32_t process_audio_delay(int32_t input) {
 
 	    int32_t output = wet_scaled + dry_scaled;
 
-	    // Convert back to unsigned
+	    output *= gain;
+
 	    return output;
 
 }
@@ -156,7 +187,7 @@ int32_t process_audio_delay(int32_t input) {
 uint16_t process_audio(uint32_t in) {
 	uint32_t mid = 0xffff >> 1;
 	int32_t diff = in - mid;
-	diff *= vol_mod;
+	// diff *= vol_mod;
 	diff = process_audio_delay(diff);
 	uint16_t res = diff + mid;
 	res ^= (1 << 15);
@@ -343,15 +374,19 @@ int main(void)
 	lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0x003a57),
 			LV_PART_MAIN);
 
-	/*Create a white label, set its text and align it to the center*/
+	Screen_Init();
+
 	label = lv_label_create(lv_screen_active());
-	lv_label_set_text(label, "Hello world");
-	lv_obj_set_style_text_font(label, &lv_font_montserrat_32, 0);
+	lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
 	lv_obj_set_style_text_color(lv_screen_active(), lv_color_hex(0xffffff),
 			LV_PART_MAIN);
-	lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
+	lv_label_set_text(label, "GAIN:\nW/D:\nDELAY:\nFDBK:");
+	lv_obj_align(label, LV_ALIGN_CENTER, 50, -70);
 
-	Screen_Init();
+	label_vals = lv_label_create(lv_screen_active());
+	lv_obj_set_style_text_font(label_vals, &lv_font_montserrat_14, 0);
+	lv_label_set_text(label_vals, "");
+	lv_obj_align(label_vals, LV_ALIGN_CENTER, 115, -70);
 
 	HAL_TIM_Base_Start_IT(&htim1);
 	HAL_TIM_Base_Start_IT(&htim3);
@@ -361,15 +396,20 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	while (1) {
 		if (fft_needs_update) {
-			Screen_Add_Sample();
 			fft_needs_update = 0;
 		}
 		if (text_needs_update) {
 			Compute_FFT();
 			Screen_Update();
+			lv_label_set_text_fmt(
+					label_vals,
+					"%.2f dB\n%.0f%%\n%li ms\n%.0f%%",
+					ngain,
+					(float) mix / 32767 * 100,
+					delay / 48,
+					(float) feedback / 32767 * 100);
 			text_needs_update = 0;
 		}
-
 
 		lv_timer_handler();
     /* USER CODE END WHILE */
@@ -681,7 +721,7 @@ static void MX_SPI2_Init(void)
   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32;
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;

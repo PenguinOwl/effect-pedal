@@ -165,7 +165,7 @@ SECTIONS
     . = ALIGN(8);
   } >DTCMRAM
   
-  .bdma_buffer : /* Space before ':' is critical */
+  .bdma_buffer :
   {
     *(.bdma_buffer)
   } >RAM_D3

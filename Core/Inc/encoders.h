@@ -23,6 +23,7 @@ typedef struct encoder_t {
 
 	int16_t spin_buf;
 	uint8_t pressed;
+	uint32_t pressed_time;
 
 	uint8_t _state;
 	uint32_t _last_press;
